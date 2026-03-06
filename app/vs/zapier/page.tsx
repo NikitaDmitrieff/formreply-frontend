@@ -5,7 +5,7 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "FormReply vs Zapier for Typeform Auto-Replies | FormReply",
   description:
-    "Zapier costs $49/mo and takes an hour to configure. FormReply costs $9/mo and takes 2 minutes. Full comparison for Typeform auto-reply automation.",
+    "Zapier costs $49/mo and takes an hour to configure. FormReply costs $19/mo and takes 2 minutes. Full comparison for Typeform auto-reply automation.",
 };
 
 const Check = () => (
@@ -83,7 +83,7 @@ export default function VsZapier() {
                 FormReply
               </h3>
               <ul className="space-y-2 text-sm text-indigo-800">
-                <li className="flex gap-2"><span className="text-green-500">✓</span> $9/mo flat. No hidden tiers.</li>
+                <li className="flex gap-2"><span className="text-green-500">✓</span> $19/mo flat. No hidden tiers.</li>
                 <li className="flex gap-2"><span className="text-green-500">✓</span> ~2 minutes to set up</li>
                 <li className="flex gap-2"><span className="text-green-500">✓</span> Zero maintenance</li>
                 <li className="flex gap-2"><span className="text-green-500">✓</span> AI replies built-in, no config</li>
@@ -108,7 +108,7 @@ export default function VsZapier() {
             </thead>
             <tbody className="divide-y divide-gray-100">
               {[
-                { feature: "Monthly cost", formreply: "$9/mo", zapier: "$49–79/mo" },
+                { feature: "Monthly cost", formreply: "$19/mo", zapier: "$49–79/mo" },
                 { feature: "Setup time", formreply: "~2 minutes", zapier: "30–60 minutes" },
                 { feature: "AI-personalized replies", formreply: true, zapier: "requires prompt config" },
                 { feature: "Per-submission personalization", formreply: true, zapier: "if Zap built correctly" },

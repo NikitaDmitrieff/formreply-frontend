@@ -270,7 +270,7 @@ export default function LandingPage() {
             <div className="font-mono text-sm space-y-3 text-indigo-800">
               <div className="flex justify-between">
                 <span>FormReply</span>
-                <span className="font-semibold">$9/mo</span>
+                <span className="font-semibold">$19/mo</span>
               </div>
               <div className="flex justify-between text-indigo-400">
                 <span>Setup time</span>
@@ -282,7 +282,7 @@ export default function LandingPage() {
               </div>
               <div className="border-t border-indigo-300 pt-3 mt-3 flex justify-between font-bold text-indigo-900 text-base">
                 <span>Total</span>
-                <span>$9/mo. That&apos;s it.</span>
+                <span>$19/mo. That&apos;s it.</span>
               </div>
             </div>
             <div className="mt-6">
@@ -353,7 +353,7 @@ export default function LandingPage() {
                 },
                 {
                   feature: "Monthly cost",
-                  formreply: "$9",
+                  formreply: "$19",
                   zapier: "$49–79",
                   typeform: "Free (no AI)",
                 },
@@ -475,7 +475,7 @@ export default function LandingPage() {
               <div className="text-sm text-gray-400">minutes of writing</div>
             </div>
             <div className="bg-indigo-600 rounded-xl p-5">
-              <div className="text-3xl font-bold text-white mb-1">$9</div>
+              <div className="text-3xl font-bold text-white mb-1">$19</div>
               <div className="text-sm text-indigo-200">to get it all back</div>
             </div>
           </div>
@@ -484,42 +484,82 @@ export default function LandingPage() {
       </section>
 
       {/* Pricing */}
-      <section className="max-w-md mx-auto px-6 py-20">
+      <section className="max-w-3xl mx-auto px-6 py-20">
         <h2 className="text-3xl font-bold text-gray-900 text-center mb-3">Simple pricing</h2>
-        <p className="text-gray-500 text-center mb-10">One plan. Everything included.</p>
+        <p className="text-gray-500 text-center mb-12">Start free. Upgrade when you&apos;re ready.</p>
 
-        <div className="bg-white rounded-2xl p-8 border-2 border-indigo-600 shadow-sm">
-          <div className="inline-block bg-green-100 text-green-700 text-xs font-semibold px-3 py-1 rounded-full mb-4">14-day free trial · no card required</div>
-          <p className="text-sm font-semibold text-indigo-600 uppercase tracking-wider mb-2">Starter</p>
-          <div className="flex items-end gap-1 mb-1">
-            <span className="text-5xl font-bold text-gray-900">$9</span>
-            <span className="text-gray-400 mb-2">/month</span>
+        <div className="grid md:grid-cols-2 gap-6">
+          {/* Free tier */}
+          <div className="bg-white rounded-2xl p-8 border border-gray-200 shadow-sm">
+            <p className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-2">Free</p>
+            <div className="flex items-end gap-1 mb-1">
+              <span className="text-5xl font-bold text-gray-900">$0</span>
+              <span className="text-gray-400 mb-2">/month</span>
+            </div>
+            <p className="text-sm text-gray-500 mb-7">Try it. No card needed.</p>
+            <ul className="space-y-3 mb-8">
+              {[
+                "5 AI-drafted replies per month",
+                "Full AI personalization",
+                "Delivered to your inbox",
+                "Spam filtering included",
+              ].map((feature) => (
+                <li key={feature} className="flex items-start gap-3 text-gray-600 text-sm">
+                  <svg className="w-5 h-5 text-gray-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  {feature}
+                </li>
+              ))}
+            </ul>
+            <Link
+              href="/onboarding"
+              className="block w-full border-2 border-gray-200 text-gray-700 py-3 rounded-xl font-semibold hover:bg-gray-50 transition-colors text-center"
+            >
+              Start for free
+            </Link>
           </div>
-          <p className="text-sm text-gray-500 mb-7">Less than one billable hour of your time saved monthly</p>
-          <ul className="space-y-3 mb-8">
-            {[
-              "Unlimited Typeform submissions",
-              "AI drafts matched to your tone",
-              "Delivered to your inbox in ~10 seconds",
-              "Spam submissions automatically filtered",
-              "You review and send — we never touch your email",
-            ].map((feature) => (
-              <li key={feature} className="flex items-start gap-3 text-gray-700 text-sm">
-                <svg className="w-5 h-5 text-indigo-500 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                </svg>
-                {feature}
-              </li>
-            ))}
-          </ul>
-          <Link
-            href="/onboarding"
-            className="block w-full bg-indigo-600 text-white py-3 rounded-xl font-semibold hover:bg-indigo-700 transition-colors text-center"
-          >
-            Start free 14-day trial
-          </Link>
-          <p className="text-xs text-gray-400 mt-3 text-center">Cancel anytime. No questions asked.</p>
+
+          {/* Starter tier */}
+          <div className="bg-white rounded-2xl p-8 border-2 border-indigo-600 shadow-sm relative">
+            <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-indigo-600 text-white text-xs font-semibold px-3 py-1 rounded-full">
+              Most popular
+            </div>
+            <p className="text-sm font-semibold text-indigo-600 uppercase tracking-wider mb-2">Starter</p>
+            <div className="flex items-end gap-1 mb-1">
+              <span className="text-5xl font-bold text-gray-900">$19</span>
+              <span className="text-gray-400 mb-2">/month</span>
+            </div>
+            <p className="text-sm text-gray-500 mb-7">Less than one billable hour of your time saved monthly</p>
+            <ul className="space-y-3 mb-8">
+              {[
+                "Unlimited Typeform submissions",
+                "AI drafts matched to your tone",
+                "Delivered to your inbox in ~10 seconds",
+                "Spam submissions automatically filtered",
+                "You review and send — we never touch your email",
+              ].map((feature) => (
+                <li key={feature} className="flex items-start gap-3 text-gray-700 text-sm">
+                  <svg className="w-5 h-5 text-indigo-500 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  {feature}
+                </li>
+              ))}
+            </ul>
+            <Link
+              href="/onboarding"
+              className="block w-full bg-indigo-600 text-white py-3 rounded-xl font-semibold hover:bg-indigo-700 transition-colors text-center"
+            >
+              Start free 14-day trial
+            </Link>
+            <p className="text-xs text-gray-400 mt-3 text-center">Cancel anytime. No questions asked.</p>
+          </div>
         </div>
+
+        <p className="text-center text-sm text-gray-400 mt-6">
+          Annual plan available: $190/year ($15.83/mo) — <a href="mailto:support@formreply.app" className="text-indigo-600 hover:underline">contact us</a>
+        </p>
       </section>
 
       {/* Founder section */}

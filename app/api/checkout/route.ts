@@ -47,7 +47,7 @@ export async function POST(req: NextRequest) {
               name: "FormReply Starter",
               description: "AI-drafted replies for every contact form submission",
             },
-            unit_amount: 900,
+            unit_amount: 1900,
             recurring: { interval: "month" },
           },
           quantity: 1,

@@ -105,7 +105,7 @@ export default function VsManual() {
           </div>
           <div className="mt-12 bg-indigo-900 rounded-2xl p-8 text-center">
             <p className="text-white text-xl font-bold mb-2">You save ~90 minutes every month.</p>
-            <p className="text-indigo-300">At $50/hr, that&apos;s $75 of your time back — for $9/mo.</p>
+            <p className="text-indigo-300">At $50/hr, that&apos;s $75 of your time back — for $19/mo.</p>
           </div>
         </div>
       </section>
