@@ -74,10 +74,10 @@ export default function SupportPage() {
               <>
                 Sign up at{" "}
                 <a
-                  href="https://formreply-frontend-production.up.railway.app/onboarding"
+                  href="https://formreply.app/onboarding"
                   className="text-indigo-600 hover:underline"
                 >
-                  formreply-frontend-production.up.railway.app/onboarding
+                  formreply.app/onboarding
                 </a>
                 . You'll get a unique webhook URL.
               </>,

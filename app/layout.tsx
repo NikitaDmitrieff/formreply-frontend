@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
-const APP_URL = "https://formreply-frontend-production.up.railway.app";
+const APP_URL = "https://formreply.app";
 
 export const metadata: Metadata = {
   metadataBase: new URL(APP_URL),
