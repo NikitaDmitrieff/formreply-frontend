@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: "How to Set Up a Typeform Webhook (Step-by-Step Guide)",
     description:
       "Enable Typeform webhooks in under 5 minutes. Exact UI steps, testing instructions, and what to do with the payload once it lands.",
-    url: "https://formreply-frontend-production.up.railway.app/blog/typeform-webhook-setup",
+    url: "https://formreply.app/blog/typeform-webhook-setup",
     siteName: "FormReply",
     type: "article",
   },

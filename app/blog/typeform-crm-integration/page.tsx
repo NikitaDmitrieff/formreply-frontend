@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: "Typeform CRM Integration: Capture the Lead and Reply Before It Hits Your CRM",
     description:
       "Syncing Typeform to your CRM is step one. FormReply handles step two — the personalized reply that turns a captured lead into an actual conversation.",
-    url: "https://formreply-frontend-production.up.railway.app/blog/typeform-crm-integration",
+    url: "https://formreply.app/blog/typeform-crm-integration",
     siteName: "FormReply",
     type: "article",
   },
@@ -152,7 +152,7 @@ export default function BlogPost() {
             <li>
               Create your FormReply account at{" "}
               <Link href="/onboarding" className="text-indigo-600 hover:underline">
-                formreply-frontend-production.up.railway.app/onboarding
+                formreply.app/onboarding
               </Link>
               . Enter your email, business name, and a description of what you do (the AI uses this to draft replies
               in your voice)

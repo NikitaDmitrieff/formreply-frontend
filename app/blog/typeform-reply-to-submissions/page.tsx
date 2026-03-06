@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: "How to Reply to Typeform Submissions: 3 Approaches Compared",
     description:
       "Manual replies, Zapier automation, or AI reply drafts? Here's how to pick the right approach for replying to Typeform contact form submissions.",
-    url: "https://formreply-frontend-production.up.railway.app/blog/typeform-reply-to-submissions",
+    url: "https://formreply.app/blog/typeform-reply-to-submissions",
     siteName: "FormReply",
     type: "article",
   },
@@ -282,7 +282,7 @@ export default function BlogPost() {
             <li>
               Go to{" "}
               <Link href="/onboarding" className="text-indigo-600 hover:underline">
-                formreply-frontend-production.up.railway.app/onboarding
+                formreply.app/onboarding
               </Link>{" "}
               — enter your email, business name, and 2–3 sentences about what you do and the tone you want (formal,
               casual, concise)

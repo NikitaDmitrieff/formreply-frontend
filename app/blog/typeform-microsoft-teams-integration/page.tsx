@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: "How to Connect Typeform to Microsoft Teams (Step-by-Step)",
     description:
       "Automatically post Typeform submissions to Microsoft Teams channels. Power Automate and Zapier methods covered with step-by-step instructions.",
-    url: "https://formreply-frontend-production.up.railway.app/blog/typeform-microsoft-teams-integration",
+    url: "https://formreply.app/blog/typeform-microsoft-teams-integration",
     siteName: "FormReply",
     type: "article",
   },

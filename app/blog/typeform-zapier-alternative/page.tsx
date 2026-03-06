@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: "Typeform + Zapier for Contact Form Replies: Is There a Better Alternative?",
     description:
       "Zapier is powerful, but it's the wrong tool for Typeform contact form auto-replies. Here's a leaner, faster option built for exactly this job.",
-    url: "https://formreply-frontend-production.up.railway.app/blog/typeform-zapier-alternative",
+    url: "https://formreply.app/blog/typeform-zapier-alternative",
     siteName: "FormReply",
     type: "article",
   },
@@ -214,7 +214,7 @@ export default function BlogPost() {
             <li>
               Go to{" "}
               <Link href="/onboarding" className="text-indigo-600 hover:underline">
-                formreply-frontend-production.up.railway.app/onboarding
+                formreply.app/onboarding
               </Link>{" "}
               — enter your email, business name, and 2–3 sentences about your business
             </li>

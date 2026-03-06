@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: "How to Automatically Reply to Typeform Submissions (Without Zapier)",
     description:
       "Use Typeform webhooks and AI to draft personalized replies to every form submission — delivered to your inbox in 10 seconds.",
-    url: "https://formreply-frontend-production.up.railway.app/blog/typeform-auto-reply",
+    url: "https://formreply.app/blog/typeform-auto-reply",
     siteName: "FormReply",
     type: "article",
   },
@@ -131,7 +131,7 @@ export default function BlogPost() {
             <li>
               <strong>Create your FormReply account</strong> at{" "}
               <Link href="/onboarding" className="text-indigo-600 hover:underline">
-                formreply-frontend-production.up.railway.app
+                formreply.app
               </Link>{" "}
               — enter your email, business name, and 2–3 sentences about what you do
             </li>

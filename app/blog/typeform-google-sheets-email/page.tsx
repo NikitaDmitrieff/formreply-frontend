@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: "Typeform + Google Sheets + Email: The Full Submission Workflow",
     description:
       "Typeform to Google Sheets handles collection and tracking. FormReply handles the reply. Two webhooks, five minutes, no Zapier required.",
-    url: "https://formreply-frontend-production.up.railway.app/blog/typeform-google-sheets-email",
+    url: "https://formreply.app/blog/typeform-google-sheets-email",
     siteName: "FormReply",
     type: "article",
   },
@@ -194,7 +194,7 @@ export default function BlogPost() {
             <li>
               Go to{" "}
               <Link href="/onboarding" className="text-indigo-600 hover:underline">
-                formreply-frontend-production.up.railway.app/onboarding
+                formreply.app/onboarding
               </Link>{" "}
               and create your account. Enter your email, business name, and 2–3 sentences about what your business
               does and the tone you want for replies (formal, friendly, concise, detailed).

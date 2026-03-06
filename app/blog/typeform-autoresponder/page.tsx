@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: "Typeform Autoresponder: Stop Sending Templates, Start Sending Real Replies",
     description:
       "Most Typeform autoresponders send generic templates. FormReply drafts a personalized reply for each submission — ready to review and send in one click.",
-    url: "https://formreply-frontend-production.up.railway.app/blog/typeform-autoresponder",
+    url: "https://formreply.app/blog/typeform-autoresponder",
     siteName: "FormReply",
     type: "article",
   },
@@ -197,7 +197,7 @@ export default function BlogPost() {
             <li>
               <strong>Create your FormReply account</strong> — go to{" "}
               <Link href="/onboarding" className="text-indigo-600 hover:underline">
-                formreply-frontend-production.up.railway.app/onboarding
+                formreply.app/onboarding
               </Link>{" "}
               and enter your email, business name, and 2–3 sentences about your business (this context shapes how the
               AI drafts replies)

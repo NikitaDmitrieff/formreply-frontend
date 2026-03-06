@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: "Typeform HubSpot Integration: Connect Your Form, Then Actually Reply to the Lead",
     description:
       "Typeform + HubSpot captures and organizes leads automatically. FormReply handles the step HubSpot skips — drafting the first personalized reply in 10 seconds.",
-    url: "https://formreply-frontend-production.up.railway.app/blog/typeform-hubspot-integration",
+    url: "https://formreply.app/blog/typeform-hubspot-integration",
     siteName: "FormReply",
     type: "article",
   },
@@ -165,7 +165,7 @@ export default function BlogPost() {
             <li>
               Create a FormReply account at{" "}
               <Link href="/onboarding" className="text-indigo-600 hover:underline">
-                formreply-frontend-production.up.railway.app/onboarding
+                formreply.app/onboarding
               </Link>
               . Enter your email, business name, and a short description of what you do — the AI uses
               this to draft replies that match your voice and context

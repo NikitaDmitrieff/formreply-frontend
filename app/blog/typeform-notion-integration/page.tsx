@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: "Typeform Notion Integration: Send Form Submissions to a Notion Database",
     description:
       "Typeform fills your Notion database. FormReply sends the personal reply. Here's how to connect both.",
-    url: "https://formreply-frontend-production.up.railway.app/blog/typeform-notion-integration",
+    url: "https://formreply.app/blog/typeform-notion-integration",
     siteName: "FormReply",
     type: "article",
   },

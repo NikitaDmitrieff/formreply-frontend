@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: "Typeform Contact Form Notification Email: What You Get vs. What You Need",
     description:
       "Typeform notifications tell you a form came in. They don't draft a reply. Here's the gap — and how to close it.",
-    url: "https://formreply-frontend-production.up.railway.app/blog/typeform-contact-form-notification-email",
+    url: "https://formreply.app/blog/typeform-contact-form-notification-email",
     siteName: "FormReply",
     type: "article",
   },
@@ -238,7 +238,7 @@ export default function BlogPost() {
             <li>
               <strong>Sign up at{" "}
               <Link href="/onboarding" className="text-indigo-600 underline underline-offset-2">
-                formreply-frontend-production.up.railway.app/onboarding
+                formreply.app/onboarding
               </Link>
               </strong> — write 2-3 sentences about your business and pick a tone (professional, friendly, or casual).
             </li>

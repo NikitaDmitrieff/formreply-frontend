@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: "How to Connect Typeform to Asana (Step-by-Step)",
     description:
       "Turn Typeform submissions into Asana tasks automatically. Three methods covered: Zapier, Make, and native integration.",
-    url: "https://formreply-frontend-production.up.railway.app/blog/typeform-asana-integration",
+    url: "https://formreply.app/blog/typeform-asana-integration",
     siteName: "FormReply",
     type: "article",
   },

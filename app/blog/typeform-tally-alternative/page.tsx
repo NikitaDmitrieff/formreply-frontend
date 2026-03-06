@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: "Typeform vs Tally: Which Form Builder Should You Use?",
     description:
       "Tally is free and Notion-native. Typeform is polished and integration-rich. Here's the full comparison.",
-    url: "https://formreply-frontend-production.up.railway.app/blog/typeform-tally-alternative",
+    url: "https://formreply.app/blog/typeform-tally-alternative",
     siteName: "FormReply",
     type: "article",
   },

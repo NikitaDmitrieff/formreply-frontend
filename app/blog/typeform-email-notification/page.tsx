@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: "Typeform Email Notification: Get Submission Alerts + Reply Drafts in One Email",
     description:
       "Stop reading raw form data in notification emails. FormReply sends you a formatted submission summary with an AI-drafted reply — ready to review and send.",
-    url: "https://formreply-frontend-production.up.railway.app/blog/typeform-email-notification",
+    url: "https://formreply.app/blog/typeform-email-notification",
     siteName: "FormReply",
     type: "article",
   },
@@ -203,7 +203,7 @@ export default function BlogPost() {
             <li>
               <strong>Create your FormReply account</strong> at{" "}
               <Link href="/onboarding" className="text-indigo-600 hover:underline">
-                formreply-frontend-production.up.railway.app/onboarding
+                formreply.app/onboarding
               </Link>
               . Enter your email, business name, and a short description of what your form is for. This shapes how the
               AI drafts replies.

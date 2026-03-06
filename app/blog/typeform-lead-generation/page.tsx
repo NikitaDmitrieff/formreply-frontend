@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: "Typeform Lead Generation: Why Your Form Converts but Your Follow-Up Doesn't",
     description:
       "Typeform captures leads beautifully. FormReply makes sure you reply to each one fast, with a personalized draft in your inbox within 10 seconds of every submission.",
-    url: "https://formreply-frontend-production.up.railway.app/blog/typeform-lead-generation",
+    url: "https://formreply.app/blog/typeform-lead-generation",
     siteName: "FormReply",
     type: "article",
   },
@@ -185,7 +185,7 @@ export default function BlogPost() {
             <li>
               Create your FormReply account at{" "}
               <Link href="/onboarding" className="text-indigo-600 hover:underline">
-                formreply-frontend-production.up.railway.app/onboarding
+                formreply.app/onboarding
               </Link>
               . Describe your business in 2–3 sentences — this context is what makes the drafts specific
               to you

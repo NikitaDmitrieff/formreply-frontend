@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: "Typeform Salesforce Integration: Sync Leads, Then Actually Reply to Them",
     description:
       "Typeform + Salesforce captures and routes leads instantly. FormReply handles the part Salesforce skips — drafting a personalized first reply in 10 seconds.",
-    url: "https://formreply-frontend-production.up.railway.app/blog/typeform-salesforce-integration",
+    url: "https://formreply.app/blog/typeform-salesforce-integration",
     siteName: "FormReply",
     type: "article",
   },

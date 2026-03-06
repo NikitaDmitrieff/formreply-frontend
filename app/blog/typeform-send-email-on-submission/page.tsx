@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: "How to Send an Email When Someone Submits Your Typeform",
     description:
       "Typeform has basic email notifications, but they don't write the reply for you. Here's how to go from submission to a personalized draft in 10 seconds.",
-    url: "https://formreply-frontend-production.up.railway.app/blog/typeform-send-email-on-submission",
+    url: "https://formreply.app/blog/typeform-send-email-on-submission",
     siteName: "FormReply",
     type: "article",
   },

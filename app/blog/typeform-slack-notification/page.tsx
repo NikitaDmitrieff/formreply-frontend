@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: "How to Get Slack Notifications for Typeform Submissions",
     description:
       "Typeform → Slack works well for internal alerts. But if you need to reply to the submitter, there's a better notification format than a raw Slack ping.",
-    url: "https://formreply-frontend-production.up.railway.app/blog/typeform-slack-notification",
+    url: "https://formreply.app/blog/typeform-slack-notification",
     siteName: "FormReply",
     type: "article",
   },
@@ -222,7 +222,7 @@ export default function BlogPost() {
             <li>
               Go to{" "}
               <Link href="/onboarding" className="text-indigo-600 hover:underline">
-                formreply-frontend-production.up.railway.app/onboarding
+                formreply.app/onboarding
               </Link>{" "}
               — enter your email and 2–3 sentences about your business
             </li>

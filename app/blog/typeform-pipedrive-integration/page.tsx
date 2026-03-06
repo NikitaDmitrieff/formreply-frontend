@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: "Typeform Pipedrive Integration: Capture Leads, Then Reply Before They Go Cold",
     description:
       "Typeform + Pipedrive captures and routes leads instantly. FormReply handles the part Pipedrive skips — drafting a personalized first reply in 10 seconds.",
-    url: "https://formreply-frontend-production.up.railway.app/blog/typeform-pipedrive-integration",
+    url: "https://formreply.app/blog/typeform-pipedrive-integration",
     siteName: "FormReply",
     type: "article",
   },

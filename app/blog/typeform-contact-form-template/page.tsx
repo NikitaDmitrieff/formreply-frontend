@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: "Typeform Contact Form Template: Fields, Logic, and Setup That Actually Converts",
     description:
       "Build a Typeform contact form that qualifies leads and triggers a personalized reply in 10 seconds.",
-    url: "https://formreply-frontend-production.up.railway.app/blog/typeform-contact-form-template",
+    url: "https://formreply.app/blog/typeform-contact-form-template",
     siteName: "FormReply",
     type: "article",
   },

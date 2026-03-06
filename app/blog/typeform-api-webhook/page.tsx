@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: "Typeform API Webhook: Receive Submissions Instantly — Then Actually Reply",
     description:
       "Typeform webhooks fire instantly. FormReply listens to those same submissions and drafts a personalized reply to your inbox in 10 seconds. No code required.",
-    url: "https://formreply-frontend-production.up.railway.app/blog/typeform-api-webhook",
+    url: "https://formreply.app/blog/typeform-api-webhook",
     siteName: "FormReply",
     type: "article",
   },

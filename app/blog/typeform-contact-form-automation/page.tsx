@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: "How to Automate Responses to Your Typeform Contact Form",
     description:
       "Leads contacted in under 5 minutes convert 9x better. Here's how to automate your Typeform contact form responses without writing from scratch.",
-    url: "https://formreply-frontend-production.up.railway.app/blog/typeform-contact-form-automation",
+    url: "https://formreply.app/blog/typeform-contact-form-automation",
     siteName: "FormReply",
     type: "article",
   },
@@ -186,7 +186,7 @@ export default function BlogPost() {
             <li>
               <strong>Create your account</strong> at{" "}
               <Link href="/onboarding" className="text-indigo-600 hover:underline">
-                formreply-frontend-production.up.railway.app
+                formreply.app
               </Link>{" "}
               — you&rsquo;ll enter your email, your business name, and 2–3 sentences about what you do. This context
               is what makes the AI drafts relevant and accurate.
