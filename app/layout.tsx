@@ -26,20 +26,11 @@ export const metadata: Metadata = {
     type: "website",
     url: APP_URL,
     siteName: "FormReply",
-    images: [
-      {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "FormReply — AI replies to your contact form submissions",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "FormReply — AI Reply Drafts for Typeform Submissions",
     description: "Typeform submission → personalized reply draft in your inbox in 10 seconds. Review, send. $9/month.",
-    images: ["/og-image.png"],
   },
   robots: {
     index: true,
