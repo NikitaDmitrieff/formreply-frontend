@@ -361,13 +361,13 @@ export default function LandingPage() {
                 <tr key={row.feature} className="hover:bg-gray-50 transition-colors">
                   <td className="py-4 pr-6 text-gray-700 font-medium">{row.feature}</td>
                   <td className="py-4 px-4 text-center bg-indigo-50">
-                    {row.formreply === true ? <Check /> : <span className="text-sm font-semibold text-indigo-700">{row.formreply}</span>}
+                    {typeof row.formreply === "boolean" ? (row.formreply ? <Check /> : <X />) : <span className="text-sm font-semibold text-indigo-700">{row.formreply}</span>}
                   </td>
                   <td className="py-4 px-4 text-center">
-                    {row.zapier === false ? <X /> : typeof row.zapier === "string" ? <Partial label={row.zapier} /> : <Check />}
+                    {typeof row.zapier === "boolean" ? (row.zapier ? <Check /> : <X />) : <Partial label={row.zapier} />}
                   </td>
                   <td className="py-4 px-4 text-center hidden sm:table-cell">
-                    {row.typeform === true ? <Check /> : row.typeform === false ? <X /> : <Partial label={row.typeform as string} />}
+                    {typeof row.typeform === "boolean" ? (row.typeform ? <Check /> : <X />) : <Partial label={row.typeform} />}
                   </td>
                 </tr>
               ))}
