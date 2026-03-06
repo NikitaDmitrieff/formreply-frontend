@@ -3,7 +3,7 @@ import Stripe from "stripe";
 import { getServiceClient } from "@/lib/supabase";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-  apiVersion: "2025-01-27.acacia",
+  apiVersion: "2026-02-25.clover",
 });
 
 export async function POST(req: NextRequest) {
@@ -25,7 +25,7 @@ export async function POST(req: NextRequest) {
   const supabase = getServiceClient();
 
   if (event.type === "checkout.session.completed") {
-    const session = event.data.object as Stripe.CheckoutSession;
+    const session = event.data.object as Stripe.Checkout.Session;
     const customerId = session.metadata?.customer_id;
 
     if (customerId) {
