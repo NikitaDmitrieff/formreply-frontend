@@ -2,15 +2,16 @@ import { notFound } from "next/navigation";
 import { getServiceClient } from "@/lib/supabase";
 import CopyScript from "./CopyScript";
 import TestSubmissionButton from "./TestSubmissionButton";
+import OAuthSuccessBanner from "./OAuthSuccessBanner";
 
 const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL || "https://formreply-backend-production.up.railway.app";
 
 export default async function SuccessPage({
   searchParams,
 }: {
-  searchParams: Promise<{ customer_id?: string }>;
+  searchParams: Promise<{ customer_id?: string; oauth?: string }>;
 }) {
-  const { customer_id } = await searchParams;
+  const { customer_id, oauth } = await searchParams;
 
   if (!customer_id) notFound();
 
@@ -25,6 +26,9 @@ export default async function SuccessPage({
 
   const typeformUrl = `${BACKEND_URL}/webhook/typeform/${customer.webhook_token}`;
   const webflowUrl = `${BACKEND_URL}/webhook/webflow/${customer.webhook_token}`;
+  const oauthStartUrl = `${BACKEND_URL}/oauth/typeform/start?customer_id=${customer_id}`;
+  const oauthConnected = oauth === "done";
+  const oauthDenied = oauth === "denied";
 
   return (
     <div className="min-h-screen bg-gray-50"><CopyScript />
@@ -51,11 +55,31 @@ export default async function SuccessPage({
           </div>
         </div>
 
-        {/* Webhook URLs */}
+        {/* OAuth success / denied banners (client component) */}
+        <OAuthSuccessBanner connected={oauthConnected} denied={oauthDenied} />
+
+        {/* Typeform OAuth connect */}
         <div className="bg-white rounded-2xl border border-gray-200 p-6 mb-6">
-          <h3 className="font-bold text-gray-900 text-lg mb-1">Your webhook URLs</h3>
+          <h3 className="font-bold text-gray-900 text-lg mb-1">Connect Typeform automatically</h3>
+          <p className="text-gray-500 text-sm mb-4">
+            Click below to authorize FormReply on Typeform. We&apos;ll create the webhook on all your forms automatically — no copying URLs required.
+          </p>
+          <a
+            href={oauthStartUrl}
+            className="inline-flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold text-sm px-5 py-2.5 rounded-lg transition-colors"
+          >
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
+            </svg>
+            Connect with Typeform
+          </a>
+        </div>
+
+        {/* Webhook URLs (manual fallback) */}
+        <div className="bg-white rounded-2xl border border-gray-200 p-6 mb-6">
+          <h3 className="font-bold text-gray-900 text-lg mb-1">Or add the webhook manually</h3>
           <p className="text-gray-500 text-sm mb-6">
-            Copy the URL for your form tool and paste it into the webhook settings. That&apos;s it.
+            If you prefer, copy the URL for your form tool and paste it into the webhook settings.
           </p>
 
           <WebhookField
@@ -141,7 +165,6 @@ function WebhookField({ label, url, instructions }: { label: string; url: string
 }
 
 function CopyButton({ text }: { text: string }) {
-  // Server component fallback — client copy handled via JS
   return (
     <button
       data-copy={text}
