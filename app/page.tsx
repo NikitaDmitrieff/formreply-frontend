@@ -20,8 +20,8 @@ const Partial = ({ label }: { label: string }) => (
 export default function LandingPage() {
   return (
     <main className="min-h-screen bg-white">
-      {/* Nav */}
-      <nav className="border-b border-gray-200 px-6 py-4">
+      {/* Nav — sticky glassmorphism */}
+      <nav className="sticky top-0 z-50 backdrop-blur-md bg-white/80 border-b border-gray-200/80 px-6 py-4">
         <div className="max-w-5xl mx-auto flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2 font-bold text-xl text-gray-900 tracking-tight">
             <Image src="/logo.png" alt="FormReply" width={28} height={28} />
@@ -48,7 +48,7 @@ export default function LandingPage() {
               Stop writing the same<br />reply from scratch.
             </h1>
             <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-              When someone fills your Typeform contact form, FormReply reads what they wrote and drafts a personalized reply — delivered to your inbox in seconds. Review it, edit if needed, and send.
+              AI drafts a personalized reply to every Typeform submission — in your inbox in 10 seconds.
             </p>
             <div className="flex flex-col sm:flex-row gap-3">
               <Link
@@ -386,100 +386,22 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Before / After */}
-      <section className="bg-gray-900 py-20">
-        <div className="max-w-4xl mx-auto px-6">
-          <h2 className="text-3xl font-bold text-white text-center mb-14">What changes with FormReply</h2>
-          <div className="grid md:grid-cols-2 gap-6">
-            {/* Before */}
-            <div className="bg-gray-800 rounded-2xl p-8 border border-gray-700">
-              <div className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-5">Before</div>
-              <div className="space-y-4 mb-6">
-                <div className="flex items-start gap-3">
-                  <div className="w-5 h-5 rounded-full bg-gray-600 flex-shrink-0 mt-0.5"></div>
-                  <p className="text-gray-300 text-sm">You read the submission.</p>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="w-5 h-5 rounded-full bg-gray-600 flex-shrink-0 mt-0.5"></div>
-                  <p className="text-gray-300 text-sm">Open a compose window.</p>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="w-5 h-5 rounded-full bg-gray-600 flex-shrink-0 mt-0.5"></div>
-                  <p className="text-gray-300 text-sm">Think about what to write.</p>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="w-5 h-5 rounded-full bg-gray-600 flex-shrink-0 mt-0.5"></div>
-                  <p className="text-gray-300 text-sm">Type it out.</p>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="w-5 h-5 rounded-full bg-red-900 flex-shrink-0 mt-0.5"></div>
-                  <p className="text-gray-300 text-sm font-semibold">5 minutes gone. Repeat 20×/month.</p>
-                </div>
-              </div>
-              <div className="bg-gray-700 rounded-xl p-4 text-center">
-                <p className="text-gray-400 text-sm">~100 minutes/month on form replies</p>
-              </div>
-            </div>
-
-            {/* After */}
-            <div className="bg-indigo-900 rounded-2xl p-8 border border-indigo-700">
-              <div className="text-xs font-semibold text-indigo-400 uppercase tracking-wider mb-5">With FormReply</div>
-              <div className="space-y-4 mb-6">
-                <div className="flex items-start gap-3">
-                  <svg className="w-5 h-5 text-indigo-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  <p className="text-indigo-100 text-sm">Submission arrives.</p>
-                </div>
-                <div className="flex items-start gap-3">
-                  <svg className="w-5 h-5 text-indigo-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  <p className="text-indigo-100 text-sm">Draft arrives in 10 seconds.</p>
-                </div>
-                <div className="flex items-start gap-3">
-                  <svg className="w-5 h-5 text-indigo-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  <p className="text-indigo-100 text-sm">You review. You send. Done.</p>
-                </div>
-              </div>
-              <div className="bg-indigo-800 rounded-xl p-4 text-center">
-                <p className="text-indigo-200 text-sm font-semibold">~5 minutes/month. Same result.</p>
-              </div>
-              <div className="mt-4">
-                <Link
-                  href="/onboarding"
-                  className="block w-full bg-white text-indigo-700 py-3 rounded-xl font-semibold hover:bg-indigo-50 transition-colors text-center text-sm"
-                >
-                  Start free trial →
-                </Link>
-              </div>
-            </div>
+      {/* Built with autonomous AI — moved up, this is the story */}
+      <section className="border-t border-gray-100 bg-gray-50 py-16">
+        <div className="max-w-2xl mx-auto px-6 text-center">
+          <div className="inline-flex items-center gap-2 bg-indigo-100 text-indigo-700 text-xs font-semibold px-3 py-1.5 rounded-full mb-6 uppercase tracking-wider">
+            Built by autonomous AI
           </div>
-        </div>
-      </section>
-
-      {/* Time savings */}
-      <section className="bg-gray-900 py-16 border-t border-gray-800">
-        <div className="max-w-3xl mx-auto px-6 text-center">
-          <h2 className="text-2xl font-bold text-white mb-3">The math is simple</h2>
-          <p className="text-gray-400 mb-10">A thoughtful reply to a contact form submission takes 5 minutes on average.</p>
-          <div className="grid grid-cols-3 gap-4 mb-10">
-            <div className="bg-gray-800 rounded-xl p-5">
-              <div className="text-3xl font-bold text-white mb-1">20</div>
-              <div className="text-sm text-gray-400">submissions/month</div>
-            </div>
-            <div className="bg-gray-800 rounded-xl p-5">
-              <div className="text-3xl font-bold text-white mb-1">100</div>
-              <div className="text-sm text-gray-400">minutes of writing</div>
-            </div>
-            <div className="bg-indigo-600 rounded-xl p-5">
-              <div className="text-3xl font-bold text-white mb-1">$19</div>
-              <div className="text-sm text-indigo-200">to get it all back</div>
-            </div>
-          </div>
-          <p className="text-gray-500 text-sm">In testing, FormReply responded to 500+ form submissions with an average draft time of 8 seconds.</p>
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">45 cycles. 34 blog posts. 0 human lines of code.</h2>
+          <p className="text-gray-600 leading-relaxed text-sm mb-6">
+            FormReply is built and operated by an autonomous AI team — 14 agents modeled on the thinking patterns of world-class founders, engineers, and marketers. They identified the problem, designed the product, wrote every line of code, and shipped it. This page included.
+          </p>
+          <p className="text-gray-500 text-sm">
+            The problem is obvious: every Typeform contact form submission deserves a real, personal response. Writing them from scratch is a grind. We fixed that.
+          </p>
+          <p className="text-gray-400 mt-5 text-sm">
+            Questions? Email <a href="mailto:support@formreply.app" className="text-indigo-600 hover:underline">support@formreply.app</a>
+          </p>
         </div>
       </section>
 
@@ -562,26 +484,8 @@ export default function LandingPage() {
         </p>
       </section>
 
-      {/* Founder section */}
-      <section className="border-t border-gray-100 py-16">
-        <div className="max-w-xl mx-auto px-6 text-center">
-          <div className="w-14 h-14 bg-indigo-100 rounded-full mx-auto mb-5 flex items-center justify-center">
-            <Image src="/logo.png" alt="FormReply" width={28} height={28} />
-          </div>
-          <h2 className="text-xl font-bold text-gray-900 mb-2">Built with autonomous AI</h2>
-          <p className="text-xs text-indigo-600 font-medium mb-4 uppercase tracking-wider">FormReply is built and operated by an autonomous AI team</p>
-          <p className="text-gray-600 leading-relaxed text-sm">
-            FormReply was built because the problem is obvious: every contact form submission deserves a real, personal response — but writing them from scratch is a grind.
-            The AI team identified the gap, designed the product, and shipped it. If that resonates, give it a try.
-          </p>
-          <p className="text-gray-400 mt-5 text-sm">
-            Questions? Email <a href="mailto:support@formreply.app" className="text-indigo-600 hover:underline">support@formreply.app</a>
-          </p>
-        </div>
-      </section>
-
       {/* FAQ */}
-      <section className="max-w-2xl mx-auto px-6 py-16">
+      <section className="max-w-2xl mx-auto px-6 py-16 border-t border-gray-100">
         <h2 className="text-2xl font-bold text-gray-900 text-center mb-10">Common questions</h2>
         <div className="space-y-6">
           {[
@@ -618,9 +522,9 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Final CTA */}
-      <section className="bg-indigo-600 py-16">
-        <div className="max-w-2xl mx-auto px-6 text-center">
+      {/* Final CTA — contained card, not full-bleed */}
+      <section className="max-w-2xl mx-auto px-6 pb-20">
+        <div className="bg-indigo-600 rounded-2xl py-14 px-8 text-center">
           <h2 className="text-3xl font-bold text-white mb-4">Start replying faster today</h2>
           <p className="text-indigo-200 mb-8">14-day free trial. No card required. Cancel anytime.</p>
           <Link
@@ -633,7 +537,7 @@ export default function LandingPage() {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-gray-100 py-8">
+      <footer className="border-t border-gray-100 py-8 bg-white">
         <div className="max-w-5xl mx-auto px-6 flex flex-wrap items-center justify-between gap-4">
           <Link href="/" className="flex items-center gap-2 font-bold text-gray-900">
             <Image src="/logo.png" alt="FormReply" width={22} height={22} />
