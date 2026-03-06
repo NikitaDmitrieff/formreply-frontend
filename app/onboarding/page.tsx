@@ -41,18 +41,29 @@ export default function OnboardingPage() {
     return false;
   }
 
-  async function handleSubmit() {
+  async function handleSubmit(plan: "free" | "paid") {
     setLoading(true);
     setError("");
     try {
-      const res = await fetch("/api/checkout", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
-      });
-      const json = await res.json();
-      if (!res.ok) throw new Error(json.error || "Something went wrong");
-      window.location.href = json.url;
+      if (plan === "free") {
+        const res = await fetch("/api/signup-free", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data),
+        });
+        const json = await res.json();
+        if (!res.ok) throw new Error(json.error || "Something went wrong");
+        window.location.href = `/setup?customer_id=${json.customer_id}`;
+      } else {
+        const res = await fetch("/api/checkout", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data),
+        });
+        const json = await res.json();
+        if (!res.ok) throw new Error(json.error || "Something went wrong");
+        window.location.href = json.url;
+      }
     } catch (err: unknown) {
       setError(err instanceof Error ? err.message : "Something went wrong");
       setLoading(false);
@@ -181,10 +192,10 @@ export default function OnboardingPage() {
                 onChange={(e) => update("email", e.target.value)}
                 className="w-full border border-gray-200 rounded-xl px-4 py-3 text-gray-900 text-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
                 autoFocus
-                onKeyDown={(e) => e.key === "Enter" && canAdvance() && handleSubmit()}
+                onKeyDown={(e) => e.key === "Enter" && canAdvance() && handleSubmit("paid")}
               />
               <p className="text-sm text-gray-500 mt-3">
-                After this step, you&apos;ll start your free 14-day trial (card required, then $9/month). Then we&apos;ll give you your webhook URLs.
+                Choose your plan below. Free: 5 replies/month, no card required. Starter: 14-day free trial, then $19/month.
               </p>
             </StepCard>
           )}
@@ -214,13 +225,22 @@ export default function OnboardingPage() {
                 Continue
               </button>
             ) : (
-              <button
-                onClick={handleSubmit}
-                disabled={!canAdvance() || loading}
-                className="flex-1 bg-indigo-600 text-white py-3 rounded-xl font-semibold hover:bg-indigo-700 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
-              >
-                {loading ? "Redirecting to payment…" : "Proceed to payment →"}
-              </button>
+              <div className="flex-1 flex flex-col gap-3">
+                <button
+                  onClick={() => handleSubmit("paid")}
+                  disabled={!canAdvance() || loading}
+                  className="w-full bg-indigo-600 text-white py-3 rounded-xl font-semibold hover:bg-indigo-700 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+                >
+                  {loading ? "Loading…" : "Start 14-day free trial — $19/month after →"}
+                </button>
+                <button
+                  onClick={() => handleSubmit("free")}
+                  disabled={!canAdvance() || loading}
+                  className="w-full border-2 border-indigo-200 text-indigo-700 py-3 rounded-xl font-semibold hover:bg-indigo-50 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+                >
+                  {loading ? "Loading…" : "Start free — 5 replies/month, no card"}
+                </button>
+              </div>
             )}
           </div>
         </div>
