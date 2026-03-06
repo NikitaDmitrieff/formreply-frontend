@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -35,8 +36,9 @@ export default function SupportPage() {
       {/* Nav */}
       <nav className="border-b border-gray-100 px-6 py-4">
         <div className="max-w-5xl mx-auto flex items-center justify-between">
-          <Link href="/" className="font-bold text-xl text-indigo-600 tracking-tight">
-            FormReply
+          <Link href="/" className="flex items-center gap-2 font-bold text-xl text-indigo-600 tracking-tight">
+            <Image src="/logo.png" alt="FormReply" width={28} height={28} />
+            <span>FormReply</span>
           </Link>
           <Link
             href="/onboarding"
@@ -126,8 +128,16 @@ export default function SupportPage() {
       {/* Footer */}
       <footer className="border-t border-gray-100 py-8 mt-8">
         <div className="max-w-5xl mx-auto px-6 flex items-center justify-between">
-          <span className="font-bold text-indigo-600">FormReply</span>
-          <p className="text-sm text-gray-400">© 2026 FormReply. All rights reserved.</p>
+          <Link href="/" className="flex items-center gap-2 font-bold text-indigo-600">
+            <Image src="/logo.png" alt="FormReply" width={22} height={22} />
+            <span>FormReply</span>
+          </Link>
+          <div className="flex items-center gap-6">
+            <Link href="/privacy-and-tos" className="text-sm text-gray-400 hover:text-gray-600 transition-colors">
+              Privacy & Terms
+            </Link>
+            <p className="text-sm text-gray-400">© 2026 FormReply. All rights reserved.</p>
+          </div>
         </div>
       </footer>
     </main>

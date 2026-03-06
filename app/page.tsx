@@ -180,6 +180,9 @@ export default function LandingPage() {
             <Link href="/support" className="text-sm text-gray-400 hover:text-gray-600 transition-colors">
               Support
             </Link>
+            <Link href="/privacy-and-tos" className="text-sm text-gray-400 hover:text-gray-600 transition-colors">
+              Privacy & Terms
+            </Link>
             <p className="text-sm text-gray-400">© 2026 FormReply. All rights reserved.</p>
           </div>
         </div>
