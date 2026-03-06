@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import { getServiceClient } from "@/lib/supabase";
+import CopyScript from "./CopyScript";
 
 const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL || "https://formreply-backend-production.up.railway.app";
 
@@ -25,7 +26,7 @@ export default async function SuccessPage({
   const webflowUrl = `${BACKEND_URL}/webhook/webflow/${customer.webhook_token}`;
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50"><CopyScript />
       {/* Header */}
       <div className="bg-white border-b border-gray-100 px-6 py-4">
         <div className="max-w-2xl mx-auto">
@@ -44,7 +45,7 @@ export default async function SuccessPage({
           <div>
             <h2 className="font-bold text-green-900 text-lg">You&apos;re all set, {customer.business_name}!</h2>
             <p className="text-green-700 text-sm mt-1">
-              Payment confirmed. Your FormReply account is active. Now connect your form — it takes 60 seconds.
+              Trial started! Your FormReply account is active. Now connect your form — it takes 60 seconds.
             </p>
           </div>
         </div>
@@ -56,7 +57,11 @@ export default async function SuccessPage({
             Copy the URL for your form tool and paste it into the webhook settings. That&apos;s it.
           </p>
 
-          <WebhookField label="Typeform" url={typeformUrl} instructions="Go to Connect → Webhooks → Add a webhook" />
+          <WebhookField
+            label="Typeform"
+            url={typeformUrl}
+            instructions="In Typeform: open your form → Connect tab → Webhooks → Add a webhook → paste this URL → Save. Takes 30 seconds."
+          />
           <WebhookField label="Webflow" url={webflowUrl} instructions='Go to Site Settings → Integrations → Webhooks → Add webhook → choose "Form submission"' />
         </div>
 
@@ -99,7 +104,7 @@ export default async function SuccessPage({
             </div>
             <div className="flex justify-between">
               <span>Plan</span>
-              <span className="font-medium">Starter — $12/month</span>
+              <span className="font-medium">Starter — $9/month (14-day trial active)</span>
             </div>
           </div>
         </div>

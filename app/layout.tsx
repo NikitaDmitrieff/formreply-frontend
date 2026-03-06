@@ -5,8 +5,8 @@ const APP_URL = "https://formreply-frontend.vercel.app";
 
 export const metadata: Metadata = {
   metadataBase: new URL(APP_URL),
-  title: "FormReply — AI replies to your Typeform contact form submissions",
-  description: "AI drafts personalized email replies to every Typeform or Webflow contact form submission and delivers them to your inbox in 15 seconds. Stop copy-pasting. Start replying faster.",
+  title: "FormReply — AI Reply Drafts for Typeform Submissions",
+  description: "FormReply watches your Typeform and drafts a personalized email reply for every submission — delivered to your inbox in seconds. Review and send. $9/month.",
   keywords: [
     "typeform auto reply",
     "typeform email reply",
@@ -21,8 +21,8 @@ export const metadata: Metadata = {
     canonical: APP_URL,
   },
   openGraph: {
-    title: "FormReply — AI replies to your Typeform submissions",
-    description: "Connect your Typeform or Webflow form. Every submission gets an AI-drafted reply delivered to your inbox in 15 seconds.",
+    title: "FormReply — AI Reply Drafts for Typeform Submissions",
+    description: "Stop writing contact form replies from scratch. FormReply generates a personalized draft for every Typeform submission and emails it to you in ~10 seconds.",
     type: "website",
     url: APP_URL,
     siteName: "FormReply",
@@ -37,8 +37,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "FormReply — AI replies to your Typeform contact form submissions",
-    description: "Stop manually drafting replies to every form submission. FormReply sends AI-drafted replies to your inbox in 15 seconds.",
+    title: "FormReply — AI Reply Drafts for Typeform Submissions",
+    description: "Typeform submission → personalized reply draft in your inbox in 10 seconds. Review, send. $9/month.",
     images: ["/og-image.png"],
   },
   robots: {

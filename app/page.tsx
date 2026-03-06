@@ -38,7 +38,7 @@ export default function LandingPage() {
             href="/onboarding"
             className="bg-indigo-600 text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-indigo-700 transition-colors"
           >
-            Start for $12/month →
+            Start free 14-day trial →
           </Link>
           <a
             href="#how-it-works"
@@ -48,7 +48,7 @@ export default function LandingPage() {
           </a>
         </div>
 
-        <p className="text-sm text-gray-400 mt-4">No setup fees. Cancel anytime.</p>
+        <p className="text-sm text-gray-400 mt-4">14-day free trial · No setup fees · Cancel anytime</p>
       </section>
 
       {/* Stats */}
@@ -112,11 +112,13 @@ export default function LandingPage() {
           <p className="text-gray-500 mb-10">One plan. Everything included.</p>
 
           <div className="bg-white rounded-2xl p-8 border-2 border-indigo-600">
+            <div className="inline-block bg-green-100 text-green-700 text-xs font-semibold px-3 py-1 rounded-full mb-3">14-day free trial</div>
             <p className="text-sm font-semibold text-indigo-600 uppercase tracking-wider mb-2">Starter</p>
-            <div className="flex items-end justify-center gap-1 mb-6">
-              <span className="text-5xl font-bold text-gray-900">$12</span>
+            <div className="flex items-end justify-center gap-1 mb-1">
+              <span className="text-5xl font-bold text-gray-900">$9</span>
               <span className="text-gray-400 mb-2">/month</span>
             </div>
+            <p className="text-xs text-gray-400 mb-5">after free trial · card required · cancel anytime</p>
             <ul className="text-left space-y-3 mb-8">
               {[
                 "Unlimited form submissions",
@@ -183,7 +185,7 @@ export default function LandingPage() {
             href="/onboarding"
             className="inline-block bg-white text-indigo-600 px-8 py-4 rounded-xl text-lg font-semibold hover:bg-indigo-50 transition-colors"
           >
-            Get started — $12/month →
+            Start free 14-day trial →
           </Link>
         </div>
       </section>

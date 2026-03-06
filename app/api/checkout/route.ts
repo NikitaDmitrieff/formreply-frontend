@@ -2,11 +2,15 @@ import { NextRequest, NextResponse } from "next/server";
 import Stripe from "stripe";
 import { getServiceClient } from "@/lib/supabase";
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-  apiVersion: "2026-02-25.clover",
-});
-
 export async function POST(req: NextRequest) {
+  if (!process.env.STRIPE_SECRET_KEY) {
+    return NextResponse.json({ error: "Stripe not configured — contact support" }, { status: 503 });
+  }
+
+  const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!.trim(), {
+    apiVersion: "2026-02-25.clover",
+  });
+
   try {
     const { email, business_name, business_context, tone } = await req.json();
 
@@ -16,17 +20,10 @@ export async function POST(req: NextRequest) {
 
     const supabase = getServiceClient();
 
-    // Upsert customer record (pending payment)
     const { data: customer, error: dbError } = await supabase
       .from("formreply_customers")
       .upsert(
-        {
-          email,
-          business_name,
-          business_context,
-          tone,
-          is_active: false,
-        },
+        { email, business_name, business_context, tone, is_active: false },
         { onConflict: "email", ignoreDuplicates: false }
       )
       .select()
@@ -37,22 +34,32 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Database error" }, { status: 500 });
     }
 
-    // Create Stripe checkout session
+    const appUrl = process.env.NEXT_PUBLIC_APP_URL?.trim();
+
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ["card"],
       mode: "subscription",
       line_items: [
         {
-          price: process.env.STRIPE_PRICE_ID!,
+          price_data: {
+            currency: "usd",
+            product_data: {
+              name: "FormReply Starter",
+              description: "AI-drafted replies for every contact form submission",
+            },
+            unit_amount: 900,
+            recurring: { interval: "month" },
+          },
           quantity: 1,
         },
       ],
       customer_email: email,
-      metadata: {
-        customer_id: customer.id,
+      metadata: { customer_id: customer.id },
+      subscription_data: {
+        trial_period_days: 14,
       },
-      success_url: `${process.env.NEXT_PUBLIC_APP_URL}/success?customer_id=${customer.id}`,
-      cancel_url: `${process.env.NEXT_PUBLIC_APP_URL}/onboarding`,
+      success_url: `${appUrl}/success?customer_id=${customer.id}`,
+      cancel_url: `${appUrl}/onboarding`,
       allow_promotion_codes: true,
     });
 

@@ -184,7 +184,7 @@ export default function OnboardingPage() {
                 onKeyDown={(e) => e.key === "Enter" && canAdvance() && handleSubmit()}
               />
               <p className="text-sm text-gray-500 mt-3">
-                After this step, you&apos;ll enter payment details ($12/month). Then we&apos;ll give you your webhook URLs.
+                After this step, you&apos;ll start your free 14-day trial (card required, then $9/month). Then we&apos;ll give you your webhook URLs.
               </p>
             </StepCard>
           )}
