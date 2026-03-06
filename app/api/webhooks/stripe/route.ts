@@ -39,6 +39,7 @@ export async function POST(req: NextRequest) {
           stripe_customer_id: session.customer as string,
           stripe_subscription_id: session.subscription as string,
           is_active: true,
+          plan: "starter",
         })
         .eq("id", customerId);
 
@@ -53,7 +54,7 @@ export async function POST(req: NextRequest) {
     const subscription = event.data.object as Stripe.Subscription;
     await supabase
       .from("formreply_customers")
-      .update({ is_active: false })
+      .update({ is_active: false, plan: "free" })
       .eq("stripe_subscription_id", subscription.id);
   }
 
