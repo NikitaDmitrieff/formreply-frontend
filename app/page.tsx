@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function LandingPage() {
   return (
@@ -6,7 +7,10 @@ export default function LandingPage() {
       {/* Nav */}
       <nav className="border-b border-gray-100 px-6 py-4">
         <div className="max-w-5xl mx-auto flex items-center justify-between">
-          <span className="font-bold text-xl text-indigo-600 tracking-tight">FormReply</span>
+          <Link href="/" className="flex items-center gap-2 font-bold text-xl text-indigo-600 tracking-tight">
+            <Image src="/logo.png" alt="FormReply" width={28} height={28} />
+            <span>FormReply</span>
+          </Link>
           <Link
             href="/onboarding"
             className="bg-indigo-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-indigo-700 transition-colors"
@@ -18,19 +22,14 @@ export default function LandingPage() {
 
       {/* Hero */}
       <section className="max-w-4xl mx-auto px-6 pt-20 pb-16 text-center">
-        <div className="inline-flex items-center gap-2 bg-indigo-50 text-indigo-700 text-sm font-medium px-3 py-1 rounded-full mb-6">
-          <span className="w-2 h-2 bg-indigo-500 rounded-full" style={{ animation: "pulse 2s infinite" }} />
-          Live — replies drafted in under 15 seconds
-        </div>
-
         <h1 className="text-5xl font-bold text-gray-900 leading-tight mb-6">
-          AI drafts replies to your<br />
-          <span className="text-indigo-600">contact form submissions</span>
+          Stop writing the same<br />
+          <span className="text-indigo-600">reply over and over.</span>
         </h1>
 
         <p className="text-xl text-gray-500 max-w-2xl mx-auto mb-10 leading-relaxed">
-          Connect your Typeform or Webflow form. Every new submission gets an AI-drafted reply,
-          written in your tone, delivered straight to your inbox. Review and send.
+          You get a contact form submission. You open a blank email. You write the same-ish reply
+          you wrote last week. FormReply drafts it for you — you just review and send.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
@@ -51,47 +50,27 @@ export default function LandingPage() {
         <p className="text-sm text-gray-400 mt-4">14-day free trial · No setup fees · Cancel anytime</p>
       </section>
 
-      {/* Stats */}
-      <section className="bg-gray-50 py-10">
-        <div className="max-w-4xl mx-auto px-6">
-          <div className="grid grid-cols-3 gap-8 text-center">
-            <div>
-              <p className="text-3xl font-bold text-gray-900">15s</p>
-              <p className="text-sm text-gray-500 mt-1">Average reply draft time</p>
-            </div>
-            <div>
-              <p className="text-3xl font-bold text-gray-900">2 min</p>
-              <p className="text-sm text-gray-500 mt-1">Setup time</p>
-            </div>
-            <div>
-              <p className="text-3xl font-bold text-gray-900">100%</p>
-              <p className="text-sm text-gray-500 mt-1">Submissions covered</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* How it works */}
       <section id="how-it-works" className="max-w-4xl mx-auto px-6 py-20">
-        <h2 className="text-3xl font-bold text-gray-900 text-center mb-3">Works in 3 steps</h2>
-        <p className="text-gray-500 text-center mb-12">From signup to first drafted reply in under 5 minutes.</p>
+        <h2 className="text-3xl font-bold text-gray-900 text-center mb-3">How it works</h2>
+        <p className="text-gray-500 text-center mb-12">Three steps. No moving parts.</p>
 
         <div className="grid md:grid-cols-3 gap-8">
           {[
             {
               n: "1",
               title: "Connect your form",
-              body: "Paste your unique webhook URL into Typeform or Webflow. Takes 60 seconds.",
+              body: "Paste your unique webhook URL into Typeform. Takes about a minute.",
             },
             {
               n: "2",
-              title: "Submission arrives",
-              body: "Someone fills your form. AI reads it, drafts a personalized reply in your voice.",
+              title: "Someone fills your form",
+              body: "Within seconds, a draft reply lands in your inbox — written based on what they asked, in your voice.",
             },
             {
               n: "3",
-              title: "Review & send",
-              body: "The draft lands in your inbox within 15 seconds. Edit if needed, then send.",
+              title: "Review and send",
+              body: "Read it over. Edit if something's off. Hit send. Done.",
             },
           ].map((step) => (
             <div key={step.n} className="text-center">
@@ -122,10 +101,10 @@ export default function LandingPage() {
             <ul className="text-left space-y-3 mb-8">
               {[
                 "Unlimited form submissions",
-                "Typeform + Webflow webhooks",
+                "Typeform webhook support",
                 "AI drafts in your tone",
-                "Email delivery in <15 seconds",
                 "Spam filtering included",
+                "Email delivery within seconds",
               ].map((feature) => (
                 <li key={feature} className="flex items-center gap-3 text-gray-700 text-sm">
                   <svg className="w-5 h-5 text-indigo-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -148,24 +127,24 @@ export default function LandingPage() {
 
       {/* FAQ */}
       <section className="max-w-2xl mx-auto px-6 py-20">
-        <h2 className="text-3xl font-bold text-gray-900 text-center mb-10">FAQ</h2>
+        <h2 className="text-3xl font-bold text-gray-900 text-center mb-10">Questions</h2>
         <div className="space-y-6">
           {[
             {
-              q: "Which form tools are supported?",
-              a: "Typeform and Webflow Forms. We generate a unique webhook URL for each — paste it into your form settings.",
+              q: "Which forms does this work with?",
+              a: "Right now, Typeform. Webflow form support is coming. If you use something else, email me and I'll see what I can do.",
             },
             {
               q: "How does it know my tone?",
-              a: "During setup you describe your business and choose a tone (professional, friendly, or casual). The AI uses this for every draft.",
+              a: "During setup you describe your business and pick a tone — professional, friendly, or casual. The AI uses that for every draft it writes. It's not magic, but it's good enough that you usually only have to make small edits.",
             },
             {
-              q: "Do I need to review every reply?",
-              a: "Yes. FormReply emails you the draft — you read it, edit if needed, then send it yourself. We never send on your behalf.",
+              q: "Does it send replies for me?",
+              a: "No. FormReply emails you the draft. You read it, change whatever needs changing, and send it yourself. We never touch your email account.",
             },
             {
-              q: "What happens with spam submissions?",
-              a: "Our spam filter drops obvious spam and bot submissions automatically. You only receive drafts for real inquiries.",
+              q: "What happens with spam?",
+              a: "We filter out obvious bot submissions automatically. You only get drafts for real inquiries.",
             },
           ].map((item) => (
             <div key={item.q} className="border-b border-gray-100 pb-6">
@@ -179,8 +158,8 @@ export default function LandingPage() {
       {/* Final CTA */}
       <section className="bg-indigo-600 py-16">
         <div className="max-w-2xl mx-auto px-6 text-center">
-          <h2 className="text-3xl font-bold text-white mb-4">Start replying faster today</h2>
-          <p className="text-indigo-200 mb-8">2-minute setup. First draft reply in under 15 seconds.</p>
+          <h2 className="text-3xl font-bold text-white mb-4">Start replying faster</h2>
+          <p className="text-indigo-200 mb-8">14-day free trial. Cancel anytime.</p>
           <Link
             href="/onboarding"
             className="inline-block bg-white text-indigo-600 px-8 py-4 rounded-xl text-lg font-semibold hover:bg-indigo-50 transition-colors"
@@ -193,8 +172,16 @@ export default function LandingPage() {
       {/* Footer */}
       <footer className="border-t border-gray-100 py-8">
         <div className="max-w-5xl mx-auto px-6 flex items-center justify-between">
-          <span className="font-bold text-indigo-600">FormReply</span>
-          <p className="text-sm text-gray-400">© 2026 FormReply. All rights reserved.</p>
+          <Link href="/" className="flex items-center gap-2 font-bold text-indigo-600">
+            <Image src="/logo.png" alt="FormReply" width={22} height={22} />
+            <span>FormReply</span>
+          </Link>
+          <div className="flex items-center gap-6">
+            <Link href="/support" className="text-sm text-gray-400 hover:text-gray-600 transition-colors">
+              Support
+            </Link>
+            <p className="text-sm text-gray-400">© 2026 FormReply. All rights reserved.</p>
+          </div>
         </div>
       </footer>
     </main>

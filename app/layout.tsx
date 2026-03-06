@@ -6,6 +6,11 @@ const APP_URL = "https://formreply-frontend.vercel.app";
 export const metadata: Metadata = {
   metadataBase: new URL(APP_URL),
   title: "FormReply — AI Reply Drafts for Typeform Submissions",
+  icons: {
+    icon: "/logo.png",
+    shortcut: "/logo.png",
+    apple: "/logo.png",
+  },
   description: "FormReply watches your Typeform and drafts a personalized email reply for every submission — delivered to your inbox in seconds. Review and send. $9/month.",
   keywords: [
     "typeform auto reply",
