@@ -2,11 +2,15 @@ import { NextRequest, NextResponse } from "next/server";
 import Stripe from "stripe";
 import { getServiceClient } from "@/lib/supabase";
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-  apiVersion: "2026-02-25.clover",
-});
-
 export async function POST(req: NextRequest) {
+  if (!process.env.STRIPE_SECRET_KEY || !process.env.STRIPE_WEBHOOK_SECRET) {
+    return NextResponse.json({ error: "Stripe not configured" }, { status: 503 });
+  }
+
+  const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!.trim(), {
+    apiVersion: "2026-02-25.clover",
+  });
+
   const body = await req.text();
   const sig = req.headers.get("stripe-signature");
 
@@ -16,7 +20,7 @@ export async function POST(req: NextRequest) {
 
   let event: Stripe.Event;
   try {
-    event = stripe.webhooks.constructEvent(body, sig, process.env.STRIPE_WEBHOOK_SECRET!);
+    event = stripe.webhooks.constructEvent(body, sig, process.env.STRIPE_WEBHOOK_SECRET);
   } catch (err: unknown) {
     console.error("Webhook signature verification failed:", err);
     return NextResponse.json({ error: "Invalid signature" }, { status: 400 });
@@ -47,14 +51,10 @@ export async function POST(req: NextRequest) {
 
   if (event.type === "customer.subscription.deleted") {
     const subscription = event.data.object as Stripe.Subscription;
-    const { error } = await supabase
+    await supabase
       .from("formreply_customers")
       .update({ is_active: false })
       .eq("stripe_subscription_id", subscription.id);
-
-    if (error) {
-      console.error("Failed to deactivate customer:", error);
-    }
   }
 
   return NextResponse.json({ received: true });

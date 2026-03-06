@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { getServiceClient } from "@/lib/supabase";
 import CopyScript from "./CopyScript";
+import TestSubmissionButton from "./TestSubmissionButton";
 
 const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL || "https://formreply-backend-production.up.railway.app";
 
@@ -63,6 +64,15 @@ export default async function SuccessPage({
             instructions="In Typeform: open your form → Connect tab → Webhooks → Add a webhook → paste this URL → Save. Takes 30 seconds."
           />
           <WebhookField label="Webflow" url={webflowUrl} instructions='Go to Site Settings → Integrations → Webhooks → Add webhook → choose "Form submission"' />
+        </div>
+
+        {/* Test your setup */}
+        <div className="bg-white rounded-2xl border border-gray-200 p-6 mb-6">
+          <h3 className="font-bold text-gray-900 text-lg mb-1">Test your setup</h3>
+          <p className="text-gray-500 text-sm mb-4">
+            Send a sample submission through the full pipeline — an AI draft will arrive in your inbox within 15 seconds.
+          </p>
+          <TestSubmissionButton token={customer.webhook_token} email={customer.email} />
         </div>
 
         {/* What happens next */}
