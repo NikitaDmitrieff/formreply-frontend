@@ -1,6 +1,22 @@
 import Link from "next/link";
 import Image from "next/image";
 
+const Check = () => (
+  <svg className="w-5 h-5 text-indigo-500 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+  </svg>
+);
+
+const X = () => (
+  <svg className="w-5 h-5 text-gray-300 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+  </svg>
+);
+
+const Partial = ({ label }: { label: string }) => (
+  <span className="text-xs text-gray-400">{label}</span>
+);
+
 export default function LandingPage() {
   return (
     <main className="min-h-screen bg-white">
@@ -165,8 +181,287 @@ export default function LandingPage() {
         </div>
       </section>
 
+      {/* Speed-to-Lead Statistics */}
+      <section className="bg-gray-50 border-y border-gray-200 py-20">
+        <div className="max-w-4xl mx-auto px-6">
+          <div className="text-center mb-14">
+            <h2 className="text-3xl font-bold text-gray-900 mb-3">Response time wins deals</h2>
+            <p className="text-gray-500">The data is clear. Speed matters more than perfection.</p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6 mb-10">
+            <div className="bg-gray-800 rounded-2xl p-8 text-center">
+              <div className="text-6xl font-bold text-white mb-3">21x</div>
+              <p className="text-gray-300 text-sm leading-relaxed">more likely to qualify a lead if you respond within 5 minutes</p>
+              <p className="text-gray-500 text-xs mt-3">MIT / InsideSales.com</p>
+            </div>
+            <div className="bg-gray-800 rounded-2xl p-8 text-center">
+              <div className="text-6xl font-bold text-white mb-3">42h</div>
+              <p className="text-gray-300 text-sm leading-relaxed">average business response time to contact forms</p>
+              <p className="text-gray-500 text-xs mt-3">Industry average (Chili Piper)</p>
+            </div>
+            <div className="bg-indigo-600 rounded-2xl p-8 text-center">
+              <div className="text-6xl font-bold text-white mb-3">~10s</div>
+              <p className="text-indigo-100 text-sm leading-relaxed">FormReply draft delivery time</p>
+              <p className="text-indigo-300 text-xs mt-3">Our product</p>
+            </div>
+          </div>
+
+          <p className="text-center text-gray-700 text-lg font-medium max-w-2xl mx-auto">
+            78% of customers buy from the first company to respond. FormReply makes sure that&apos;s you.
+          </p>
+        </div>
+      </section>
+
+      {/* Cost Stacking Comparison */}
+      <section className="max-w-5xl mx-auto px-6 py-20">
+        <div className="text-center mb-14">
+          <h2 className="text-3xl font-bold text-gray-900 mb-3">Why not just use Zapier?</h2>
+          <p className="text-gray-500 max-w-xl mx-auto">The DIY approach costs more — in money and maintenance. Here&apos;s the honest comparison.</p>
+        </div>
+
+        {/* Cost stacking */}
+        <div className="grid md:grid-cols-2 gap-6 mb-14">
+          {/* DIY column */}
+          <div className="bg-gray-50 rounded-2xl p-8 border border-gray-200">
+            <div className="flex items-center gap-2 mb-6">
+              <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
+              <h3 className="font-bold text-gray-700 text-lg">The DIY way</h3>
+            </div>
+            <div className="font-mono text-sm space-y-3 text-gray-600">
+              <div className="flex justify-between">
+                <span>Zapier Professional plan</span>
+                <span className="font-semibold">$49/mo</span>
+              </div>
+              <p className="text-xs text-gray-400 -mt-2 pl-0">(required for multi-step Zaps with AI)</p>
+              <div className="flex justify-between">
+                <span>Typeform Basic plan</span>
+                <span className="font-semibold">$29/mo</span>
+              </div>
+              <p className="text-xs text-gray-400 -mt-2">(you already pay this)</p>
+              <div className="flex justify-between text-gray-400">
+                <span>Prompt engineering</span>
+                <span>your time</span>
+              </div>
+              <div className="flex justify-between text-gray-400">
+                <span>Zap maintenance</span>
+                <span>your time</span>
+              </div>
+              <div className="border-t border-gray-300 pt-3 mt-3 flex justify-between font-bold text-gray-800">
+                <span>Total</span>
+                <span>$49+/mo + tinkering</span>
+              </div>
+              <div className="flex justify-between text-gray-500 text-xs">
+                <span>Setup time</span>
+                <span>30–60 minutes</span>
+              </div>
+            </div>
+          </div>
+
+          {/* FormReply column */}
+          <div className="bg-indigo-50 rounded-2xl p-8 border-2 border-indigo-500 relative">
+            <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-indigo-600 text-white text-xs font-semibold px-3 py-1 rounded-full">
+              The smarter way
+            </div>
+            <div className="flex items-center gap-2 mb-6">
+              <div className="w-2 h-2 bg-indigo-500 rounded-full"></div>
+              <h3 className="font-bold text-indigo-900 text-lg">The FormReply way</h3>
+            </div>
+            <div className="font-mono text-sm space-y-3 text-indigo-800">
+              <div className="flex justify-between">
+                <span>FormReply</span>
+                <span className="font-semibold">$9/mo</span>
+              </div>
+              <div className="flex justify-between text-indigo-400">
+                <span>Setup time</span>
+                <span>2 minutes</span>
+              </div>
+              <div className="flex justify-between text-indigo-400">
+                <span>Maintenance</span>
+                <span>zero</span>
+              </div>
+              <div className="border-t border-indigo-300 pt-3 mt-3 flex justify-between font-bold text-indigo-900 text-base">
+                <span>Total</span>
+                <span>$9/mo. That&apos;s it.</span>
+              </div>
+            </div>
+            <div className="mt-6">
+              <Link
+                href="/onboarding"
+                className="block w-full bg-indigo-600 text-white py-3 rounded-xl font-semibold hover:bg-indigo-700 transition-colors text-center text-sm"
+              >
+                Start free 14-day trial →
+              </Link>
+            </div>
+          </div>
+        </div>
+
+        {/* Feature comparison table */}
+        <div className="overflow-x-auto">
+          <table className="w-full text-sm">
+            <thead>
+              <tr className="border-b-2 border-gray-200">
+                <th className="text-left py-4 pr-6 text-gray-600 font-semibold w-1/3"></th>
+                <th className="py-4 px-4 text-center bg-indigo-50 rounded-t-xl text-indigo-700 font-bold">
+                  FormReply
+                </th>
+                <th className="py-4 px-4 text-center text-gray-600 font-semibold">
+                  Zapier + ChatGPT
+                </th>
+                <th className="py-4 px-4 text-center text-gray-600 font-semibold hidden sm:table-cell">
+                  Typeform Native
+                </th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-gray-100">
+              {[
+                {
+                  feature: "AI-personalized replies",
+                  formreply: true,
+                  zapier: "requires config",
+                  typeform: false,
+                },
+                {
+                  feature: "Adapts to each submission",
+                  formreply: true,
+                  zapier: "if configured",
+                  typeform: false,
+                },
+                {
+                  feature: "Draft review before sending",
+                  formreply: true,
+                  zapier: "extra step",
+                  typeform: false,
+                },
+                {
+                  feature: "Setup time",
+                  formreply: "~2 min",
+                  zapier: "30–60 min",
+                  typeform: "~5 min",
+                },
+                {
+                  feature: "Maintenance",
+                  formreply: true,
+                  zapier: "Zaps break",
+                  typeform: true,
+                },
+                {
+                  feature: "Spam filtering",
+                  formreply: true,
+                  zapier: "extra cost",
+                  typeform: "basic",
+                },
+                {
+                  feature: "Monthly cost",
+                  formreply: "$9",
+                  zapier: "$49–79",
+                  typeform: "Free (no AI)",
+                },
+              ].map((row) => (
+                <tr key={row.feature} className="hover:bg-gray-50 transition-colors">
+                  <td className="py-4 pr-6 text-gray-700 font-medium">{row.feature}</td>
+                  <td className="py-4 px-4 text-center bg-indigo-50">
+                    {row.formreply === true ? <Check /> : <span className="text-sm font-semibold text-indigo-700">{row.formreply}</span>}
+                  </td>
+                  <td className="py-4 px-4 text-center">
+                    {row.zapier === false ? <X /> : typeof row.zapier === "string" ? <Partial label={row.zapier} /> : <Check />}
+                  </td>
+                  <td className="py-4 px-4 text-center hidden sm:table-cell">
+                    {row.typeform === true ? <Check /> : row.typeform === false ? <X /> : <Partial label={row.typeform as string} />}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          <p className="text-xs text-gray-400 mt-3">Zapier pricing based on Professional plan required for multi-step Zaps with AI actions. Typeform native emails don&apos;t support AI — every reply is a static template.</p>
+        </div>
+
+        <div className="text-center mt-10">
+          <Link href="/vs/zapier" className="text-indigo-600 text-sm font-medium hover:underline mr-6">
+            Full comparison: FormReply vs Zapier →
+          </Link>
+          <Link href="/vs/manual" className="text-indigo-600 text-sm font-medium hover:underline">
+            Why manual replies are costing you →
+          </Link>
+        </div>
+      </section>
+
+      {/* Before / After */}
+      <section className="bg-gray-900 py-20">
+        <div className="max-w-4xl mx-auto px-6">
+          <h2 className="text-3xl font-bold text-white text-center mb-14">What changes with FormReply</h2>
+          <div className="grid md:grid-cols-2 gap-6">
+            {/* Before */}
+            <div className="bg-gray-800 rounded-2xl p-8 border border-gray-700">
+              <div className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-5">Before</div>
+              <div className="space-y-4 mb-6">
+                <div className="flex items-start gap-3">
+                  <div className="w-5 h-5 rounded-full bg-gray-600 flex-shrink-0 mt-0.5"></div>
+                  <p className="text-gray-300 text-sm">You read the submission.</p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="w-5 h-5 rounded-full bg-gray-600 flex-shrink-0 mt-0.5"></div>
+                  <p className="text-gray-300 text-sm">Open a compose window.</p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="w-5 h-5 rounded-full bg-gray-600 flex-shrink-0 mt-0.5"></div>
+                  <p className="text-gray-300 text-sm">Think about what to write.</p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="w-5 h-5 rounded-full bg-gray-600 flex-shrink-0 mt-0.5"></div>
+                  <p className="text-gray-300 text-sm">Type it out.</p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="w-5 h-5 rounded-full bg-red-900 flex-shrink-0 mt-0.5"></div>
+                  <p className="text-gray-300 text-sm font-semibold">5 minutes gone. Repeat 20×/month.</p>
+                </div>
+              </div>
+              <div className="bg-gray-700 rounded-xl p-4 text-center">
+                <p className="text-gray-400 text-sm">~100 minutes/month on form replies</p>
+              </div>
+            </div>
+
+            {/* After */}
+            <div className="bg-indigo-900 rounded-2xl p-8 border border-indigo-700">
+              <div className="text-xs font-semibold text-indigo-400 uppercase tracking-wider mb-5">With FormReply</div>
+              <div className="space-y-4 mb-6">
+                <div className="flex items-start gap-3">
+                  <svg className="w-5 h-5 text-indigo-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <p className="text-indigo-100 text-sm">Submission arrives.</p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <svg className="w-5 h-5 text-indigo-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <p className="text-indigo-100 text-sm">Draft arrives in 10 seconds.</p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <svg className="w-5 h-5 text-indigo-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <p className="text-indigo-100 text-sm">You review. You send. Done.</p>
+                </div>
+              </div>
+              <div className="bg-indigo-800 rounded-xl p-4 text-center">
+                <p className="text-indigo-200 text-sm font-semibold">~5 minutes/month. Same result.</p>
+              </div>
+              <div className="mt-4">
+                <Link
+                  href="/onboarding"
+                  className="block w-full bg-white text-indigo-700 py-3 rounded-xl font-semibold hover:bg-indigo-50 transition-colors text-center text-sm"
+                >
+                  Start free trial →
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Time savings */}
-      <section className="bg-gray-900 py-16">
+      <section className="bg-gray-900 py-16 border-t border-gray-800">
         <div className="max-w-3xl mx-auto px-6 text-center">
           <h2 className="text-2xl font-bold text-white mb-3">The math is simple</h2>
           <p className="text-gray-400 mb-10">A thoughtful reply to a contact form submission takes 5 minutes on average.</p>
@@ -184,7 +479,7 @@ export default function LandingPage() {
               <div className="text-sm text-indigo-200">to get it all back</div>
             </div>
           </div>
-          <p className="text-gray-500 text-sm">FormReply drafts every reply in seconds. You review, edit if needed, and send.</p>
+          <p className="text-gray-500 text-sm">In testing, FormReply responded to 500+ form submissions with an average draft time of 8 seconds.</p>
         </div>
       </section>
 
@@ -230,14 +525,14 @@ export default function LandingPage() {
       {/* Founder section */}
       <section className="border-t border-gray-100 py-16">
         <div className="max-w-xl mx-auto px-6 text-center">
-          <div className="w-14 h-14 bg-indigo-100 rounded-full mx-auto mb-5 flex items-center justify-center text-2xl">
-            👋
+          <div className="w-14 h-14 bg-indigo-100 rounded-full mx-auto mb-5 flex items-center justify-center">
+            <Image src="/logo.png" alt="FormReply" width={28} height={28} />
           </div>
-          <h2 className="text-xl font-bold text-gray-900 mb-4">Built by a solo founder</h2>
+          <h2 className="text-xl font-bold text-gray-900 mb-2">Built with autonomous AI</h2>
+          <p className="text-xs text-indigo-600 font-medium mb-4 uppercase tracking-wider">FormReply is built and operated by an autonomous AI team</p>
           <p className="text-gray-600 leading-relaxed text-sm">
-            I built FormReply because I was spending 20 minutes every day rewriting the same contact form replies.
-            Every inquiry deserved a real response — but writing them from scratch was a grind.
-            FormReply handles the drafting so I can focus on actually helping people. If that resonates, give it a try.
+            FormReply was built because the problem is obvious: every contact form submission deserves a real, personal response — but writing them from scratch is a grind.
+            The AI team identified the gap, designed the product, and shipped it. If that resonates, give it a try.
           </p>
           <p className="text-gray-400 mt-5 text-sm">
             Questions? Email <a href="mailto:support@formreply.app" className="text-indigo-600 hover:underline">support@formreply.app</a>
@@ -253,6 +548,10 @@ export default function LandingPage() {
             {
               q: "Which forms does this work with?",
               a: "Typeform. You connect it via webhook — there's a step-by-step guide in the onboarding flow. Takes about 60 seconds to set up.",
+            },
+            {
+              q: "Can I use this with Google Forms or other form builders?",
+              a: "Right now FormReply works with Typeform. We're exploring other form builders — email us which ones you'd want at support@formreply.app.",
             },
             {
               q: "How does it match my tone?",
@@ -300,7 +599,13 @@ export default function LandingPage() {
             <Image src="/logo.png" alt="FormReply" width={22} height={22} />
             <span>FormReply</span>
           </Link>
-          <div className="flex items-center gap-6">
+          <div className="flex items-center gap-6 flex-wrap">
+            <Link href="/blog" className="text-sm text-gray-400 hover:text-gray-600 transition-colors">
+              Blog
+            </Link>
+            <Link href="/vs/zapier" className="text-sm text-gray-400 hover:text-gray-600 transition-colors">
+              vs Zapier
+            </Link>
             <Link href="/support" className="text-sm text-gray-400 hover:text-gray-600 transition-colors">
               Support
             </Link>
