@@ -1,6 +1,6 @@
 import { MetadataRoute } from "next";
 
-const APP_URL = "https://formreply-frontend-production.up.railway.app";
+const APP_URL = "https://formreply.app";
 
 export default function robots(): MetadataRoute.Robots {
   return {
