@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: "Typeform Airtable Integration: Sync Form Submissions to a Base",
     description:
       "Typeform captures the data. Airtable organizes it. FormReply sends the reply. Here's how to connect all three.",
-    url: "https://formreply-frontend.vercel.app/blog/typeform-airtable-integration",
+    url: "https://formreply-frontend-production.up.railway.app/blog/typeform-airtable-integration",
     siteName: "FormReply",
     type: "article",
   },

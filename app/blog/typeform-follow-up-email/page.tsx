@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: "How to Send a Follow-Up Email After Every Typeform Submission",
     description:
       "Three ways to follow up after Typeform submissions — manual, templates, and AI-drafted replies. One of them takes 10 seconds. Here's how to set it up.",
-    url: "https://formreply-frontend.vercel.app/blog/typeform-follow-up-email",
+    url: "https://formreply-frontend-production.up.railway.app/blog/typeform-follow-up-email",
     siteName: "FormReply",
     type: "article",
   },
@@ -165,7 +165,7 @@ export default function BlogPost() {
             <li>
               <strong>Create a FormReply account</strong> at{" "}
               <Link href="/onboarding" className="text-indigo-600 underline underline-offset-2">
-                formreply-frontend.vercel.app/onboarding
+                formreply-frontend-production.up.railway.app/onboarding
               </Link>
               . Enter your business context — 2 to 3 sentences about what you do and who you serve.
               This is what the AI uses to write in your voice.
@@ -217,7 +217,7 @@ export default function BlogPost() {
                   <td className="py-3 pr-4">FormReply (AI draft)</td>
                   <td className="py-3 pr-4">High (full AI reply)</td>
                   <td className="py-3 pr-4">5 minutes</td>
-                  <td className="py-3">$9/month</td>
+                  <td className="py-3">$19/month</td>
                 </tr>
               </tbody>
             </table>
@@ -259,7 +259,7 @@ export default function BlogPost() {
               href="/onboarding"
               className="inline-block bg-indigo-600 text-white px-6 py-3 rounded-xl font-medium hover:bg-indigo-700 transition-colors"
             >
-              Start free trial — $9/month
+              Start free trial — $19/month
             </Link>
           </div>
         </div>
@@ -272,7 +272,7 @@ export default function BlogPost() {
             FormReply
           </Link>
           <p className="text-sm text-gray-400">
-            AI reply drafts for every Typeform submission. $9/month.
+            AI reply drafts for every Typeform submission. $19/month.
           </p>
           <div className="flex gap-6 text-sm text-gray-400">
             <Link href="/blog/typeform-auto-reply" className="hover:text-gray-600">

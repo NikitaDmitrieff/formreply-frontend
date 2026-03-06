@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: "How to Send an Email When Someone Submits Your Typeform",
     description:
       "Typeform has basic email notifications, but they don't write the reply for you. Here's how to go from submission to a personalized draft in 10 seconds.",
-    url: "https://formreply-frontend.vercel.app/blog/typeform-send-email-on-submission",
+    url: "https://formreply-frontend-production.up.railway.app/blog/typeform-send-email-on-submission",
     siteName: "FormReply",
     type: "article",
   },
@@ -194,7 +194,7 @@ export default function BlogPost() {
                 </tr>
                 <tr>
                   <td className="border border-gray-200 px-4 py-3 text-gray-700">FormReply</td>
-                  <td className="border border-gray-200 px-4 py-3 text-gray-700">$9/mo</td>
+                  <td className="border border-gray-200 px-4 py-3 text-gray-700">$19/mo</td>
                   <td className="border border-gray-200 px-4 py-3 text-gray-700">AI-drafted reply, ready to send</td>
                   <td className="border border-gray-200 px-4 py-3 text-gray-700">Review and send</td>
                 </tr>
@@ -263,7 +263,7 @@ export default function BlogPost() {
             href="/onboarding"
             className="inline-block bg-indigo-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-indigo-700 transition-colors"
           >
-            Start free trial — $9/month
+            Start free trial — $19/month
           </Link>
         </div>
       </article>

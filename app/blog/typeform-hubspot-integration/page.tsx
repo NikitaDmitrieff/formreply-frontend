@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: "Typeform HubSpot Integration: Connect Your Form, Then Actually Reply to the Lead",
     description:
       "Typeform + HubSpot captures and organizes leads automatically. FormReply handles the step HubSpot skips — drafting the first personalized reply in 10 seconds.",
-    url: "https://formreply-frontend.vercel.app/blog/typeform-hubspot-integration",
+    url: "https://formreply-frontend-production.up.railway.app/blog/typeform-hubspot-integration",
     siteName: "FormReply",
     type: "article",
   },
@@ -165,7 +165,7 @@ export default function BlogPost() {
             <li>
               Create a FormReply account at{" "}
               <Link href="/onboarding" className="text-indigo-600 hover:underline">
-                formreply-frontend.vercel.app/onboarding
+                formreply-frontend-production.up.railway.app/onboarding
               </Link>
               . Enter your email, business name, and a short description of what you do — the AI uses
               this to draft replies that match your voice and context
@@ -295,7 +295,7 @@ export default function BlogPost() {
             HubSpot isn&rsquo;t built for that. FormReply is.
           </p>
           <p className="text-gray-600 leading-relaxed mb-6">
-            $9/month. Works alongside your existing setup. Draft in your inbox in 10 seconds.
+            $19/month. Works alongside your existing setup. Draft in your inbox in 10 seconds.
           </p>
         </div>
 
@@ -314,7 +314,7 @@ export default function BlogPost() {
           >
             Start free 14-day trial →
           </Link>
-          <p className="text-sm text-gray-400 mt-3">$9/month after trial · Cancel anytime</p>
+          <p className="text-sm text-gray-400 mt-3">$19/month after trial · Cancel anytime</p>
         </div>
       </article>
     </main>

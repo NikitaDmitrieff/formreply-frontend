@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: "Typeform Email to Respondent: How to Reply Personally to Every Submission",
     description:
       "Typeform's built-in respondent emails are generic confirmations. FormReply drafts a personalized reply to every submission in 10 seconds — delivered to your Gmail inbox, ready to send.",
-    url: "https://formreply-frontend.vercel.app/blog/typeform-email-to-respondent",
+    url: "https://formreply-frontend-production.up.railway.app/blog/typeform-email-to-respondent",
     siteName: "FormReply",
     type: "article",
   },

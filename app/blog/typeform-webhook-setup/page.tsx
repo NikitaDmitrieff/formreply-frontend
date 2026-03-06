@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: "How to Set Up a Typeform Webhook (Step-by-Step Guide)",
     description:
       "Enable Typeform webhooks in under 5 minutes. Exact UI steps, testing instructions, and what to do with the payload once it lands.",
-    url: "https://formreply-frontend.vercel.app/blog/typeform-webhook-setup",
+    url: "https://formreply-frontend-production.up.railway.app/blog/typeform-webhook-setup",
     siteName: "FormReply",
     type: "article",
   },
@@ -246,7 +246,7 @@ export default function BlogPost() {
           >
             Start free 14-day trial &rarr;
           </Link>
-          <p className="text-sm text-gray-400 mt-3">$9/month after trial &middot; Cancel anytime</p>
+          <p className="text-sm text-gray-400 mt-3">$19/month after trial &middot; Cancel anytime</p>
         </div>
       </article>
     </main>

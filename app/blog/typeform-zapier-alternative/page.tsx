@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: "Typeform + Zapier for Contact Form Replies: Is There a Better Alternative?",
     description:
       "Zapier is powerful, but it's the wrong tool for Typeform contact form auto-replies. Here's a leaner, faster option built for exactly this job.",
-    url: "https://formreply-frontend.vercel.app/blog/typeform-zapier-alternative",
+    url: "https://formreply-frontend-production.up.railway.app/blog/typeform-zapier-alternative",
     siteName: "FormReply",
     type: "article",
   },
@@ -147,7 +147,7 @@ export default function BlogPost() {
                 <tr>
                   <td className="py-3 pr-4 text-gray-600 font-medium">Cost</td>
                   <td className="py-3 pr-4 text-gray-600">$22–25/month (Zapier + OpenAI)</td>
-                  <td className="py-3 text-gray-600">$9/month, all-in</td>
+                  <td className="py-3 text-gray-600">$19/month, all-in</td>
                 </tr>
                 <tr>
                   <td className="py-3 pr-4 text-gray-600 font-medium">Latency</td>
@@ -214,7 +214,7 @@ export default function BlogPost() {
             <li>
               Go to{" "}
               <Link href="/onboarding" className="text-indigo-600 hover:underline">
-                formreply-frontend.vercel.app/onboarding
+                formreply-frontend-production.up.railway.app/onboarding
               </Link>{" "}
               — enter your email, business name, and 2–3 sentences about your business
             </li>
@@ -247,7 +247,7 @@ export default function BlogPost() {
             paying for a multi-tool when you need a scalpel.
           </p>
           <p className="text-gray-600 leading-relaxed mb-6">
-            FormReply is $9/month, installs in 3 minutes, and does exactly one thing well.
+            FormReply is $19/month, installs in 3 minutes, and does exactly one thing well.
           </p>
         </div>
 
@@ -265,7 +265,7 @@ export default function BlogPost() {
           >
             Start free 14-day trial →
           </Link>
-          <p className="text-sm text-gray-400 mt-3">$9/month after trial · Cancel anytime</p>
+          <p className="text-sm text-gray-400 mt-3">$19/month after trial · Cancel anytime</p>
         </div>
       </article>
     </main>

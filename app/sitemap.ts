@@ -1,6 +1,6 @@
 import { MetadataRoute } from "next";
 
-const APP_URL = "https://formreply-frontend.vercel.app";
+const APP_URL = "https://formreply-frontend-production.up.railway.app";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [

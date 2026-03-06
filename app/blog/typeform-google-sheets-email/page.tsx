@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: "Typeform + Google Sheets + Email: The Full Submission Workflow",
     description:
       "Typeform to Google Sheets handles collection and tracking. FormReply handles the reply. Two webhooks, five minutes, no Zapier required.",
-    url: "https://formreply-frontend.vercel.app/blog/typeform-google-sheets-email",
+    url: "https://formreply-frontend-production.up.railway.app/blog/typeform-google-sheets-email",
     siteName: "FormReply",
     type: "article",
   },
@@ -194,7 +194,7 @@ export default function BlogPost() {
             <li>
               Go to{" "}
               <Link href="/onboarding" className="text-indigo-600 hover:underline">
-                formreply-frontend.vercel.app/onboarding
+                formreply-frontend-production.up.railway.app/onboarding
               </Link>{" "}
               and create your account. Enter your email, business name, and 2–3 sentences about what your business
               does and the tone you want for replies (formal, friendly, concise, detailed).
@@ -265,7 +265,7 @@ export default function BlogPost() {
             submission. They complement each other perfectly and require no changes to your existing Sheets setup.
           </p>
           <p className="text-gray-600 leading-relaxed mb-6">
-            $9/month. 3-minute setup. Draft in your inbox in 10 seconds.
+            $19/month. 3-minute setup. Draft in your inbox in 10 seconds.
           </p>
         </div>
 
@@ -284,7 +284,7 @@ export default function BlogPost() {
           >
             Start free 14-day trial →
           </Link>
-          <p className="text-sm text-gray-400 mt-3">$9/month after trial · Cancel anytime</p>
+          <p className="text-sm text-gray-400 mt-3">$19/month after trial · Cancel anytime</p>
         </div>
       </article>
     </main>

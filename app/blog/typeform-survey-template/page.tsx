@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: "Typeform Survey Templates: Best Free Templates for Every Use Case",
     description:
       "The best Typeform survey templates for every use case — customer feedback, NPS, lead gen, contact forms, event registration, and more.",
-    url: "https://formreply-frontend.vercel.app/blog/typeform-survey-template",
+    url: "https://formreply-frontend-production.up.railway.app/blog/typeform-survey-template",
     siteName: "FormReply",
     type: "article",
   },

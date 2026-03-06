@@ -61,7 +61,7 @@ export default function OGImage() {
               FormReply
             </span>
             <span style={{ color: '#374151', fontSize: '22px' }}>·</span>
-            <span style={{ color: '#6b7280', fontSize: '20px' }}>$9/month</span>
+            <span style={{ color: '#6b7280', fontSize: '20px' }}>$19/month</span>
             <span style={{ color: '#374151', fontSize: '22px' }}>·</span>
             <span style={{ color: '#6b7280', fontSize: '20px' }}>14-day free trial</span>
           </div>

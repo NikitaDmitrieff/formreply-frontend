@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: "Typeform Lead Generation: Why Your Form Converts but Your Follow-Up Doesn't",
     description:
       "Typeform captures leads beautifully. FormReply makes sure you reply to each one fast, with a personalized draft in your inbox within 10 seconds of every submission.",
-    url: "https://formreply-frontend.vercel.app/blog/typeform-lead-generation",
+    url: "https://formreply-frontend-production.up.railway.app/blog/typeform-lead-generation",
     siteName: "FormReply",
     type: "article",
   },
@@ -185,7 +185,7 @@ export default function BlogPost() {
             <li>
               Create your FormReply account at{" "}
               <Link href="/onboarding" className="text-indigo-600 hover:underline">
-                formreply-frontend.vercel.app/onboarding
+                formreply-frontend-production.up.railway.app/onboarding
               </Link>
               . Describe your business in 2–3 sentences — this context is what makes the drafts specific
               to you
@@ -298,7 +298,7 @@ export default function BlogPost() {
             built from what the person actually wrote, ready for you to review and send.
           </p>
           <p className="text-gray-600 leading-relaxed mb-6">
-            $9/month. Works with any Typeform form. 3-minute setup.
+            $19/month. Works with any Typeform form. 3-minute setup.
           </p>
         </div>
 
@@ -317,7 +317,7 @@ export default function BlogPost() {
           >
             Start free 14-day trial →
           </Link>
-          <p className="text-sm text-gray-400 mt-3">$9/month after trial · Cancel anytime</p>
+          <p className="text-sm text-gray-400 mt-3">$19/month after trial · Cancel anytime</p>
         </div>
       </article>
     </main>

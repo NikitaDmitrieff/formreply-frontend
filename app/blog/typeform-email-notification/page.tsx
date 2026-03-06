@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: "Typeform Email Notification: Get Submission Alerts + Reply Drafts in One Email",
     description:
       "Stop reading raw form data in notification emails. FormReply sends you a formatted submission summary with an AI-drafted reply — ready to review and send.",
-    url: "https://formreply-frontend.vercel.app/blog/typeform-email-notification",
+    url: "https://formreply-frontend-production.up.railway.app/blog/typeform-email-notification",
     siteName: "FormReply",
     type: "article",
   },
@@ -203,7 +203,7 @@ export default function BlogPost() {
             <li>
               <strong>Create your FormReply account</strong> at{" "}
               <Link href="/onboarding" className="text-indigo-600 hover:underline">
-                formreply-frontend.vercel.app/onboarding
+                formreply-frontend-production.up.railway.app/onboarding
               </Link>
               . Enter your email, business name, and a short description of what your form is for. This shapes how the
               AI drafts replies.
@@ -295,7 +295,7 @@ export default function BlogPost() {
             delayed responses because you ran out of time.
           </p>
           <p className="text-gray-600 leading-relaxed mb-6">
-            $9/month. 3-minute setup. Draft in your inbox in 10 seconds.
+            $19/month. 3-minute setup. Draft in your inbox in 10 seconds.
           </p>
         </div>
 
@@ -313,7 +313,7 @@ export default function BlogPost() {
           >
             Start free 14-day trial →
           </Link>
-          <p className="text-sm text-gray-400 mt-3">$9/month after trial · Cancel anytime</p>
+          <p className="text-sm text-gray-400 mt-3">$19/month after trial · Cancel anytime</p>
         </div>
       </article>
     </main>

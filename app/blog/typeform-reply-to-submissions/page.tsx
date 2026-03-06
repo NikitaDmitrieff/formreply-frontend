@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: "How to Reply to Typeform Submissions: 3 Approaches Compared",
     description:
       "Manual replies, Zapier automation, or AI reply drafts? Here's how to pick the right approach for replying to Typeform contact form submissions.",
-    url: "https://formreply-frontend.vercel.app/blog/typeform-reply-to-submissions",
+    url: "https://formreply-frontend-production.up.railway.app/blog/typeform-reply-to-submissions",
     siteName: "FormReply",
     type: "article",
   },
@@ -168,7 +168,7 @@ export default function BlogPost() {
             <li>Drafts are ready when you are — including submissions that arrive at 2am</li>
             <li>Each reply still goes through your review — no automated emails sent without approval</li>
             <li>
-              $9/month, no other tools needed — cheaper and simpler than Zapier + OpenAI
+              $19/month, no other tools needed — cheaper and simpler than Zapier + OpenAI
             </li>
             <li>3-minute setup — connect your Typeform webhook, done</li>
             <li>Only works with Typeform — not other form builders</li>
@@ -202,7 +202,7 @@ export default function BlogPost() {
                   <td className="py-3 pr-4 text-gray-600 font-medium">Cost/month</td>
                   <td className="py-3 pr-4 text-gray-600">$0</td>
                   <td className="py-3 pr-4 text-gray-600">$22–25</td>
-                  <td className="py-3 text-gray-600">$9</td>
+                  <td className="py-3 text-gray-600">$19</td>
                 </tr>
                 <tr>
                   <td className="py-3 pr-4 text-gray-600 font-medium">Reply time</td>
@@ -282,7 +282,7 @@ export default function BlogPost() {
             <li>
               Go to{" "}
               <Link href="/onboarding" className="text-indigo-600 hover:underline">
-                formreply-frontend.vercel.app/onboarding
+                formreply-frontend-production.up.railway.app/onboarding
               </Link>{" "}
               — enter your email, business name, and 2–3 sentences about what you do and the tone you want (formal,
               casual, concise)
@@ -317,7 +317,7 @@ export default function BlogPost() {
             per reply,&rdquo; there&rsquo;s now a tool built exactly for that.
           </p>
           <p className="text-gray-600 leading-relaxed mb-6">
-            FormReply: $9/month, 3-minute setup, AI reply drafts in your inbox 10 seconds after every submission.
+            FormReply: $19/month, 3-minute setup, AI reply drafts in your inbox 10 seconds after every submission.
           </p>
         </div>
 
@@ -335,7 +335,7 @@ export default function BlogPost() {
           >
             Start free 14-day trial →
           </Link>
-          <p className="text-sm text-gray-400 mt-3">$9/month after trial · Cancel anytime</p>
+          <p className="text-sm text-gray-400 mt-3">$19/month after trial · Cancel anytime</p>
         </div>
       </article>
     </main>

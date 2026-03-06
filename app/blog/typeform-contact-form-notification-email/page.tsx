@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: "Typeform Contact Form Notification Email: What You Get vs. What You Need",
     description:
       "Typeform notifications tell you a form came in. They don't draft a reply. Here's the gap — and how to close it.",
-    url: "https://formreply-frontend.vercel.app/blog/typeform-contact-form-notification-email",
+    url: "https://formreply-frontend-production.up.railway.app/blog/typeform-contact-form-notification-email",
     siteName: "FormReply",
     type: "article",
   },
@@ -227,7 +227,7 @@ export default function BlogPost() {
                   <td className="py-3 pr-4">FormReply AI draft</td>
                   <td className="py-3 pr-4">Draft reply in inbox in 10s</td>
                   <td className="py-3 pr-4">Just review + send</td>
-                  <td className="py-3">$9/mo</td>
+                  <td className="py-3">$19/mo</td>
                 </tr>
               </tbody>
             </table>
@@ -238,7 +238,7 @@ export default function BlogPost() {
             <li>
               <strong>Sign up at{" "}
               <Link href="/onboarding" className="text-indigo-600 underline underline-offset-2">
-                formreply-frontend.vercel.app/onboarding
+                formreply-frontend-production.up.railway.app/onboarding
               </Link>
               </strong> — write 2-3 sentences about your business and pick a tone (professional, friendly, or casual).
             </li>
@@ -287,7 +287,7 @@ export default function BlogPost() {
               href="/onboarding"
               className="inline-block bg-indigo-600 text-white px-6 py-3 rounded-xl font-medium hover:bg-indigo-700 transition-colors"
             >
-              Start free trial — $9/month
+              Start free trial — $19/month
             </Link>
           </div>
         </div>
@@ -300,7 +300,7 @@ export default function BlogPost() {
             FormReply
           </Link>
           <p className="text-sm text-gray-400">
-            AI reply drafts for every Typeform submission. $9/month.
+            AI reply drafts for every Typeform submission. $19/month.
           </p>
           <div className="flex gap-6 text-sm text-gray-400">
             <Link href="/blog/typeform-follow-up-email" className="hover:text-gray-600">

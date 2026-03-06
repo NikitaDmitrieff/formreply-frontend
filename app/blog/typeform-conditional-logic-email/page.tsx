@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: "Typeform Conditional Logic + Email: Draft Replies That Match What They Actually Submitted",
     description:
       "Conditional logic makes your Typeform adaptive. FormReply makes your replies adaptive too — AI-drafted based on the exact path each respondent took.",
-    url: "https://formreply-frontend.vercel.app/blog/typeform-conditional-logic-email",
+    url: "https://formreply-frontend-production.up.railway.app/blog/typeform-conditional-logic-email",
     siteName: "FormReply",
     type: "article",
   },
@@ -175,7 +175,7 @@ export default function BlogPost() {
             <li>
               Create your FormReply account at{" "}
               <Link href="/onboarding" className="text-indigo-600 hover:underline">
-                formreply-frontend.vercel.app/onboarding
+                formreply-frontend-production.up.railway.app/onboarding
               </Link>
               . Write a clear business description — the more specific you are about your services, ideal clients,
               and reply tone, the more relevant the drafts will be.
@@ -266,7 +266,7 @@ export default function BlogPost() {
             the form captured.
           </p>
           <p className="text-gray-600 leading-relaxed mb-6">
-            $9/month. 3-minute setup. Personalized draft in your inbox in 10 seconds.
+            $19/month. 3-minute setup. Personalized draft in your inbox in 10 seconds.
           </p>
         </div>
 
@@ -285,7 +285,7 @@ export default function BlogPost() {
           >
             Start free 14-day trial →
           </Link>
-          <p className="text-sm text-gray-400 mt-3">$9/month after trial · Cancel anytime</p>
+          <p className="text-sm text-gray-400 mt-3">$19/month after trial · Cancel anytime</p>
         </div>
       </article>
     </main>

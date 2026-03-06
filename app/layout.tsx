@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
-const APP_URL = "https://formreply-frontend.vercel.app";
+const APP_URL = "https://formreply-frontend-production.up.railway.app";
 
 export const metadata: Metadata = {
   metadataBase: new URL(APP_URL),
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     shortcut: "/logo.png",
     apple: "/logo.png",
   },
-  description: "FormReply watches your Typeform and drafts a personalized email reply for every submission — delivered to your inbox in seconds. Review and send. $9/month.",
+  description: "FormReply watches your Typeform and drafts a personalized email reply for every submission — delivered to your inbox in seconds. Start free (5 replies/mo), then $19/month.",
   keywords: [
     "typeform auto reply",
     "typeform email reply",
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "FormReply — AI Reply Drafts for Typeform Submissions",
-    description: "Typeform submission → personalized reply draft in your inbox in 10 seconds. Review, send. $9/month.",
+    description: "Typeform submission → personalized reply draft in your inbox in 10 seconds. Start free, then $19/month.",
   },
   robots: {
     index: true,

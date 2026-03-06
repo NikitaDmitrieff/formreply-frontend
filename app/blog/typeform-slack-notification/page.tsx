@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: "How to Get Slack Notifications for Typeform Submissions",
     description:
       "Typeform → Slack works well for internal alerts. But if you need to reply to the submitter, there's a better notification format than a raw Slack ping.",
-    url: "https://formreply-frontend.vercel.app/blog/typeform-slack-notification",
+    url: "https://formreply-frontend-production.up.railway.app/blog/typeform-slack-notification",
     siteName: "FormReply",
     type: "article",
   },
@@ -193,7 +193,7 @@ export default function BlogPost() {
                 <tr>
                   <td className="py-3 pr-4 text-gray-600 font-medium">Cost</td>
                   <td className="py-3 pr-4 text-gray-600">Free (native) / $20+/mo (Zapier)</td>
-                  <td className="py-3 text-gray-600">$9/month</td>
+                  <td className="py-3 text-gray-600">$19/month</td>
                 </tr>
               </tbody>
             </table>
@@ -222,7 +222,7 @@ export default function BlogPost() {
             <li>
               Go to{" "}
               <Link href="/onboarding" className="text-indigo-600 hover:underline">
-                formreply-frontend.vercel.app/onboarding
+                formreply-frontend-production.up.railway.app/onboarding
               </Link>{" "}
               — enter your email and 2–3 sentences about your business
             </li>
@@ -300,7 +300,7 @@ export default function BlogPost() {
           >
             Start free 14-day trial →
           </Link>
-          <p className="text-sm text-gray-400 mt-3">$9/month after trial · Cancel anytime</p>
+          <p className="text-sm text-gray-400 mt-3">$19/month after trial · Cancel anytime</p>
         </div>
       </article>
     </main>

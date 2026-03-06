@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: "Typeform Monday.com Integration: Connect Submissions to Your Boards",
     description:
       "Typeform fills your Monday.com board. FormReply sends the personal reply. Here's how to set up both.",
-    url: "https://formreply-frontend.vercel.app/blog/typeform-monday-integration",
+    url: "https://formreply-frontend-production.up.railway.app/blog/typeform-monday-integration",
     siteName: "FormReply",
     type: "article",
   },

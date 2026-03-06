@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: "Typeform vs Google Forms: Which Is the Better Alternative in 2024?",
     description:
       "Typeform and Google Forms both collect responses. Neither drafts your first reply. Here's how to close that gap.",
-    url: "https://formreply-frontend.vercel.app/blog/typeform-google-forms-alternative",
+    url: "https://formreply-frontend-production.up.railway.app/blog/typeform-google-forms-alternative",
     siteName: "FormReply",
     type: "article",
   },

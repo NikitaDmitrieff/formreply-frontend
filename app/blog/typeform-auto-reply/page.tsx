@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: "How to Automatically Reply to Typeform Submissions (Without Zapier)",
     description:
       "Use Typeform webhooks and AI to draft personalized replies to every form submission — delivered to your inbox in 10 seconds.",
-    url: "https://formreply-frontend.vercel.app/blog/typeform-auto-reply",
+    url: "https://formreply-frontend-production.up.railway.app/blog/typeform-auto-reply",
     siteName: "FormReply",
     type: "article",
   },
@@ -131,7 +131,7 @@ export default function BlogPost() {
             <li>
               <strong>Create your FormReply account</strong> at{" "}
               <Link href="/onboarding" className="text-indigo-600 hover:underline">
-                formreply-frontend.vercel.app
+                formreply-frontend-production.up.railway.app
               </Link>{" "}
               — enter your email, business name, and 2–3 sentences about what you do
             </li>
@@ -172,7 +172,7 @@ export default function BlogPost() {
             <li>Maintaining the Zap when either Typeform or OpenAI changes their API requires manual updates</li>
           </ul>
           <p className="text-gray-600 leading-relaxed mb-4">
-            FormReply handles the full pipeline for $9/month: webhook receiver, AI drafting, structured email
+            FormReply handles the full pipeline for $19/month: webhook receiver, AI drafting, structured email
             delivery with both the submission and the draft shown together. Setup is a single webhook URL.
           </p>
 
@@ -197,7 +197,7 @@ export default function BlogPost() {
           >
             Start free 14-day trial →
           </Link>
-          <p className="text-sm text-gray-400 mt-3">$9/month after trial · Cancel anytime</p>
+          <p className="text-sm text-gray-400 mt-3">$19/month after trial · Cancel anytime</p>
         </div>
       </article>
     </main>

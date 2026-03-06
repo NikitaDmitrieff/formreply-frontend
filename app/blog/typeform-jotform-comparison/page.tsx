@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: "Typeform vs JotForm: Full Comparison (2025)",
     description:
       "JotForm has more templates and a generous free tier. Typeform has superior conversational UX. Which is right for you?",
-    url: "https://formreply-frontend.vercel.app/blog/typeform-jotform-comparison",
+    url: "https://formreply-frontend-production.up.railway.app/blog/typeform-jotform-comparison",
     siteName: "FormReply",
     type: "article",
   },

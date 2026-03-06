@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: "Typeform CRM Integration: Capture the Lead and Reply Before It Hits Your CRM",
     description:
       "Syncing Typeform to your CRM is step one. FormReply handles step two — the personalized reply that turns a captured lead into an actual conversation.",
-    url: "https://formreply-frontend.vercel.app/blog/typeform-crm-integration",
+    url: "https://formreply-frontend-production.up.railway.app/blog/typeform-crm-integration",
     siteName: "FormReply",
     type: "article",
   },
@@ -152,7 +152,7 @@ export default function BlogPost() {
             <li>
               Create your FormReply account at{" "}
               <Link href="/onboarding" className="text-indigo-600 hover:underline">
-                formreply-frontend.vercel.app/onboarding
+                formreply-frontend-production.up.railway.app/onboarding
               </Link>
               . Enter your email, business name, and a description of what you do (the AI uses this to draft replies
               in your voice)
@@ -296,7 +296,7 @@ export default function BlogPost() {
             are slow or generic, the fix is one webhook endpoint away.
           </p>
           <p className="text-gray-600 leading-relaxed mb-6">
-            $9/month. 3-minute setup. Draft in your inbox in 10 seconds.
+            $19/month. 3-minute setup. Draft in your inbox in 10 seconds.
           </p>
         </div>
 
@@ -315,7 +315,7 @@ export default function BlogPost() {
           >
             Start free 14-day trial →
           </Link>
-          <p className="text-sm text-gray-400 mt-3">$9/month after trial · Cancel anytime</p>
+          <p className="text-sm text-gray-400 mt-3">$19/month after trial · Cancel anytime</p>
         </div>
       </article>
     </main>

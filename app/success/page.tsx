@@ -140,7 +140,7 @@ export default async function SuccessPage({
             </div>
             <div className="flex justify-between">
               <span>Plan</span>
-              <span className="font-medium">Starter — $9/month (14-day trial active)</span>
+              <span className="font-medium">Starter — $19/month (14-day trial active)</span>
             </div>
           </div>
         </div>
