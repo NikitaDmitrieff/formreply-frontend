@@ -26,7 +26,7 @@ describe("Landing Page", () => {
   it("renders the hero headline", () => {
     render(<LandingPage />);
     expect(
-      screen.getByText(/Every form lead gets a reply in 10 seconds/i)
+      screen.getByText(/Stop losing leads to slow replies/i)
     ).toBeInTheDocument();
   });
 

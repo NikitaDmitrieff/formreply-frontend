@@ -62,18 +62,18 @@ export default function LandingPage() {
       <NavBar />
 
       {/* Hero */}
-      <section className="max-w-5xl mx-auto px-6 pt-20 sm:pt-24 pb-16">
+      <section className="max-w-5xl mx-auto px-6 pt-14 sm:pt-24 pb-16">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
             <div className="inline-flex items-center gap-2 bg-indigo-50 text-indigo-700 text-sm font-medium px-3 py-1.5 rounded-full mb-6">
               <span className="w-2 h-2 bg-indigo-500 rounded-full animate-pulse"></span>
               Form submission &rarr; reply draft in ~10s
             </div>
-            <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 leading-[1.1] mb-5 tracking-tight">
-              Every form lead gets a reply in 10 seconds.
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-[1.08] mb-5 tracking-tight">
+              Stop losing leads to slow replies.
             </h1>
-            <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-              AI reads each submission and drafts a personalized response &mdash; you just review and send. No templates, no copy-paste.
+            <p className="text-lg text-gray-600 mb-8 leading-relaxed max-w-lg">
+              AI reads each form submission and drafts a personalized response in seconds &mdash; you just review and send. No templates, no copy-paste.
             </p>
             <div className="flex flex-col sm:flex-row gap-3">
               <Link
@@ -89,7 +89,7 @@ export default function LandingPage() {
                 See how it works
               </a>
             </div>
-            <p className="text-sm text-gray-400 mt-4">5 free replies/month &middot; No card required &middot; Cancel anytime</p>
+            <p className="text-sm text-gray-400 mt-4">Free plan &middot; 5 replies/month &middot; No card required</p>
           </div>
 
           {/* Email draft mockup */}
@@ -137,52 +137,49 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Works with */}
-      <div className="py-8 text-center">
-        <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-5">Works with</p>
-        <div className="flex items-center justify-center gap-10 flex-wrap">
-          {/* Typeform */}
-          <div className="flex items-center gap-2 text-gray-400 hover:text-gray-600 transition-colors">
-            <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M1.333 0v24h21.334V0H1.333zm12.735 13.31c-.697.394-1.378.811-2.084 1.187-.353.189-.733.334-1.093.503-.245.115-.437.023-.445-.258-.018-.619-.009-1.238-.005-1.857.003-.375.014-.75.013-1.125-.003-.644-.013-1.287-.017-1.93 0-.166.053-.27.206-.345.51-.25 1.015-.51 1.525-.76.67-.328 1.346-.646 2.008-.986.168-.086.306-.072.46.012.484.262.976.512 1.462.77.627.333 1.25.674 1.878 1.005.143.076.204.175.204.338-.005 1.29-.004 2.58-.003 3.871 0 .306-.032.34-.326.178-.822-.454-1.642-.911-2.463-1.367-.442-.246-.883-.494-1.32-.736-.164-.09-.164-.09 0 .3z"/>
-            </svg>
-            <span className="text-sm font-medium">Typeform</span>
+      {/* Credibility strip — integrations + trust signals combined */}
+      <div className="border-y border-gray-100 bg-gray-50 py-6">
+        <div className="max-w-5xl mx-auto px-6">
+          <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-8 mb-4">
+            {/* Typeform */}
+            <div className="flex items-center gap-2 text-gray-400">
+              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M1.333 0v24h21.334V0H1.333zm12.735 13.31c-.697.394-1.378.811-2.084 1.187-.353.189-.733.334-1.093.503-.245.115-.437.023-.445-.258-.018-.619-.009-1.238-.005-1.857.003-.375.014-.75.013-1.125-.003-.644-.013-1.287-.017-1.93 0-.166.053-.27.206-.345.51-.25 1.015-.51 1.525-.76.67-.328 1.346-.646 2.008-.986.168-.086.306-.072.46.012.484.262.976.512 1.462.77.627.333 1.25.674 1.878 1.005.143.076.204.175.204.338-.005 1.29-.004 2.58-.003 3.871 0 .306-.032.34-.326.178-.822-.454-1.642-.911-2.463-1.367-.442-.246-.883-.494-1.32-.736-.164-.09-.164-.09 0 .3z"/>
+              </svg>
+              <span className="text-sm font-medium">Typeform</span>
+            </div>
+            {/* Google Forms */}
+            <div className="flex items-center gap-2 text-gray-400">
+              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M14.727 6.727H14V0H4.91c-.905 0-1.637.732-1.637 1.636v20.728c0 .904.732 1.636 1.636 1.636h14.182c.904 0 1.636-.732 1.636-1.636V6.727h-6.001zm-.545 10.455H7.09v-1.637h7.09v1.637zm2.727-3.273H7.091v-1.636h9.818v1.636zm0-3.272H7.091V9h9.818v1.637zM14.727 0l6 6.727h-6V0z"/>
+              </svg>
+              <span className="text-sm font-medium">Google Forms</span>
+            </div>
+            {/* Webflow */}
+            <div className="flex items-center gap-2 text-gray-400">
+              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M17.803 6.105c-1.457 2.393-4.108 7.523-4.108 7.523s-.075-3.83-2.478-7.523c-1.706-2.622-4.543-3.855-6.717-3.855v15.5c0 .574.32 1.1.832 1.362l.025.013c.238.12.508.183.78.183.292 0 .583-.073.844-.22C8.6 18.254 10 16.914 10 14.498s-.042-5.357-.042-5.357 3.395 9.354 3.595 9.854c.2.5.793.755 1.247.755.454 0 .922-.293 1.13-.653C16.67 17.9 21.5 8.81 21.5 8.81v7.94c0 2.25 1.8 4.5 4.5 4.5"/>
+              </svg>
+              <span className="text-sm font-medium">Webflow</span>
+            </div>
           </div>
-          {/* Google Forms */}
-          <div className="flex items-center gap-2 text-gray-400 hover:text-gray-600 transition-colors">
-            <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M14.727 6.727H14V0H4.91c-.905 0-1.637.732-1.637 1.636v20.728c0 .904.732 1.636 1.636 1.636h14.182c.904 0 1.636-.732 1.636-1.636V6.727h-6.001zm-.545 10.455H7.09v-1.637h7.09v1.637zm2.727-3.273H7.091v-1.636h9.818v1.636zm0-3.272H7.091V9h9.818v1.637zM14.727 0l6 6.727h-6V0z"/>
-            </svg>
-            <span className="text-sm font-medium">Google Forms</span>
-          </div>
-          {/* Webflow */}
-          <div className="flex items-center gap-2 text-gray-400 hover:text-gray-600 transition-colors">
-            <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M17.803 6.105c-1.457 2.393-4.108 7.523-4.108 7.523s-.075-3.83-2.478-7.523c-1.706-2.622-4.543-3.855-6.717-3.855v15.5c0 .574.32 1.1.832 1.362l.025.013c.238.12.508.183.78.183.292 0 .583-.073.844-.22C8.6 18.254 10 16.914 10 14.498s-.042-5.357-.042-5.357 3.395 9.354 3.595 9.854c.2.5.793.755 1.247.755.454 0 .922-.293 1.13-.653C16.67 17.9 21.5 8.81 21.5 8.81v7.94c0 2.25 1.8 4.5 4.5 4.5"/>
-            </svg>
-            <span className="text-sm font-medium">Webflow</span>
-          </div>
-        </div>
-      </div>
-
-      {/* Trust signals — real commitments, not fake stats */}
-      <div className="border-y border-gray-100 bg-gray-50 py-5">
-        <div className="max-w-5xl mx-auto px-6 grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
-          <div className="flex flex-col items-center gap-1.5">
-            <svg className="w-5 h-5 text-indigo-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
-            <span className="text-sm text-gray-600 font-medium">No email access needed</span>
-          </div>
-          <div className="flex flex-col items-center gap-1.5">
-            <svg className="w-5 h-5 text-indigo-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg>
-            <span className="text-sm text-gray-600 font-medium">You review before sending</span>
-          </div>
-          <div className="flex flex-col items-center gap-1.5">
-            <svg className="w-5 h-5 text-indigo-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
-            <span className="text-sm text-gray-600 font-medium">Setup in under 2 minutes</span>
-          </div>
-          <div className="flex flex-col items-center gap-1.5">
-            <svg className="w-5 h-5 text-indigo-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 19v-8.93a2 2 0 01.89-1.664l7-4.666a2 2 0 012.22 0l7 4.666A2 2 0 0121 10.07V19M3 19a2 2 0 002 2h14a2 2 0 002-2M3 19l6.75-4.5M21 19l-6.75-4.5M3 10l6.75 4.5M21 10l-6.75 4.5m0 0l-1.14.76a2 2 0 01-2.22 0l-1.14-.76" /></svg>
-            <span className="text-sm text-gray-600 font-medium">Spam filtered automatically</span>
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
+            <div className="flex flex-col items-center gap-1.5">
+              <svg className="w-5 h-5 text-indigo-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
+              <span className="text-sm text-gray-600 font-medium">No email access needed</span>
+            </div>
+            <div className="flex flex-col items-center gap-1.5">
+              <svg className="w-5 h-5 text-indigo-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg>
+              <span className="text-sm text-gray-600 font-medium">You review before sending</span>
+            </div>
+            <div className="flex flex-col items-center gap-1.5">
+              <svg className="w-5 h-5 text-indigo-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+              <span className="text-sm text-gray-600 font-medium">Setup in under 2 minutes</span>
+            </div>
+            <div className="flex flex-col items-center gap-1.5">
+              <svg className="w-5 h-5 text-indigo-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 19v-8.93a2 2 0 01.89-1.664l7-4.666a2 2 0 012.22 0l7 4.666A2 2 0 0121 10.07V19M3 19a2 2 0 002 2h14a2 2 0 002-2M3 19l6.75-4.5M21 19l-6.75-4.5M3 10l6.75 4.5M21 10l-6.75 4.5m0 0l-1.14.76a2 2 0 01-2.22 0l-1.14-.76" /></svg>
+              <span className="text-sm text-gray-600 font-medium">Spam filtered automatically</span>
+            </div>
           </div>
         </div>
       </div>
@@ -264,17 +261,17 @@ export default function LandingPage() {
 
           <div className="grid md:grid-cols-3 gap-6 mb-10">
             <div className="bg-gray-800 rounded-2xl p-8 text-center">
-              <div className="text-6xl font-bold text-white mb-3">21x</div>
+              <div className="text-5xl sm:text-6xl font-bold text-white mb-3">21x</div>
               <p className="text-gray-300 text-sm leading-relaxed">more likely to qualify a lead if you respond within 5 minutes</p>
               <p className="text-gray-500 text-xs mt-3">MIT / InsideSales.com</p>
             </div>
             <div className="bg-gray-800 rounded-2xl p-8 text-center">
-              <div className="text-6xl font-bold text-white mb-3">42h</div>
+              <div className="text-5xl sm:text-6xl font-bold text-white mb-3">42h</div>
               <p className="text-gray-300 text-sm leading-relaxed">average business response time to contact forms</p>
               <p className="text-gray-500 text-xs mt-3">Industry average (Chili Piper)</p>
             </div>
-            <div className="bg-indigo-600 rounded-2xl p-8 text-center">
-              <div className="text-6xl font-bold text-white mb-3">~10s</div>
+            <div className="bg-indigo-600 rounded-2xl p-8 text-center ring-4 ring-indigo-200">
+              <div className="text-5xl sm:text-6xl font-bold text-white mb-3">~10s</div>
               <p className="text-indigo-100 text-sm leading-relaxed">FormReply draft delivery time</p>
               <p className="text-indigo-300 text-xs mt-3">Our product</p>
             </div>
@@ -322,7 +319,7 @@ export default function LandingPage() {
               </div>
               <div className="border-t border-gray-300 pt-3 mt-3 flex justify-between font-bold text-gray-800">
                 <span>Total</span>
-                <span>$49+/mo + tinkering</span>
+                <span className="line-through decoration-red-400 decoration-2">$49+/mo + tinkering</span>
               </div>
               <div className="flex justify-between text-gray-500 text-xs">
                 <span>Setup time</span>
@@ -354,6 +351,9 @@ export default function LandingPage() {
                 <span>Total</span>
                 <span>$19/mo. That&apos;s it.</span>
               </div>
+              <div className="mt-3 bg-emerald-50 border border-emerald-200 rounded-lg px-3 py-2 text-center">
+                <span className="text-emerald-700 text-sm font-semibold">Save $30+/mo vs Zapier</span>
+              </div>
             </div>
             <div className="mt-6">
               <Link
@@ -368,7 +368,7 @@ export default function LandingPage() {
 
         {/* Feature comparison table */}
         <div className="overflow-x-auto">
-          <table className="w-full text-sm">
+          <table className="w-full text-sm min-w-[400px]">
             <thead>
               <tr className="border-b-2 border-gray-200">
                 <th className="text-left py-4 pr-6 text-gray-600 font-semibold w-1/3"></th>
@@ -425,11 +425,12 @@ export default function LandingPage() {
       <section id="pricing" className="bg-gray-50 border-y border-gray-200 py-20">
         <div className="max-w-3xl mx-auto px-6">
           <h2 className="text-3xl font-bold text-gray-900 text-center mb-3">Simple pricing</h2>
-          <p className="text-gray-500 text-center mb-12">Start free. Upgrade when you need more.</p>
+          <p className="text-gray-500 text-center mb-2">Start free. Upgrade when you need more.</p>
+          <p className="text-sm text-gray-400 text-center mb-12">Less than a coffee a week.</p>
 
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid md:grid-cols-2 gap-8 md:gap-6">
             {/* Free tier */}
-            <div className="bg-white rounded-2xl p-8 border border-gray-200 shadow-sm">
+            <div className="bg-gray-50/50 rounded-2xl p-8 border border-gray-100">
               <p className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-2">Free</p>
               <div className="flex items-end gap-1 mb-1">
                 <span className="text-5xl font-bold text-gray-900">$0</span>
@@ -453,14 +454,15 @@ export default function LandingPage() {
               </ul>
               <Link
                 href="/onboarding"
-                className="block w-full border-2 border-gray-200 text-gray-700 py-3 rounded-xl font-semibold hover:bg-gray-50 transition-colors text-center"
+                className="block w-full border border-gray-200 text-gray-500 py-3 rounded-xl font-medium hover:bg-gray-50 transition-colors text-center"
               >
                 Start for free
               </Link>
             </div>
 
             {/* Starter tier */}
-            <div className="bg-white rounded-2xl p-8 border-2 border-indigo-600 shadow-sm">
+            <div className="bg-white rounded-2xl p-8 border-2 border-indigo-600 shadow-lg md:scale-[1.02] relative">
+              <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-indigo-600 text-white text-xs font-semibold px-3 py-1 rounded-full">Recommended</div>
               <p className="text-sm font-semibold text-indigo-600 uppercase tracking-wider mb-2">Starter</p>
               <div className="flex items-end gap-1 mb-1">
                 <span className="text-5xl font-bold text-gray-900">$19</span>
@@ -501,18 +503,18 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Built with autonomous AI */}
+      {/* Why we built this */}
       <section className="py-16">
         <div className="max-w-2xl mx-auto px-6 text-center">
-          <div className="inline-flex items-center gap-2 bg-indigo-100 text-indigo-700 text-xs font-semibold px-3 py-1.5 rounded-full mb-6 uppercase tracking-wider">
-            Built by autonomous AI
-          </div>
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">Built by AI. Designed for humans.</h2>
-          <p className="text-gray-600 leading-relaxed text-sm mb-6">
-            FormReply is built and operated by an autonomous AI team &mdash; 14 agents modeled on the thinking patterns of world-class founders, engineers, and marketers. They identified the problem, designed the product, wrote every line of code, and shipped it. This page included.
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">Why we built FormReply</h2>
+          <p className="text-gray-600 leading-relaxed text-sm mb-4">
+            Every contact form submission deserves a real, personal response. But writing them from scratch is a grind &mdash; most businesses take 42 hours to reply. By then, the lead is gone.
           </p>
-          <p className="text-gray-500 text-sm">
-            The problem is obvious: every contact form submission deserves a real, personal response. Writing them from scratch is a grind. We fixed that.
+          <p className="text-gray-600 leading-relaxed text-sm mb-4">
+            FormReply was built to close that gap. AI drafts a thoughtful reply in seconds, so you can respond while the conversation is still warm.
+          </p>
+          <p className="text-gray-400 text-xs">
+            FormReply launched March 2026. Early adopters get priority support and direct influence on the roadmap.
           </p>
           <p className="text-gray-400 mt-5 text-sm">
             Questions? Email <a href="mailto:support@formreply.app" className="text-indigo-600 hover:underline">support@formreply.app</a>
@@ -523,7 +525,7 @@ export default function LandingPage() {
       {/* FAQ */}
       <section className="max-w-2xl mx-auto px-6 py-16 border-t border-gray-100">
         <h2 className="text-2xl font-bold text-gray-900 text-center mb-10">Common questions</h2>
-        <div className="space-y-6">
+        <div className="space-y-3">
           {[
             {
               q: "Which forms does this work with?",
@@ -545,18 +547,23 @@ export default function LandingPage() {
               q: "Can I cancel anytime?",
               a: "Yes. Cancel from your account settings at any time. No questions asked, no notice period required.",
             },
-          ].map((item) => (
-            <div key={item.q} className="border-b border-gray-100 pb-6">
-              <h3 className="font-semibold text-gray-900 mb-2">{item.q}</h3>
-              <p className="text-gray-500 text-sm leading-relaxed">{item.a}</p>
-            </div>
+          ].map((item, i) => (
+            <details key={item.q} className="border border-gray-100 rounded-xl group" open={i === 0 ? true : undefined}>
+              <summary className="flex items-center justify-between cursor-pointer px-5 py-4 font-semibold text-gray-900 hover:bg-gray-50 rounded-xl transition-colors list-none">
+                {item.q}
+                <svg className="w-4 h-4 text-gray-400 transition-transform group-open:rotate-180 flex-shrink-0 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </summary>
+              <p className="text-gray-500 text-sm leading-relaxed px-5 pb-4">{item.a}</p>
+            </details>
           ))}
         </div>
       </section>
 
       {/* Final CTA */}
       <section className="max-w-2xl mx-auto px-6 pb-20">
-        <div className="bg-indigo-600 rounded-2xl py-14 px-8 text-center">
+        <div className="bg-indigo-600 rounded-2xl py-10 px-6 sm:py-14 sm:px-8 text-center">
           <h2 className="text-3xl font-bold text-white mb-4">Start replying faster today</h2>
           <p className="text-indigo-200 mb-8">Free plan available. No card required. Cancel anytime.</p>
           <Link

@@ -81,21 +81,21 @@ export function NavBar() {
           <a
             href="#try-demo"
             onClick={() => setMenuOpen(false)}
-            className="text-gray-600 hover:text-gray-900 text-sm font-medium py-2 transition-colors"
+            className="text-gray-600 hover:text-gray-900 text-sm font-medium py-3 active:bg-gray-50 rounded-lg transition-colors"
           >
             Try it
           </a>
           <a
             href="#how-it-works"
             onClick={() => setMenuOpen(false)}
-            className="text-gray-600 hover:text-gray-900 text-sm font-medium py-2 transition-colors"
+            className="text-gray-600 hover:text-gray-900 text-sm font-medium py-3 active:bg-gray-50 rounded-lg transition-colors"
           >
             How it works
           </a>
           <a
             href="#pricing"
             onClick={() => setMenuOpen(false)}
-            className="text-gray-600 hover:text-gray-900 text-sm font-medium py-2 transition-colors"
+            className="text-gray-600 hover:text-gray-900 text-sm font-medium py-3 active:bg-gray-50 rounded-lg transition-colors"
           >
             Pricing
           </a>
