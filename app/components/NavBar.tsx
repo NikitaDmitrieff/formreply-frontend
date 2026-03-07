@@ -30,12 +30,12 @@ export function NavBar() {
           <span>FormReply</span>
         </Link>
         <div className="flex items-center gap-4">
-          <Link
-            href="/demo"
+          <a
+            href="#try-demo"
             className="text-gray-500 hover:text-gray-900 text-sm font-medium transition-colors hidden sm:block"
           >
-            Demo
-          </Link>
+            Try it
+          </a>
           <a
             href="#how-it-works"
             className="text-gray-500 hover:text-gray-900 text-sm font-medium transition-colors hidden sm:block"

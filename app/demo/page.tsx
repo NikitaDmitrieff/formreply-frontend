@@ -370,7 +370,7 @@ export default function DemoPage() {
         {/* Demo notice */}
         <div className="mt-8 text-center">
           <p className="text-xs text-white/25 mb-3">
-            This is a demo with sample data. Your real inbox connects to your actual Typeform submissions.
+            This is a demo with sample data. Your real inbox connects to your actual form submissions.
           </p>
           <Link
             href="/onboarding"
