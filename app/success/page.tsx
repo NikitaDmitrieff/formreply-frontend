@@ -11,9 +11,9 @@ const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL || "https://formreply-ba
 export default async function SuccessPage({
   searchParams,
 }: {
-  searchParams: Promise<{ customer_id?: string; oauth?: string }>;
+  searchParams: Promise<{ customer_id?: string; oauth?: string; reason?: string }>;
 }) {
-  const { customer_id, oauth } = await searchParams;
+  const { customer_id, oauth, reason } = await searchParams;
 
   if (!customer_id) notFound();
 
@@ -32,6 +32,7 @@ export default async function SuccessPage({
   const oauthConnected = oauth === "done";
   const oauthDenied = oauth === "denied";
   const oauthError = oauth === "error";
+  const oauthPartial = oauth === "partial";
 
   const truncatedToken = customer.webhook_token
     ? `${customer.webhook_token.slice(0, 8)}...${customer.webhook_token.slice(-4)}`
@@ -127,7 +128,7 @@ export default async function SuccessPage({
         </div>
 
         {/* OAuth success / denied banners (client component) */}
-        <OAuthSuccessBanner connected={oauthConnected} denied={oauthDenied} error={oauthError} />
+        <OAuthSuccessBanner connected={oauthConnected} denied={oauthDenied} error={oauthError} partial={oauthPartial} partialReason={reason} />
 
         {/* Section 1: Connect Typeform OAuth -- Primary action */}
         <div className="bg-white rounded-2xl border-2 border-indigo-200 p-6 mb-6 shadow-sm shadow-indigo-50">
