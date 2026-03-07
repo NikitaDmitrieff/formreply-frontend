@@ -36,15 +36,15 @@ export default function SupportPage() {
       {/* Nav */}
       <nav className="border-b border-gray-100 px-6 py-4">
         <div className="max-w-5xl mx-auto flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2 font-bold text-xl text-indigo-600 tracking-tight">
+          <Link href="/" className="flex items-center gap-2 font-bold text-xl text-gray-900 tracking-tight">
             <Image src="/logo.png" alt="FormReply" width={28} height={28} />
             <span>FormReply</span>
           </Link>
           <Link
             href="/onboarding"
-            className="bg-indigo-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-indigo-700 transition-colors"
+            className="bg-indigo-600 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-indigo-700 transition-colors"
           >
-            Get started
+            Get started free
           </Link>
         </div>
       </nav>
@@ -128,15 +128,18 @@ export default function SupportPage() {
       {/* Footer */}
       <footer className="border-t border-gray-100 py-8 mt-8">
         <div className="max-w-5xl mx-auto px-6 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2 font-bold text-indigo-600">
+          <Link href="/" className="flex items-center gap-2 font-bold text-gray-900">
             <Image src="/logo.png" alt="FormReply" width={22} height={22} />
             <span>FormReply</span>
           </Link>
-          <div className="flex items-center gap-6">
-            <Link href="/privacy-and-tos" className="text-sm text-gray-400 hover:text-gray-600 transition-colors">
+          <div className="flex items-center gap-6 flex-wrap">
+            <Link href="/vs/zapier" className="text-sm text-gray-500 hover:text-gray-700 transition-colors">
+              vs Zapier
+            </Link>
+            <Link href="/privacy-and-tos" className="text-sm text-gray-500 hover:text-gray-700 transition-colors">
               Privacy & Terms
             </Link>
-            <p className="text-sm text-gray-400">© 2026 FormReply. All rights reserved.</p>
+            <p className="text-sm text-gray-400">© 2026 FormReply</p>
           </div>
         </div>
       </footer>

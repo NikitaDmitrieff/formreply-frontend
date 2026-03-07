@@ -22,7 +22,7 @@ export default function VsManual() {
             href="/onboarding"
             className="bg-indigo-600 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-indigo-700 transition-colors"
           >
-            Start free trial
+            Get started free
           </Link>
         </div>
       </nav>
@@ -42,9 +42,9 @@ export default function VsManual() {
           href="/onboarding"
           className="inline-block bg-indigo-600 text-white px-8 py-4 rounded-xl text-base font-semibold hover:bg-indigo-700 transition-colors"
         >
-          Get those 100 minutes back →
+          Get started free &rarr;
         </Link>
-        <p className="text-sm text-gray-400 mt-3">Free 14-day trial · No card required</p>
+        <p className="text-sm text-gray-400 mt-3">5 free replies/month · No card required · 2-minute setup</p>
       </section>
 
       {/* The real cost */}
@@ -156,13 +156,13 @@ export default function VsManual() {
       {/* CTA */}
       <section className="bg-indigo-600 py-16">
         <div className="max-w-2xl mx-auto px-6 text-center">
-          <h2 className="text-3xl font-bold text-white mb-4">Try it free for 14 days</h2>
-          <p className="text-indigo-200 mb-8">No card required. Cancel anytime. Setup in 2 minutes.</p>
+          <h2 className="text-3xl font-bold text-white mb-4">Start replying faster today</h2>
+          <p className="text-indigo-200 mb-8">Free plan available. No card required. Cancel anytime.</p>
           <Link
             href="/onboarding"
             className="inline-block bg-white text-indigo-600 px-8 py-4 rounded-xl text-lg font-semibold hover:bg-indigo-50 transition-colors"
           >
-            Start free trial →
+            Get started free &rarr;
           </Link>
         </div>
       </section>
