@@ -53,7 +53,7 @@ export default function OnboardingPage() {
         });
         const json = await res.json();
         if (!res.ok) throw new Error(json.error || "Something went wrong");
-        window.location.href = `/setup?customer_id=${json.customer_id}`;
+        window.location.href = `/success?customer_id=${json.customer_id}`;
       } else {
         const res = await fetch("/api/checkout", {
           method: "POST",
