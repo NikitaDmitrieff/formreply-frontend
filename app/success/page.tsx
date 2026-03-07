@@ -30,6 +30,8 @@ export default async function SuccessPage({
   const typeformUrl = `${BACKEND_URL}/webhook/typeform/${customer.webhook_token}`;
   const webflowUrl = `${BACKEND_URL}/webhook/webflow/${customer.webhook_token}`;
   const googleFormsUrl = `${BACKEND_URL}/webhook/google-forms/${customer.webhook_token}`;
+  const jotformUrl = `${BACKEND_URL}/webhook/jotform/${customer.webhook_token}`;
+  const tallyUrl = `${BACKEND_URL}/webhook/tally/${customer.webhook_token}`;
   const oauthStartUrl = `${BACKEND_URL}/oauth/typeform/start?customer_id=${customer_id}`;
   const googleOauthStartUrl = `${BACKEND_URL}/oauth/google/start?customer_id=${customer_id}`;
   const oauthStatus = (oauth === "done" || oauth === "partial" || oauth === "denied" || oauth === "error") ? oauth : null;
@@ -147,6 +149,8 @@ export default async function SuccessPage({
                 typeformUrl={typeformUrl}
                 webflowUrl={webflowUrl}
                 googleFormsUrl={googleFormsUrl}
+                jotformUrl={jotformUrl}
+                tallyUrl={tallyUrl}
               />
             </div>
           </div>
@@ -178,6 +182,8 @@ export default async function SuccessPage({
             />
             <WebhookField label="Webflow" url={webflowUrl} instructions='Go to Site Settings -> Integrations -> Webhooks -> Add webhook -> choose "Form submission"' />
             <WebhookField label="Google Forms" url={googleFormsUrl} instructions="Open your Google Form -> three-dot menu -> Script editor -> paste the Apps Script below -> Save -> set up a trigger for form submissions." />
+            <WebhookField label="Jotform" url={jotformUrl} instructions="In Jotform: open your form -> Settings -> Integrations -> search for Webhooks -> paste this URL -> Complete Integration." />
+            <WebhookField label="Tally" url={tallyUrl} instructions="In Tally: open your form -> Integrations tab -> Connect Webhooks -> paste this endpoint URL -> Connect." />
             <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 mt-2">
               <p className="text-xs font-semibold text-gray-600 mb-2">Google Forms Apps Script (copy and paste into Script editor):</p>
               <pre className="text-xs text-gray-700 font-mono whitespace-pre-wrap break-all bg-white border border-gray-100 rounded p-3">{`function onFormSubmit(e) {

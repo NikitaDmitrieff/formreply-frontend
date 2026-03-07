@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 
-type Provider = "typeform" | "google" | "webflow";
+type Provider = "typeform" | "google" | "webflow" | "jotform" | "tally";
 
 interface ProviderTabsProps {
   oauthStartUrl: string;
@@ -10,6 +10,8 @@ interface ProviderTabsProps {
   typeformUrl: string;
   webflowUrl: string;
   googleFormsUrl: string;
+  jotformUrl: string;
+  tallyUrl: string;
 }
 
 export default function ProviderTabs({
@@ -18,6 +20,8 @@ export default function ProviderTabs({
   typeformUrl,
   webflowUrl,
   googleFormsUrl,
+  jotformUrl,
+  tallyUrl,
 }: ProviderTabsProps) {
   const [active, setActive] = useState<Provider>("typeform");
 
@@ -26,7 +30,7 @@ export default function ProviderTabs({
 
   useEffect(() => {
     if (!tabsRef.current) return;
-    const providers: Provider[] = ["typeform", "google", "webflow"];
+    const providers: Provider[] = ["typeform", "google", "webflow", "jotform", "tally"];
     const idx = providers.indexOf(active);
     const buttons = tabsRef.current.querySelectorAll("button");
     if (buttons[idx]) {
@@ -39,7 +43,7 @@ export default function ProviderTabs({
     <div>
       {/* Tab buttons with sliding indicator */}
       <div className="relative mb-5" ref={tabsRef}>
-        <div className="flex gap-2 relative z-10">
+        <div className="flex gap-2 relative z-10 flex-wrap">
           <TabButton
             active={active === "typeform"}
             onClick={() => setActive("typeform")}
@@ -54,6 +58,16 @@ export default function ProviderTabs({
             active={active === "webflow"}
             onClick={() => setActive("webflow")}
             label="Webflow"
+          />
+          <TabButton
+            active={active === "jotform"}
+            onClick={() => setActive("jotform")}
+            label="Jotform"
+          />
+          <TabButton
+            active={active === "tally"}
+            onClick={() => setActive("tally")}
+            label="Tally"
           />
         </div>
         <div
@@ -120,28 +134,71 @@ export default function ProviderTabs({
 
           {/* Webflow */}
           {active === "webflow" && (
-            <div>
-              <p className="text-gray-500 text-sm mb-4">
-                Copy this webhook URL and paste it into your Webflow site: Site Settings &rarr; Integrations &rarr; Webhooks &rarr; Add webhook &rarr; choose &ldquo;Form submission&rdquo;.
-              </p>
-              <div className="bg-gray-50 border border-gray-200 rounded-lg p-3 mb-3">
-                <label className="text-xs font-semibold text-gray-600 block mb-1.5">Your Webflow webhook URL</label>
-                <div className="flex gap-2">
-                  <code className="flex-1 bg-white border border-gray-200 rounded-lg px-3 py-2 text-xs text-gray-700 break-all font-mono">
-                    {webflowUrl}
-                  </code>
-                  <button data-copy={webflowUrl} className="copy-btn flex-shrink-0 border border-gray-200 text-gray-600 text-xs px-3 py-2 rounded-lg hover:bg-gray-50 transition-colors font-medium" type="button">
-                    Copy
-                  </button>
-                </div>
-              </div>
-              <p className="text-xs text-gray-400">
-                That&apos;s it! Once saved, any form submission on your Webflow site will trigger an AI-drafted reply.
-              </p>
-            </div>
+            <WebhookOnlyTab
+              url={webflowUrl}
+              label="Webflow"
+              instructions='Copy this webhook URL and paste it into your Webflow site: Site Settings &rarr; Integrations &rarr; Webhooks &rarr; Add webhook &rarr; choose "Form submission".'
+            />
+          )}
+
+          {/* Jotform */}
+          {active === "jotform" && (
+            <WebhookOnlyTab
+              url={jotformUrl}
+              label="Jotform"
+              instructions="In Jotform: open your form &rarr; Settings &rarr; Integrations &rarr; search for Webhooks &rarr; paste this URL &rarr; Complete Integration."
+            />
+          )}
+
+          {/* Tally */}
+          {active === "tally" && (
+            <WebhookOnlyTab
+              url={tallyUrl}
+              label="Tally"
+              instructions="In Tally: open your form &rarr; Integrations tab &rarr; Connect Webhooks &rarr; paste this endpoint URL &rarr; Connect."
+            />
           )}
         </div>
       </div>
+    </div>
+  );
+}
+
+function WebhookOnlyTab({
+  url,
+  label,
+  instructions,
+}: {
+  url: string;
+  label: string;
+  instructions: string;
+}) {
+  return (
+    <div>
+      <p
+        className="text-gray-500 text-sm mb-4"
+        dangerouslySetInnerHTML={{ __html: instructions }}
+      />
+      <div className="bg-gray-50 border border-gray-200 rounded-lg p-3 mb-3">
+        <label className="text-xs font-semibold text-gray-600 block mb-1.5">
+          Your {label} webhook URL
+        </label>
+        <div className="flex gap-2">
+          <code className="flex-1 bg-white border border-gray-200 rounded-lg px-3 py-2 text-xs text-gray-700 break-all font-mono">
+            {url}
+          </code>
+          <button
+            data-copy={url}
+            className="copy-btn flex-shrink-0 border border-gray-200 text-gray-600 text-xs px-3 py-2 rounded-lg hover:bg-gray-50 transition-colors font-medium"
+            type="button"
+          >
+            Copy
+          </button>
+        </div>
+      </div>
+      <p className="text-xs text-gray-400">
+        That&apos;s it! Once saved, any form submission will trigger an AI-drafted reply.
+      </p>
     </div>
   );
 }

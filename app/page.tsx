@@ -162,6 +162,20 @@ export default function LandingPage() {
               </svg>
               <span className="text-sm font-medium">Webflow</span>
             </div>
+            {/* Jotform */}
+            <div className="flex items-center gap-2 text-gray-400">
+              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.5 17.5h-11V15h11v2.5zm0-4h-11v-2.5h11V13.5zm0-4h-11V7h11v2.5z"/>
+              </svg>
+              <span className="text-sm font-medium">Jotform</span>
+            </div>
+            {/* Tally */}
+            <div className="flex items-center gap-2 text-gray-400">
+              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M4 3h2v18H4V3zm5 0h2v18H9V3zm5 0h2v18h-2V3zm5 0h2v18h-2V3z"/>
+              </svg>
+              <span className="text-sm font-medium">Tally</span>
+            </div>
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
             <div className="flex flex-col items-center gap-1.5">
@@ -196,7 +210,7 @@ export default function LandingPage() {
               <div className="hidden md:block h-px flex-1 bg-gray-200"></div>
             </div>
             <h3 className="font-semibold text-gray-900 mb-2">Connect your form</h3>
-            <p className="text-gray-500 text-sm leading-relaxed mb-4">Sign up, then connect Typeform or Google Forms via OAuth (one click each), or paste a webhook URL for Webflow. Done in 60 seconds.</p>
+            <p className="text-gray-500 text-sm leading-relaxed mb-4">Sign up, then connect Typeform or Google Forms via OAuth (one click), or paste a webhook URL for Webflow, Jotform, or Tally. Done in 60 seconds.</p>
             <div className="bg-gray-50 rounded-lg px-3 py-2.5 border border-gray-200 font-mono text-xs text-gray-500 break-all">
               https://api.formreply.app/<span className="text-indigo-600">wh/abc123</span>
             </div>
