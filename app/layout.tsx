@@ -62,7 +62,7 @@ export default function RootLayout({
     referrer: document.referrer || null,
     user_agent: navigator.userAgent
   });
-  var url = "https://formreply-backend-production.up.railway.app/analytics/track";
+  var url = "https://formreply-backend-production.up.railway.app/analytics";
   if (navigator.sendBeacon) {
     navigator.sendBeacon(url, new Blob([payload], { type: "application/json" }));
   } else {
