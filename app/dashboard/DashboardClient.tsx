@@ -75,6 +75,8 @@ export default function DashboardClient() {
   const [editingDraft, setEditingDraft] = useState<string | null>(null);
   const [editDraftText, setEditDraftText] = useState("");
   const [savingDraft, setSavingDraft] = useState(false);
+  const [sendingTest, setSendingTest] = useState(false);
+  const [testResult, setTestResult] = useState<string | null>(null);
 
   const fetchData = useCallback(async () => {
     if (!customerId) return;
@@ -201,6 +203,26 @@ export default function DashboardClient() {
       }));
     } finally {
       setSavingDraft(false);
+    }
+  }
+
+  async function handleSendTest() {
+    if (!data) return;
+    setSendingTest(true);
+    setTestResult(null);
+    try {
+      const res = await fetch(
+        `${BACKEND_URL}/test-submission/${data.account.webhook_token}`,
+        { method: "POST" }
+      );
+      const json = await res.json();
+      if (!res.ok) throw new Error(json.error || "Failed to send test");
+      setTestResult("sent");
+      await fetchData();
+    } catch (err) {
+      setTestResult(err instanceof Error ? err.message : "Failed");
+    } finally {
+      setSendingTest(false);
     }
   }
 
@@ -443,6 +465,22 @@ export default function DashboardClient() {
               <p className="text-xs text-gray-400 mt-2">
                 Point your form&apos;s webhook to this URL. <Link href={`/success?customer_id=${account.id}`} className="text-indigo-600 hover:text-indigo-800">Setup guide &rarr;</Link>
               </p>
+              <div className="mt-3 pt-3 border-t border-gray-100 flex items-center gap-3">
+                <button
+                  type="button"
+                  onClick={handleSendTest}
+                  disabled={sendingTest}
+                  className="text-xs bg-indigo-50 text-indigo-700 px-3 py-1.5 rounded-lg font-medium hover:bg-indigo-100 transition-colors disabled:opacity-50"
+                >
+                  {sendingTest ? "Sending..." : "Send test submission"}
+                </button>
+                {testResult === "sent" && (
+                  <span className="text-xs text-green-600 font-medium">Test sent! Check your email and submissions below.</span>
+                )}
+                {testResult && testResult !== "sent" && (
+                  <span className="text-xs text-red-600 font-medium">{testResult}</span>
+                )}
+              </div>
             </div>
           </AnimatedExpand>
         </div>
