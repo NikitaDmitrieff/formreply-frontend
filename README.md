@@ -1,36 +1,117 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# FormReply
 
-## Getting Started
+**AI-drafted replies to every form submission -- in your inbox in 10 seconds.**
 
-First, run the development server:
+For freelancers, agencies, and small businesses that lose leads to slow response times. FormReply reads each contact form submission and drafts a personalized reply so you can respond while the conversation is still warm.
+
+**Live at [formreply.app](https://formreply.app)**
+
+---
+
+## Features
+
+- **AI-personalized drafts** -- every reply is tailored to the submission, not a static template
+- **10-second delivery** -- draft lands in your inbox moments after submission
+- **One-click send** -- review the draft, tweak if needed, send from your own email
+- **Spam filtering** -- bot and junk submissions are filtered automatically
+- **Multi-provider support** -- Typeform (OAuth), Google Forms (OAuth), Webflow, Jotform, Tally (webhook)
+- **Email open tracking** -- know when recipients read your replies
+- **Dashboard** -- submission history, reply stats, and open tracking in one place
+- **"Powered by FormReply" branding** -- viral loop built into every reply
+
+## Tech Stack
+
+| Layer | Technology |
+|-------|------------|
+| Framework | Next.js 16 (App Router) |
+| UI | React 19, Tailwind CSS v4 |
+| Backend services | Supabase (Auth, Postgres, Storage) |
+| Payments | Stripe (subscriptions + webhooks) |
+| Testing | Vitest, Testing Library |
+| CI/CD | GitHub Actions |
+| Hosting | Railway |
+
+## Quick Start
 
 ```bash
+# Clone the repo
+git clone <repo-url>
+cd formreply-frontend
+
+# Install dependencies
+npm install
+
+# Copy environment variables
+cp .env.example .env.local
+# Fill in the values (see Environment Variables below)
+
+# Run the dev server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Environment Variables
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Variable | Description |
+|----------|-------------|
+| `NEXT_PUBLIC_SUPABASE_URL` | Supabase project URL |
+| `SUPABASE_SERVICE_ROLE_KEY` | Supabase service role key (server-side only) |
+| `NEXT_PUBLIC_BACKEND_URL` | Backend API URL (defaults to production Railway URL) |
+| `NEXT_PUBLIC_APP_URL` | Public app URL (used for Stripe redirect URLs) |
+| `STRIPE_SECRET_KEY` | Stripe secret key |
+| `STRIPE_WEBHOOK_SECRET` | Stripe webhook signing secret |
+| `BACKEND_URL` | Backend URL for server-side API calls (demo route) |
 
-## Learn More
+## Testing
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+# Run all tests (47 passing)
+npm test
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# Watch mode
+npm run test:watch
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Project Structure
 
-## Deploy on Vercel
+```
+app/
+  page.tsx                  # Landing page
+  layout.tsx                # Root layout, metadata, analytics
+  dashboard/                # User dashboard (submission history, stats)
+  onboarding/               # Signup and form connection flow
+  success/                  # Post-connection success page with webhook setup
+  demo/                     # Interactive demo
+  stats/                    # Public stats page
+  blog/                     # SEO content (30+ articles)
+  vs/                       # Comparison pages (vs Zapier, vs manual)
+  tools/                    # Free tools (reply generator, spam checker, etc.)
+  support/                  # Support page
+  privacy-and-tos/          # Privacy policy and terms of service
+  components/               # Shared components (NavBar, TryDemo, TrackEvent)
+  api/
+    checkout/               # Stripe checkout session creation
+    demo/                   # Demo endpoint proxy
+    auth/callback/          # OAuth callbacks (Typeform, Google)
+    webhooks/stripe/        # Stripe webhook handler
+lib/
+  supabase.ts               # Supabase client
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Deployment
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The app deploys to Railway via GitHub Actions on push to `main`.
+
+Production URL: [https://formreply.app](https://formreply.app)
+
+Backend API (separate repo): `formreply-backend` on Railway.
+
+## Pricing
+
+- **Free** -- 5 AI-drafted replies per month, no card required
+- **Starter** -- $19/month, unlimited submissions, 14-day free trial
+
+## License
+
+MIT
