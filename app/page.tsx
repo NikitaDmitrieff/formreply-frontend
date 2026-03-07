@@ -135,6 +135,34 @@ export default function LandingPage() {
         </div>
       </section>
 
+      {/* Works with */}
+      <div className="py-8 text-center">
+        <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-5">Works with</p>
+        <div className="flex items-center justify-center gap-10 flex-wrap">
+          {/* Typeform */}
+          <div className="flex items-center gap-2 text-gray-400 hover:text-gray-600 transition-colors">
+            <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M1.333 0v24h21.334V0H1.333zm12.735 13.31c-.697.394-1.378.811-2.084 1.187-.353.189-.733.334-1.093.503-.245.115-.437.023-.445-.258-.018-.619-.009-1.238-.005-1.857.003-.375.014-.75.013-1.125-.003-.644-.013-1.287-.017-1.93 0-.166.053-.27.206-.345.51-.25 1.015-.51 1.525-.76.67-.328 1.346-.646 2.008-.986.168-.086.306-.072.46.012.484.262.976.512 1.462.77.627.333 1.25.674 1.878 1.005.143.076.204.175.204.338-.005 1.29-.004 2.58-.003 3.871 0 .306-.032.34-.326.178-.822-.454-1.642-.911-2.463-1.367-.442-.246-.883-.494-1.32-.736-.164-.09-.164-.09 0 .3z"/>
+            </svg>
+            <span className="text-sm font-medium">Typeform</span>
+          </div>
+          {/* Google Forms */}
+          <div className="flex items-center gap-2 text-gray-400 hover:text-gray-600 transition-colors">
+            <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M14.727 6.727H14V0H4.91c-.905 0-1.637.732-1.637 1.636v20.728c0 .904.732 1.636 1.636 1.636h14.182c.904 0 1.636-.732 1.636-1.636V6.727h-6.001zm-.545 10.455H7.09v-1.637h7.09v1.637zm2.727-3.273H7.091v-1.636h9.818v1.636zm0-3.272H7.091V9h9.818v1.637zM14.727 0l6 6.727h-6V0z"/>
+            </svg>
+            <span className="text-sm font-medium">Google Forms</span>
+          </div>
+          {/* Webflow */}
+          <div className="flex items-center gap-2 text-gray-400 hover:text-gray-600 transition-colors">
+            <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.803 6.105c-1.457 2.393-4.108 7.523-4.108 7.523s-.075-3.83-2.478-7.523c-1.706-2.622-4.543-3.855-6.717-3.855v15.5c0 .574.32 1.1.832 1.362l.025.013c.238.12.508.183.78.183.292 0 .583-.073.844-.22C8.6 18.254 10 16.914 10 14.498s-.042-5.357-.042-5.357 3.395 9.354 3.595 9.854c.2.5.793.755 1.247.755.454 0 .922-.293 1.13-.653C16.67 17.9 21.5 8.81 21.5 8.81v7.94c0 2.25 1.8 4.5 4.5 4.5"/>
+            </svg>
+            <span className="text-sm font-medium">Webflow</span>
+          </div>
+        </div>
+      </div>
+
       {/* Trust signals — real commitments, not fake stats */}
       <div className="border-y border-gray-100 bg-gray-50 py-5">
         <div className="max-w-5xl mx-auto px-6 grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
