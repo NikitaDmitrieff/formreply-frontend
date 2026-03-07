@@ -23,6 +23,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
+      url: `${APP_URL}/blog/tally-form-auto-reply`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${APP_URL}/blog/google-forms-vs-typeform`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${APP_URL}/blog/best-form-auto-reply-tools`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
       url: `${APP_URL}/blog/google-forms-auto-reply`,
       lastModified: new Date(),
       changeFrequency: "monthly",

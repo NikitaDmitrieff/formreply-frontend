@@ -23,6 +23,7 @@ interface BlogPost {
 
 const POSTS: BlogPost[] = [
   // Guides & How-To
+  { slug: "tally-form-auto-reply", title: "Tally Form Auto-Reply: How to Respond to Submissions with AI", category: "Guides" },
   { slug: "google-forms-auto-reply", title: "How to Auto-Reply to Google Forms Submissions with AI", category: "Guides" },
   { slug: "jotform-auto-reply", title: "Jotform Auto-Reply: How to Respond to Form Submissions Instantly with AI", category: "Guides" },
   { slug: "webflow-form-auto-reply", title: "Webflow Form Submissions: How to Auto-Reply with AI (No Code)", category: "Guides" },
@@ -67,6 +68,8 @@ const POSTS: BlogPost[] = [
   { slug: "typeform-slack-notification", title: "How to Get Slack Notifications for Typeform Submissions (And Why Email Might Be Better)", category: "Integrations" },
 
   // Comparisons
+  { slug: "google-forms-vs-typeform", title: "Google Forms vs Typeform: Which Is Better for Contact Forms?", category: "Comparisons" },
+  { slug: "best-form-auto-reply-tools", title: "Best Form Auto-Reply Tools: FormReply vs Zapier vs Manual", category: "Comparisons" },
   { slug: "typeform-zapier-alternative", title: "Typeform + Zapier for Contact Form Replies: Is There a Better Alternative?", category: "Comparisons" },
   { slug: "typeform-google-forms-alternative", title: "Typeform vs Google Forms: Which Is the Better Alternative in 2024?", category: "Comparisons" },
   { slug: "typeform-jotform-comparison", title: "Typeform vs JotForm: Full Comparison (2025)", category: "Comparisons" },
@@ -76,7 +79,7 @@ const POSTS: BlogPost[] = [
 const CATEGORIES = ["Guides", "Integrations", "Comparisons"] as const;
 
 const CATEGORY_DESCRIPTIONS: Record<string, string> = {
-  Guides: "Step-by-step tutorials on automating form replies with Typeform, Google Forms, Jotform, Webflow, and more.",
+  Guides: "Step-by-step tutorials on automating form replies with Typeform, Google Forms, Tally, Jotform, Webflow, and more.",
   Integrations: "Connect your form builder to your CRM, email platform, project management tool, and more.",
   Comparisons: "Side-by-side comparisons of form builders and automation tools.",
 };
