@@ -46,15 +46,23 @@ export default async function SuccessPage({
       <div className="bg-white border-b border-gray-100 px-6 py-4">
         <div className="max-w-2xl mx-auto flex items-center justify-between">
           <span className="font-bold text-xl text-indigo-600">FormReply</span>
-          <a
-            href="https://formreply.app"
-            className="text-sm text-gray-400 hover:text-gray-600 transition-colors flex items-center gap-1"
-          >
-            <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-            </svg>
-            Back to formreply.app
-          </a>
+          <div className="flex items-center gap-4">
+            <a
+              href={`/dashboard?customer_id=${customer_id}`}
+              className="text-sm text-indigo-600 hover:text-indigo-800 font-medium transition-colors"
+            >
+              Dashboard
+            </a>
+            <a
+              href="https://formreply.app"
+              className="text-sm text-gray-400 hover:text-gray-600 transition-colors flex items-center gap-1"
+            >
+              <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+              </svg>
+              Home
+            </a>
+          </div>
         </div>
       </div>
 
