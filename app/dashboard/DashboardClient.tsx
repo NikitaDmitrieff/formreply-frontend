@@ -64,6 +64,9 @@ export default function DashboardClient() {
   const [expandedId, setExpandedId] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
   const [statusFilter, setStatusFilter] = useState<string>("all");
+  const [loginEmail, setLoginEmail] = useState("");
+  const [loginLoading, setLoginLoading] = useState(false);
+  const [loginError, setLoginError] = useState("");
 
   const fetchData = useCallback(async () => {
     if (!customerId) return;
@@ -122,23 +125,61 @@ export default function DashboardClient() {
     }
   }
 
+  async function handleEmailLogin(e: React.FormEvent) {
+    e.preventDefault();
+    if (!loginEmail.trim()) return;
+    setLoginLoading(true);
+    setLoginError("");
+    try {
+      const res = await fetch(
+        `${BACKEND_URL}/dashboard/lookup-by-email?email=${encodeURIComponent(loginEmail.trim())}`
+      );
+      const json = await res.json();
+      if (!res.ok) throw new Error(json.error || "Account not found");
+      window.location.href = `/dashboard?customer_id=${json.customer_id}`;
+    } catch (err) {
+      setLoginError(err instanceof Error ? err.message : "Something went wrong");
+      setLoginLoading(false);
+    }
+  }
+
   if (!customerId) {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center px-4">
         <div className="text-center max-w-md">
           <h1 className="text-2xl font-bold text-gray-900 mb-3">
-            Dashboard Access
+            Welcome back
           </h1>
           <p className="text-gray-500 mb-6">
-            You need a customer ID to access your dashboard. Check the link in
-            your welcome email or your setup page.
+            Enter the email you signed up with to access your dashboard.
           </p>
-          <Link
-            href="/"
-            className="text-indigo-600 font-medium hover:text-indigo-800"
-          >
-            Go to homepage
-          </Link>
+          <form onSubmit={handleEmailLogin} className="space-y-3">
+            <input
+              type="email"
+              placeholder="you@yourcompany.com"
+              value={loginEmail}
+              onChange={(e) => setLoginEmail(e.target.value)}
+              className="w-full border border-gray-200 rounded-xl px-4 py-3 text-gray-900 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+              autoFocus
+              required
+            />
+            {loginError && (
+              <p className="text-sm text-red-600">{loginError}</p>
+            )}
+            <button
+              type="submit"
+              disabled={loginLoading || !loginEmail.trim()}
+              className="w-full bg-indigo-600 text-white py-3 rounded-xl font-semibold hover:bg-indigo-700 transition-colors disabled:opacity-50"
+            >
+              {loginLoading ? "Looking up..." : "Access dashboard"}
+            </button>
+          </form>
+          <p className="text-xs text-gray-400 mt-4">
+            Don&apos;t have an account?{" "}
+            <Link href="/onboarding" className="text-indigo-600 font-medium hover:text-indigo-800">
+              Sign up free
+            </Link>
+          </p>
         </div>
       </div>
     );
@@ -459,7 +500,21 @@ export default function DashboardClient() {
                             <p className="text-xs font-semibold text-indigo-600 uppercase tracking-wider">
                               AI Draft Reply
                             </p>
-                            <CopyButton text={sub.draft} />
+                            <div className="flex items-center gap-2">
+                              {sub.submitter_email && (
+                                <a
+                                  href={`mailto:${encodeURIComponent(sub.submitter_email)}?subject=${encodeURIComponent(`Re: ${sub.form_name}`)}&body=${encodeURIComponent(sub.draft)}`}
+                                  className="flex items-center gap-1 text-xs text-indigo-500 hover:text-indigo-700 transition-colors font-medium"
+                                  title="Reply via email"
+                                >
+                                  <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                                  </svg>
+                                  Reply
+                                </a>
+                              )}
+                              <CopyButton text={sub.draft} />
+                            </div>
                           </div>
                           <p className="text-sm text-gray-800 whitespace-pre-wrap">
                             {sub.draft}
