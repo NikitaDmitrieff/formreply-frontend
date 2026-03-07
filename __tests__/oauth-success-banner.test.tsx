@@ -8,6 +8,8 @@ describe("OAuthSuccessBanner", () => {
     expect(container.innerHTML).toBe("");
   });
 
+  // ── Typeform (default provider) ──
+
   it("renders success state when status=done", () => {
     render(<OAuthSuccessBanner status="done" />);
     expect(screen.getByText("Typeform connected!")).toBeInTheDocument();
@@ -63,5 +65,46 @@ describe("OAuthSuccessBanner", () => {
   it("renders partial without reason uses default message", () => {
     render(<OAuthSuccessBanner status="partial" />);
     expect(screen.getByText("Partially connected")).toBeInTheDocument();
+  });
+
+  // ── Google Forms provider ──
+
+  it("renders Google Forms success state", () => {
+    render(<OAuthSuccessBanner status="done" provider="google" />);
+    expect(screen.getByText("Google Forms connected!")).toBeInTheDocument();
+    expect(
+      screen.getByText(/automatically check for new responses every 5 minutes/)
+    ).toBeInTheDocument();
+  });
+
+  it("renders Google Forms error state", () => {
+    render(<OAuthSuccessBanner status="error" provider="google" />);
+    expect(screen.getByText("Connection failed")).toBeInTheDocument();
+    expect(
+      screen.getByText(/Something went wrong connecting to Google Forms/)
+    ).toBeInTheDocument();
+  });
+
+  it("renders Google Forms denied state", () => {
+    render(<OAuthSuccessBanner status="denied" provider="google" />);
+    expect(
+      screen.getByText("Google Forms authorization cancelled")
+    ).toBeInTheDocument();
+  });
+
+  it("renders Google Forms partial with no_forms reason", () => {
+    render(<OAuthSuccessBanner status="partial" reason="no_forms" provider="google" />);
+    expect(screen.getByText("Partially connected")).toBeInTheDocument();
+    expect(
+      screen.getByText(/no forms were found in your account/)
+    ).toBeInTheDocument();
+  });
+
+  it("renders Google Forms partial with forms_fetch reason", () => {
+    render(<OAuthSuccessBanner status="partial" reason="forms_fetch" provider="google" />);
+    expect(screen.getByText("Partially connected")).toBeInTheDocument();
+    expect(
+      screen.getByText(/Google Forms connected, but we couldn\u2019t fetch your forms/)
+    ).toBeInTheDocument();
   });
 });

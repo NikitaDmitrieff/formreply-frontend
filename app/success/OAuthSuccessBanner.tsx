@@ -5,10 +5,13 @@ type OAuthStatus = "done" | "partial" | "denied" | "error" | null;
 interface OAuthSuccessBannerProps {
   status: OAuthStatus;
   reason?: string | null;
+  provider?: "typeform" | "google";
 }
 
-export default function OAuthSuccessBanner({ status, reason }: OAuthSuccessBannerProps) {
+export default function OAuthSuccessBanner({ status, reason, provider = "typeform" }: OAuthSuccessBannerProps) {
   if (!status) return null;
+
+  const providerName = provider === "google" ? "Google Forms" : "Typeform";
 
   if (status === "done") {
     return (
@@ -19,9 +22,11 @@ export default function OAuthSuccessBanner({ status, reason }: OAuthSuccessBanne
           </svg>
         </div>
         <div>
-          <p className="font-semibold text-indigo-900 text-sm">Typeform connected!</p>
+          <p className="font-semibold text-indigo-900 text-sm">{providerName} connected!</p>
           <p className="text-indigo-700 text-sm mt-0.5">
-            Webhooks have been created on all your Typeform forms automatically. FormReply is live.
+            {provider === "google"
+              ? "Your Google Forms have been discovered. FormReply will automatically check for new responses every 5 minutes."
+              : "Webhooks have been created on all your Typeform forms automatically. FormReply is live."}
           </p>
         </div>
       </div>
@@ -30,10 +35,12 @@ export default function OAuthSuccessBanner({ status, reason }: OAuthSuccessBanne
 
   if (status === "partial") {
     const message = reason === "forms_fetch"
-      ? "Typeform connected, but we couldn\u2019t fetch your forms to create webhooks automatically. Please add the webhook URL manually below."
-      : reason === "webhooks"
-        ? "Typeform connected, but some webhooks couldn\u2019t be created. Check the manual webhook section below for any forms that weren\u2019t set up automatically."
-        : "Typeform connected, but setup didn\u2019t fully complete. Please add the webhook URL manually below.";
+      ? `${providerName} connected, but we couldn\u2019t fetch your forms. Please add the webhook URL manually below.`
+      : reason === "no_forms"
+        ? `${providerName} connected, but no forms were found in your account. Create a form first, then reconnect.`
+        : reason === "webhooks"
+          ? `${providerName} connected, but some webhooks couldn\u2019t be created. Check the manual webhook section below.`
+          : `${providerName} connected, but setup didn\u2019t fully complete. Please add the webhook URL manually below.`;
 
     return (
       <div className="bg-amber-50 border border-amber-200 rounded-2xl p-5 mb-6 flex items-start gap-3">
@@ -61,7 +68,7 @@ export default function OAuthSuccessBanner({ status, reason }: OAuthSuccessBanne
         <div>
           <p className="font-semibold text-red-900 text-sm">Connection failed</p>
           <p className="text-red-700 text-sm mt-0.5">
-            Something went wrong connecting to Typeform. Please try again, or use the manual webhook URL below.
+            Something went wrong connecting to {providerName}. Please try again, or use the manual webhook URL below.
           </p>
         </div>
       </div>
@@ -77,7 +84,7 @@ export default function OAuthSuccessBanner({ status, reason }: OAuthSuccessBanne
         </svg>
       </div>
       <div>
-        <p className="font-semibold text-yellow-900 text-sm">Typeform authorization cancelled</p>
+        <p className="font-semibold text-yellow-900 text-sm">{providerName} authorization cancelled</p>
         <p className="text-yellow-700 text-sm mt-0.5">
           No problem — you can connect manually using the webhook URL below, or try again above.
         </p>
