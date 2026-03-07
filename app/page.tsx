@@ -147,28 +147,6 @@ export default function LandingPage() {
         </div>
       </div>
 
-      {/* Social proof counters */}
-      <section className="max-w-4xl mx-auto px-6 py-12">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-          <div className="text-center">
-            <div className="text-3xl font-bold text-gray-900">2,847</div>
-            <p className="text-sm text-gray-500 mt-1">Replies drafted</p>
-          </div>
-          <div className="text-center">
-            <div className="text-3xl font-bold text-gray-900">~8s</div>
-            <p className="text-sm text-gray-500 mt-1">Avg. delivery time</p>
-          </div>
-          <div className="text-center">
-            <div className="text-3xl font-bold text-gray-900">94%</div>
-            <p className="text-sm text-gray-500 mt-1">Sent without edits</p>
-          </div>
-          <div className="text-center">
-            <div className="text-3xl font-bold text-gray-900">4</div>
-            <p className="text-sm text-gray-500 mt-1">Free tools available</p>
-          </div>
-        </div>
-      </section>
-
       {/* How it works */}
       <section id="how-it-works" className="max-w-4xl mx-auto px-6 py-20">
         <h2 className="text-3xl font-bold text-gray-900 text-center mb-2">How it works</h2>
@@ -473,43 +451,6 @@ export default function LandingPage() {
           <p className="text-gray-400 mt-5 text-sm">
             Questions? Email <a href="mailto:support@formreply.app" className="text-indigo-600 hover:underline">support@formreply.app</a>
           </p>
-        </div>
-      </section>
-
-      {/* Testimonials */}
-      <section className="max-w-5xl mx-auto px-6 py-20">
-        <h2 className="text-3xl font-bold text-gray-900 text-center mb-3">What users are saying</h2>
-        <p className="text-gray-500 text-center mb-12">Real feedback from real customers.</p>
-
-        <div className="grid md:grid-cols-3 gap-6">
-          {[
-            {
-              quote: "We used to spend 45 minutes a day replying to Typeform inquiries. Now it\u2019s done before I finish my coffee. The drafts are so good we rarely edit them.",
-              name: "Rachel Torres",
-              title: "Head of Operations, BrightPath Consulting",
-            },
-            {
-              quote: "I was skeptical about AI writing my client replies, but FormReply nails the tone every time. It\u2019s like having an assistant who actually reads the form.",
-              name: "James Okafor",
-              title: "Freelance UX Designer",
-            },
-            {
-              quote: "The ROI is absurd. $19/month saves me at least 3 hours a week. I switched from a Zapier + ChatGPT hack that cost triple and broke constantly.",
-              name: "Nina Patel",
-              title: "Founder, GreenLeaf Digital",
-            },
-          ].map((t) => (
-            <div key={t.name} className="bg-white rounded-2xl p-6 border border-gray-200 shadow-sm">
-              <svg className="w-8 h-8 text-indigo-200 mb-4" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M11.3 2.8C6.7 5.4 4 9.5 4 14.2c0 3.4 2.2 5.8 4.8 5.8 2.4 0 4.2-1.8 4.2-4.2 0-2.2-1.6-3.8-3.6-4.2.4-2.4 2-4.8 4.4-6.4L11.3 2.8zm10 0C16.7 5.4 14 9.5 14 14.2c0 3.4 2.2 5.8 4.8 5.8 2.4 0 4.2-1.8 4.2-4.2 0-2.2-1.6-3.8-3.6-4.2.4-2.4 2-4.8 4.4-6.4L21.3 2.8z" />
-              </svg>
-              <p className="text-gray-700 text-sm leading-relaxed mb-5">{t.quote}</p>
-              <div className="border-t border-gray-100 pt-4">
-                <p className="font-semibold text-gray-900 text-sm">{t.name}</p>
-                <p className="text-gray-400 text-xs">{t.title}</p>
-              </div>
-            </div>
-          ))}
         </div>
       </section>
 
