@@ -72,6 +72,9 @@ export default function DashboardClient() {
   const [showWebhookUrl, setShowWebhookUrl] = useState(false);
   const [sendingReply, setSendingReply] = useState<string | null>(null);
   const [replyResult, setReplyResult] = useState<Record<string, string>>({});
+  const [editingDraft, setEditingDraft] = useState<string | null>(null);
+  const [editDraftText, setEditDraftText] = useState("");
+  const [savingDraft, setSavingDraft] = useState(false);
 
   const fetchData = useCallback(async () => {
     if (!customerId) return;
@@ -169,6 +172,35 @@ export default function DashboardClient() {
       }));
     } finally {
       setSendingReply(null);
+    }
+  }
+
+  async function handleEditDraft(submissionId: string) {
+    if (!customerId) return;
+    setSavingDraft(true);
+    try {
+      const res = await fetch(
+        `${BACKEND_URL}/dashboard/${customerId}/draft/${submissionId}`,
+        {
+          method: "PATCH",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ draft: editDraftText }),
+        }
+      );
+      if (!res.ok) {
+        const json = await res.json();
+        throw new Error(json.error || "Failed to save draft");
+      }
+      setEditingDraft(null);
+      setEditDraftText("");
+      await fetchData();
+    } catch (err) {
+      setReplyResult((prev) => ({
+        ...prev,
+        [submissionId]: err instanceof Error ? err.message : "Failed to save draft",
+      }));
+    } finally {
+      setSavingDraft(false);
     }
   }
 
@@ -622,6 +654,17 @@ export default function DashboardClient() {
                                   Reply
                                 </a>
                               )}
+                              {sub.status === "processed" && editingDraft !== sub.id && (
+                                <button
+                                  onClick={() => {
+                                    setEditingDraft(sub.id);
+                                    setEditDraftText(sub.draft);
+                                  }}
+                                  className="px-3 py-2 border border-gray-200 text-gray-600 text-xs font-medium rounded-lg hover:bg-gray-50 transition-colors"
+                                >
+                                  Edit draft
+                                </button>
+                              )}
                               {sub.submitter_email && sub.status !== "replied" && sub.status !== "spam" && (
                                 <button
                                   onClick={() => handleSendReply(sub.id)}
@@ -657,9 +700,49 @@ export default function DashboardClient() {
                               <CopyButton text={sub.draft} />
                             </div>
                           </div>
-                          <p className="text-sm text-gray-800 whitespace-pre-wrap">
-                            {sub.draft}
-                          </p>
+                          {editingDraft === sub.id ? (
+                            <div className="space-y-2">
+                              <textarea
+                                value={editDraftText}
+                                onChange={(e) => setEditDraftText(e.target.value)}
+                                rows={6}
+                                className="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent resize-none"
+                              />
+                              <div className="flex items-center gap-2">
+                                <button
+                                  onClick={() => handleEditDraft(sub.id)}
+                                  disabled={savingDraft}
+                                  className="flex items-center gap-1 text-xs text-white bg-indigo-600 hover:bg-indigo-700 transition-colors font-medium px-3 py-2 rounded-lg disabled:opacity-50"
+                                >
+                                  {savingDraft ? (
+                                    <>
+                                      <svg className="animate-spin w-3 h-3" viewBox="0 0 24 24" fill="none">
+                                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+                                      </svg>
+                                      Saving...
+                                    </>
+                                  ) : (
+                                    "Save"
+                                  )}
+                                </button>
+                                <button
+                                  onClick={() => {
+                                    setEditingDraft(null);
+                                    setEditDraftText("");
+                                  }}
+                                  disabled={savingDraft}
+                                  className="px-3 py-2 text-xs text-gray-500 font-medium hover:text-gray-700 transition-colors disabled:opacity-50"
+                                >
+                                  Cancel
+                                </button>
+                              </div>
+                            </div>
+                          ) : (
+                            <p className="text-sm text-gray-800 whitespace-pre-wrap">
+                              {sub.draft}
+                            </p>
+                          )}
                           {replyResult[sub.id] && replyResult[sub.id] !== "sent" && (
                             <p className="text-xs text-red-500 mt-1">{replyResult[sub.id]}</p>
                           )}
