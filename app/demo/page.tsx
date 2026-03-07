@@ -130,7 +130,7 @@ export default function DemoPage() {
             href="/onboarding"
             className="bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold px-3 py-1.5 rounded-md transition-colors"
           >
-            Connect your Typeform →
+            Get started free →
           </Link>
         </div>
       </header>
@@ -157,9 +157,12 @@ export default function DemoPage() {
             <span className="text-2xl font-bold text-white">4</span>
             <span className="text-xs text-white/40 leading-tight">Active<br />this session</span>
           </div>
-          <div className="ml-auto hidden md:flex items-center gap-2 text-xs text-white/30">
-            <div className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></div>
-            Live · updating in real time
+          <div className="ml-auto hidden md:flex items-center gap-3 text-xs text-white/30">
+            <span className="border border-white/[0.08] rounded-full px-2 py-0.5 text-white/25">Sample data</span>
+            <div className="flex items-center gap-2">
+              <div className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></div>
+              Live · updating in real time
+            </div>
           </div>
         </div>
       </div>
@@ -226,11 +229,12 @@ export default function DemoPage() {
             {/* Mobile divider */}
             <div className="md:hidden flex items-center gap-3 px-5 py-2">
               <div className="flex-1 h-px bg-white/[0.06]" />
-              <svg className="w-4 h-4 text-white/20 rotate-90" viewBox="0 0 20 20" fill="currentColor">
+              <svg className="w-4 h-4 text-white/20" viewBox="0 0 20 20" fill="currentColor">
                 <path
                   fillRule="evenodd"
-                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                  d="M10 3a1 1 0 01.707.293l6 6a1 1 0 01-1.414 1.414L11 6.414V17a1 1 0 11-2 0V6.414L4.707 10.707a1 1 0 01-1.414-1.414l6-6A1 1 0 0110 3z"
                   clipRule="evenodd"
+                  transform="rotate(180 10 10)"
                 />
               </svg>
               <div className="flex-1 h-px bg-white/[0.06]" />
@@ -372,7 +376,7 @@ export default function DemoPage() {
             href="/onboarding"
             className="inline-flex items-center gap-2 bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-semibold px-6 py-2.5 rounded-lg transition-colors"
           >
-            Connect your Typeform — it&apos;s free →
+            Get started free →
           </Link>
         </div>
       </main>

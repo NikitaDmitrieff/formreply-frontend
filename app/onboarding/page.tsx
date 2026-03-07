@@ -75,7 +75,15 @@ export default function OnboardingPage() {
       {/* Header */}
       <div className="bg-white border-b border-gray-100 px-6 py-4">
         <div className="max-w-2xl mx-auto flex items-center justify-between">
-          <a href="/" className="font-bold text-xl text-indigo-600">FormReply</a>
+          <div className="flex items-center gap-4">
+            <a href="/" className="text-sm font-medium text-gray-400 hover:text-gray-600 transition-colors flex items-center gap-1">
+              <svg className="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
+                <path fillRule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clipRule="evenodd" />
+              </svg>
+              Back
+            </a>
+            <a href="/" className="font-bold text-xl text-indigo-600">FormReply</a>
+          </div>
           <span className="text-sm text-gray-400">Step {step} of {STEPS.length}</span>
         </div>
       </div>
@@ -83,7 +91,7 @@ export default function OnboardingPage() {
       {/* Progress bar */}
       <div className="bg-white border-b border-gray-100">
         <div className="max-w-2xl mx-auto px-6">
-          <div className="flex gap-1 py-3">
+          <div className="flex gap-1 pt-3 pb-1">
             {STEPS.map((s) => (
               <div
                 key={s.id}
@@ -91,6 +99,17 @@ export default function OnboardingPage() {
                   s.id <= step ? "bg-indigo-600" : "bg-gray-100"
                 }`}
               />
+            ))}
+          </div>
+          <div className="flex gap-1 pb-3">
+            {STEPS.map((s) => (
+              <div key={s.id} className="flex-1 text-center">
+                <span className={`text-xs transition-colors ${
+                  s.id <= step ? "text-indigo-600 font-medium" : "text-gray-300"
+                }`}>
+                  {s.id === 1 ? "Business" : s.id === 2 ? "Context" : s.id === 3 ? "Tone" : "Email"}
+                </span>
+              </div>
             ))}
           </div>
         </div>
@@ -226,23 +245,33 @@ export default function OnboardingPage() {
               </button>
             ) : (
               <div className="flex-1 flex flex-col gap-3">
-                <button
-                  onClick={() => handleSubmit("paid")}
-                  disabled={!canAdvance() || loading}
-                  className="w-full bg-indigo-600 text-white py-3 rounded-xl font-semibold hover:bg-indigo-700 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
-                >
-                  {loading ? "Loading…" : "Start 14-day free trial — $19/month after →"}
-                </button>
+                <div className="relative">
+                  <span className="absolute -top-2.5 left-4 bg-indigo-600 text-white text-xs font-semibold px-2.5 py-0.5 rounded-full">
+                    Recommended
+                  </span>
+                  <button
+                    onClick={() => handleSubmit("paid")}
+                    disabled={!canAdvance() || loading}
+                    className="w-full bg-indigo-600 text-white py-3.5 rounded-xl font-semibold hover:bg-indigo-700 transition-colors disabled:opacity-40 disabled:cursor-not-allowed ring-2 ring-indigo-600 ring-offset-2"
+                  >
+                    {loading ? "Loading..." : "Start 14-day free trial — $19/month after"}
+                  </button>
+                </div>
                 <button
                   onClick={() => handleSubmit("free")}
                   disabled={!canAdvance() || loading}
-                  className="w-full border-2 border-indigo-200 text-indigo-700 py-3 rounded-xl font-semibold hover:bg-indigo-50 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+                  className="w-full border border-gray-200 text-gray-500 py-3 rounded-xl font-medium hover:bg-gray-50 hover:text-gray-700 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
                 >
-                  {loading ? "Loading…" : "Start free — 5 replies/month, no card"}
+                  {loading ? "Loading..." : "Start free — 5 replies/month, no card"}
                 </button>
               </div>
             )}
           </div>
+
+          {/* Reassurance */}
+          <p className="text-center text-xs text-gray-400 mt-6">
+            Your information is stored securely and never shared.
+          </p>
         </div>
       </div>
     </div>
