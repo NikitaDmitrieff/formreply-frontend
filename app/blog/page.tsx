@@ -23,6 +23,9 @@ interface BlogPost {
 
 const POSTS: BlogPost[] = [
   // Guides & How-To
+  { slug: "google-forms-auto-reply", title: "How to Auto-Reply to Google Forms Submissions with AI", category: "Guides" },
+  { slug: "jotform-auto-reply", title: "Jotform Auto-Reply: How to Respond to Form Submissions Instantly with AI", category: "Guides" },
+  { slug: "webflow-form-auto-reply", title: "Webflow Form Submissions: How to Auto-Reply with AI (No Code)", category: "Guides" },
   { slug: "typeform-auto-reply", title: "How to Automatically Reply to Typeform Submissions (Without Zapier)", category: "Guides" },
   { slug: "typeform-automate-responses", title: "How to Automate Responses to Typeform Submissions", category: "Guides" },
   { slug: "typeform-contact-form-automation", title: "How to Automate Responses to Your Typeform Contact Form", category: "Guides" },
@@ -73,8 +76,8 @@ const POSTS: BlogPost[] = [
 const CATEGORIES = ["Guides", "Integrations", "Comparisons"] as const;
 
 const CATEGORY_DESCRIPTIONS: Record<string, string> = {
-  Guides: "Step-by-step tutorials on automating form replies, setting up webhooks, and responding to leads faster.",
-  Integrations: "Connect Typeform to your CRM, email platform, project management tool, and more.",
+  Guides: "Step-by-step tutorials on automating form replies with Typeform, Google Forms, Jotform, Webflow, and more.",
+  Integrations: "Connect your form builder to your CRM, email platform, project management tool, and more.",
   Comparisons: "Side-by-side comparisons of form builders and automation tools.",
 };
 

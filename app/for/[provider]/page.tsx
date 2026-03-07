@@ -320,12 +320,13 @@ export function generateStaticParams() {
   return PROVIDER_KEYS.map((provider) => ({ provider }));
 }
 
-export function generateMetadata({
+export async function generateMetadata({
   params,
 }: {
-  params: { provider: string };
-}): Metadata {
-  const data = PROVIDERS[params.provider as ProviderKey];
+  params: Promise<{ provider: string }>;
+}): Promise<Metadata> {
+  const { provider } = await params;
+  const data = PROVIDERS[provider as ProviderKey];
   if (!data) return {};
 
   return {
@@ -335,7 +336,7 @@ export function generateMetadata({
     openGraph: {
       title: `${data.title} | FormReply`,
       description: data.description,
-      url: `https://formreply.app/for/${params.provider}`,
+      url: `https://formreply.app/for/${provider}`,
       siteName: "FormReply",
       type: "website",
     },
@@ -346,12 +347,13 @@ export function generateMetadata({
 /*  Page component                                                     */
 /* ------------------------------------------------------------------ */
 
-export default function ProviderPage({
+export default async function ProviderPage({
   params,
 }: {
-  params: { provider: string };
+  params: Promise<{ provider: string }>;
 }) {
-  const data = PROVIDERS[params.provider as ProviderKey];
+  const { provider } = await params;
+  const data = PROVIDERS[provider as ProviderKey];
   if (!data) notFound();
 
   return (
@@ -366,7 +368,7 @@ export default function ProviderPage({
             name: "FormReply",
             applicationCategory: "BusinessApplication",
             operatingSystem: "Web",
-            url: `https://formreply.app/for/${params.provider}`,
+            url: `https://formreply.app/for/${provider}`,
             description: data.description,
             offers: [
               {
