@@ -166,6 +166,110 @@ export default function DemoPage() {
 
       {/* Main content */}
       <main className="max-w-6xl mx-auto px-6 py-6">
+        {/* Before / After comparison */}
+        <div className="mb-8 rounded-xl border border-white/[0.06] bg-zinc-900/60 overflow-hidden">
+          <div className="px-5 py-3 border-b border-white/[0.04]">
+            <h2 className="text-xs font-semibold text-white/50 uppercase tracking-wider">
+              What changes with FormReply
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-[1fr_auto_1fr]">
+            {/* Before — manual workflow */}
+            <div className="px-5 py-5">
+              <p className="text-xs font-semibold text-red-400/80 uppercase tracking-wider mb-4">
+                Before — Manual workflow
+              </p>
+              <ol className="space-y-3">
+                {[
+                  { step: "Form submission arrives", time: "0 min", accent: "text-white/50" },
+                  { step: "Notice the email notification", time: "~2 hours", accent: "text-amber-400" },
+                  { step: "Read the submission", time: "~2h 5min", accent: "text-amber-400" },
+                  { step: "Write a reply from scratch", time: "~2h 15min", accent: "text-red-400" },
+                  { step: "Review, edit, send", time: "~2h 20min", accent: "text-red-400" },
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <div className="flex flex-col items-center mt-0.5">
+                      <div className="w-2 h-2 rounded-full bg-red-400/40 border border-red-400/60 flex-shrink-0" />
+                      {i < 4 && <div className="w-px h-5 bg-red-400/20 mt-1" />}
+                    </div>
+                    <div className="flex-1 flex items-baseline justify-between gap-2">
+                      <span className="text-sm text-white/60">{item.step}</span>
+                      <span className={`text-xs font-mono font-medium flex-shrink-0 ${item.accent}`}>
+                        {item.time}
+                      </span>
+                    </div>
+                  </li>
+                ))}
+              </ol>
+              <div className="mt-4 pt-3 border-t border-white/[0.06] flex items-baseline justify-between">
+                <span className="text-xs text-white/30 uppercase tracking-wider">Total</span>
+                <span className="text-sm font-bold text-red-400">~2 hours 20 min</span>
+              </div>
+            </div>
+
+            {/* Arrow divider — desktop only */}
+            <div className="hidden md:flex items-center justify-center px-2">
+              <div className="flex flex-col items-center gap-1 text-white/20">
+                <div className="w-px h-8 bg-white/[0.08]" />
+                <svg className="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
+                  <path
+                    fillRule="evenodd"
+                    d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+                <div className="w-px h-8 bg-white/[0.08]" />
+              </div>
+            </div>
+
+            {/* Mobile divider */}
+            <div className="md:hidden flex items-center gap-3 px-5 py-2">
+              <div className="flex-1 h-px bg-white/[0.06]" />
+              <svg className="w-4 h-4 text-white/20 rotate-90" viewBox="0 0 20 20" fill="currentColor">
+                <path
+                  fillRule="evenodd"
+                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                  clipRule="evenodd"
+                />
+              </svg>
+              <div className="flex-1 h-px bg-white/[0.06]" />
+            </div>
+
+            {/* After — FormReply workflow */}
+            <div className="px-5 py-5">
+              <p className="text-xs font-semibold text-emerald-400/80 uppercase tracking-wider mb-4">
+                After — With FormReply
+              </p>
+              <ol className="space-y-3">
+                {[
+                  { step: "Form submission arrives", time: "0s", accent: "text-white/50" },
+                  { step: "AI drafts personalized reply", time: "~8s", accent: "text-emerald-400" },
+                  { step: "Draft lands in your inbox", time: "~10s", accent: "text-emerald-400" },
+                  { step: "Review and send", time: "~30s", accent: "text-indigo-400" },
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <div className="flex flex-col items-center mt-0.5">
+                      <div className="w-2 h-2 rounded-full bg-emerald-400/40 border border-emerald-400/60 flex-shrink-0" />
+                      {i < 3 && <div className="w-px h-5 bg-emerald-400/20 mt-1" />}
+                    </div>
+                    <div className="flex-1 flex items-baseline justify-between gap-2">
+                      <span className="text-sm text-white/60">{item.step}</span>
+                      <span className={`text-xs font-mono font-medium flex-shrink-0 ${item.accent}`}>
+                        {item.time}
+                      </span>
+                    </div>
+                  </li>
+                ))}
+              </ol>
+              <div className="mt-4 pt-3 border-t border-white/[0.06] flex items-baseline justify-between">
+                <span className="text-xs text-white/30 uppercase tracking-wider">Total</span>
+                <span className="text-sm font-bold text-emerald-400">~30 seconds</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div className="flex items-center justify-between mb-5">
           <h1 className="text-sm font-semibold text-white/60 uppercase tracking-wider">
             Recent submissions
