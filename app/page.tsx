@@ -21,6 +21,41 @@ const Partial = ({ label }: { label: string }) => (
 export default function LandingPage() {
   return (
     <main className="min-h-screen bg-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "SoftwareApplication",
+            name: "FormReply",
+            applicationCategory: "BusinessApplication",
+            operatingSystem: "Web",
+            url: "https://formreply.app",
+            description:
+              "AI drafts a personalized reply to every Typeform submission — in your inbox in 10 seconds.",
+            offers: [
+              {
+                "@type": "Offer",
+                price: "0",
+                priceCurrency: "USD",
+                name: "Free",
+                description: "5 AI-drafted replies per month",
+              },
+              {
+                "@type": "Offer",
+                price: "19",
+                priceCurrency: "USD",
+                priceSpecification: {
+                  "@type": "UnitPriceSpecification",
+                  billingDuration: "P1M",
+                },
+                name: "Starter",
+                description: "Unlimited Typeform submissions",
+              },
+            ],
+          }),
+        }}
+      />
       <NavBar />
 
       {/* Hero */}

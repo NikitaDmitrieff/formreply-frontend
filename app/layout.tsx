@@ -50,7 +50,34 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="antialiased">{children}</body>
+      <body className="antialiased">
+        {children}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+(function(){
+  if (/bot|crawler/i.test(navigator.userAgent)) return;
+  var payload = JSON.stringify({
+    path: window.location.pathname,
+    referrer: document.referrer || null,
+    user_agent: navigator.userAgent
+  });
+  var url = "https://formreply-backend-production.up.railway.app/analytics/track";
+  if (navigator.sendBeacon) {
+    navigator.sendBeacon(url, new Blob([payload], { type: "application/json" }));
+  } else {
+    fetch(url, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: payload,
+      keepalive: true
+    });
+  }
+})();
+`,
+          }}
+        />
+      </body>
     </html>
   );
 }
