@@ -69,6 +69,8 @@ export default function DashboardClient() {
   const [loginError, setLoginError] = useState("");
   const [lastRefreshed, setLastRefreshed] = useState<Date | null>(null);
   const [showWebhookUrl, setShowWebhookUrl] = useState(false);
+  const [sendingReply, setSendingReply] = useState<string | null>(null);
+  const [replyResult, setReplyResult] = useState<Record<string, string>>({});
 
   const fetchData = useCallback(async () => {
     if (!customerId) return;
@@ -143,6 +145,29 @@ export default function DashboardClient() {
     } catch (err) {
       setLoginError(err instanceof Error ? err.message : "Something went wrong");
       setLoginLoading(false);
+    }
+  }
+
+  async function handleSendReply(submissionId: string) {
+    if (!customerId) return;
+    setSendingReply(submissionId);
+    setReplyResult((prev) => ({ ...prev, [submissionId]: "" }));
+    try {
+      const res = await fetch(
+        `${BACKEND_URL}/dashboard/${customerId}/reply/${submissionId}`,
+        { method: "POST" }
+      );
+      const json = await res.json();
+      if (!res.ok) throw new Error(json.error || "Failed to send reply");
+      setReplyResult((prev) => ({ ...prev, [submissionId]: "sent" }));
+      await fetchData();
+    } catch (err) {
+      setReplyResult((prev) => ({
+        ...prev,
+        [submissionId]: err instanceof Error ? err.message : "Failed",
+      }));
+    } finally {
+      setSendingReply(null);
     }
   }
 
@@ -461,6 +486,7 @@ export default function DashboardClient() {
                 >
                   <option value="all">All</option>
                   <option value="processed">Processed</option>
+                  <option value="replied">Replied</option>
                   <option value="spam">Spam</option>
                 </select>
               </div>
@@ -586,12 +612,47 @@ export default function DashboardClient() {
                                   Reply
                                 </a>
                               )}
+                              {sub.submitter_email && sub.status !== "replied" && sub.status !== "spam" && (
+                                <button
+                                  onClick={() => handleSendReply(sub.id)}
+                                  disabled={sendingReply === sub.id}
+                                  className="flex items-center gap-1 text-xs text-white bg-indigo-600 hover:bg-indigo-700 transition-colors font-medium px-2.5 py-1 rounded-md disabled:opacity-50"
+                                  title="Send this draft reply directly to the submitter"
+                                >
+                                  {sendingReply === sub.id ? (
+                                    <>
+                                      <svg className="animate-spin w-3 h-3" viewBox="0 0 24 24" fill="none">
+                                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+                                      </svg>
+                                      Sending...
+                                    </>
+                                  ) : replyResult[sub.id] === "sent" ? (
+                                    <>
+                                      <svg className="w-3 h-3 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                      </svg>
+                                      <span className="text-green-100">Sent!</span>
+                                    </>
+                                  ) : (
+                                    <>
+                                      <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                                      </svg>
+                                      Send Reply
+                                    </>
+                                  )}
+                                </button>
+                              )}
                               <CopyButton text={sub.draft} />
                             </div>
                           </div>
                           <p className="text-sm text-gray-800 whitespace-pre-wrap">
                             {sub.draft}
                           </p>
+                          {replyResult[sub.id] && replyResult[sub.id] !== "sent" && (
+                            <p className="text-xs text-red-500 mt-1">{replyResult[sub.id]}</p>
+                          )}
                         </div>
                       )}
 
@@ -762,6 +823,18 @@ export default function DashboardClient() {
             </a>
           )}
         </div>
+
+        {/* Share / Referral */}
+        <div className="bg-gradient-to-r from-indigo-50 to-purple-50 rounded-2xl border border-indigo-200 p-5 mb-8">
+          <h3 className="font-semibold text-gray-900 text-sm mb-1">Share FormReply</h3>
+          <p className="text-xs text-gray-500 mb-3">Know someone who gets swamped with form submissions? Share your referral link.</p>
+          <div className="flex items-center gap-2">
+            <code className="flex-1 text-xs bg-white/70 rounded-lg px-3 py-2.5 font-mono text-gray-700 truncate border border-indigo-100">
+              https://formreply.app?ref={account.id.slice(0, 8)}
+            </code>
+            <CopyButton text={`https://formreply.app?ref=${account.id.slice(0, 8)}`} />
+          </div>
+        </div>
       </div>
     </div>
   );
@@ -852,6 +925,13 @@ function StatusBadge({ status }: { status: string }) {
     return (
       <span className="text-[10px] font-semibold px-1.5 py-0.5 bg-green-100 text-green-700 rounded">
         Processed
+      </span>
+    );
+  }
+  if (status === "replied") {
+    return (
+      <span className="text-[10px] font-semibold px-1.5 py-0.5 bg-blue-100 text-blue-700 rounded">
+        Replied
       </span>
     );
   }
