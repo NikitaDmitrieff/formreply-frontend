@@ -62,6 +62,8 @@ export default function DashboardClient() {
     email: "",
   });
   const [expandedId, setExpandedId] = useState<string | null>(null);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [statusFilter, setStatusFilter] = useState<string>("all");
 
   const fetchData = useCallback(async () => {
     if (!customerId) return;
@@ -287,15 +289,71 @@ export default function DashboardClient() {
         )}
 
         {/* Recent submissions */}
+        {(() => {
+          const q = searchQuery.toLowerCase();
+          const filtered = submissions.filter((sub) => {
+            if (statusFilter !== "all" && sub.status !== statusFilter) return false;
+            if (q) {
+              return (
+                sub.submitter_name.toLowerCase().includes(q) ||
+                sub.submitter_email.toLowerCase().includes(q) ||
+                sub.message.toLowerCase().includes(q) ||
+                sub.form_name.toLowerCase().includes(q)
+              );
+            }
+            return true;
+          });
+          const now24h = Date.now() - 24 * 60 * 60 * 1000;
+
+          return (
         <div className="bg-white rounded-2xl border border-gray-200 mb-6">
-          <div className="px-5 py-4 border-b border-gray-100 flex items-center justify-between">
-            <h2 className="font-bold text-gray-900">Recent submissions</h2>
-            <span className="text-xs text-gray-400">
-              {submissions.length} shown
-            </span>
+          <div className="px-5 py-4 border-b border-gray-100">
+            <div className="flex items-center justify-between mb-3">
+              <h2 className="font-bold text-gray-900">Recent submissions</h2>
+              <span className="text-xs text-gray-400">
+                {filtered.length === submissions.length
+                  ? `${submissions.length} shown`
+                  : `${filtered.length} of ${submissions.length}`}
+              </span>
+            </div>
+            {submissions.length > 0 && (
+              <div className="flex items-center gap-2">
+                <div className="relative flex-1">
+                  <svg
+                    className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                    />
+                  </svg>
+                  <input
+                    type="text"
+                    placeholder="Search by name, email, or message..."
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    className="w-full pl-9 pr-3 py-2 text-sm border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                  />
+                </div>
+                <select
+                  value={statusFilter}
+                  onChange={(e) => setStatusFilter(e.target.value)}
+                  className="text-sm border border-gray-200 rounded-xl px-3 py-2 bg-white focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                >
+                  <option value="all">All</option>
+                  <option value="processed">Processed</option>
+                  <option value="spam">Spam</option>
+                </select>
+              </div>
+            )}
           </div>
 
-          {submissions.length === 0 ? (
+          {filtered.length === 0 ? (
             <div className="px-5 py-12 text-center">
               <div className="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-3">
                 <svg
@@ -312,14 +370,20 @@ export default function DashboardClient() {
                   />
                 </svg>
               </div>
-              <p className="text-gray-500 text-sm">No submissions yet</p>
+              <p className="text-gray-500 text-sm">
+                {submissions.length === 0 ? "No submissions yet" : "No matching submissions"}
+              </p>
               <p className="text-gray-400 text-xs mt-1">
-                Connect your form and submit a test to see it here.
+                {submissions.length === 0
+                  ? "Connect your form and submit a test to see it here."
+                  : "Try a different search term or filter."}
               </p>
             </div>
           ) : (
             <div className="divide-y divide-gray-50">
-              {submissions.map((sub) => (
+              {filtered.map((sub) => {
+                const isNew = new Date(sub.created_at).getTime() > now24h;
+                return (
                 <div key={sub.id} className="px-5 py-4">
                   <button
                     type="button"
@@ -334,6 +398,11 @@ export default function DashboardClient() {
                           <span className="font-medium text-gray-900 text-sm truncate">
                             {sub.submitter_name}
                           </span>
+                          {isNew && (
+                            <span className="text-[10px] font-semibold px-1.5 py-0.5 bg-indigo-100 text-indigo-700 rounded animate-pulse">
+                              New
+                            </span>
+                          )}
                           <StatusBadge status={sub.status} />
                         </div>
                         <p className="text-xs text-gray-400 truncate">
@@ -397,10 +466,12 @@ export default function DashboardClient() {
                     </div>
                   )}
                 </div>
-              ))}
+              );})}
             </div>
           )}
         </div>
+          );
+        })()}
 
         {/* Settings */}
         <div className="bg-white rounded-2xl border border-gray-200 p-5 mb-6">
