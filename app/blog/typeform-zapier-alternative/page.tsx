@@ -230,11 +230,10 @@ export default function BlogPost() {
           </p>
 
           <div className="bg-indigo-50 border border-indigo-100 rounded-xl p-6 my-8">
-            <p className="text-gray-700 font-medium mb-2">One tradeoff to know about</p>
+            <p className="text-gray-700 font-medium mb-2">Works with more than just Typeform</p>
             <p className="text-gray-600 text-sm leading-relaxed">
-              FormReply works with Typeform contact forms. It doesn&rsquo;t integrate with other form tools (Jotform,
-              Tally, Gravity Forms) and doesn&rsquo;t connect to CRMs or project management tools. If you need those
-              things, Zapier is the right answer. If Typeform contact form → reply draft is the whole job, FormReply
+              FormReply works with <a href="/for/typeform" className="text-indigo-600 underline">Typeform</a>, <a href="/for/google-forms" className="text-indigo-600 underline">Google Forms</a>, <a href="/for/jotform" className="text-indigo-600 underline">Jotform</a>, <a href="/for/tally" className="text-indigo-600 underline">Tally</a>, and <a href="/for/webflow" className="text-indigo-600 underline">Webflow</a>. It doesn&rsquo;t connect to CRMs or project management tools. If you need those
+              things, Zapier is the right answer. If contact form → reply draft is the whole job, FormReply
               does it faster and cheaper.
             </p>
           </div>

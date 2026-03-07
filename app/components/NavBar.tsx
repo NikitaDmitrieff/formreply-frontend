@@ -50,6 +50,12 @@ export function NavBar() {
             Pricing
           </a>
           <Link
+            href="/blog"
+            className="text-gray-500 hover:text-gray-900 text-sm font-medium transition-colors hidden sm:block"
+          >
+            Blog
+          </Link>
+          <Link
             href="/onboarding"
             className="bg-indigo-600 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-indigo-700 transition-colors"
           >
@@ -99,6 +105,13 @@ export function NavBar() {
           >
             Pricing
           </a>
+          <Link
+            href="/blog"
+            onClick={() => setMenuOpen(false)}
+            className="text-gray-600 hover:text-gray-900 text-sm font-medium py-3 active:bg-gray-50 rounded-lg transition-colors"
+          >
+            Blog
+          </Link>
         </div>
       )}
     </nav>

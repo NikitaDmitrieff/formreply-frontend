@@ -220,8 +220,8 @@ export default function BlogPost() {
 
           <h2 className="text-2xl font-bold text-gray-900 mt-10 mb-4">Closing the Reply Gap with FormReply</h2>
           <p className="text-gray-600 leading-relaxed mb-4">
-            FormReply is designed specifically for Typeform contact forms. When a submission arrives, FormReply
-            reads it via the Typeform API, generates a personalized reply draft based on exactly what the
+            FormReply works with both <a href="/for/typeform" className="text-indigo-600 underline">Typeform</a> and <a href="/for/google-forms" className="text-indigo-600 underline">Google Forms</a>. When a submission arrives, FormReply
+            reads it, generates a personalized reply draft based on exactly what the
             respondent wrote, and places it in your Gmail inbox within 10 seconds.
           </p>
           <p className="text-gray-600 leading-relaxed mb-4">
@@ -229,10 +229,7 @@ export default function BlogPost() {
             a new tab, opening your email composer, and starting from scratch. The reply is already written.
           </p>
           <p className="text-gray-600 leading-relaxed mb-4">
-            If you&rsquo;re comparing Typeform and Google Forms for a contact form use case — this is one of the
-            clearest arguments for Typeform. FormReply integrates with Typeform via its API. It doesn&rsquo;t
-            have a Google Forms equivalent, because Google Forms doesn&rsquo;t offer the same submission API
-            access.
+            Whichever form builder you choose, FormReply closes the reply gap. It also supports <a href="/for/jotform" className="text-indigo-600 underline">Jotform</a>, <a href="/for/tally" className="text-indigo-600 underline">Tally</a>, and <a href="/for/webflow" className="text-indigo-600 underline">Webflow</a>.
           </p>
 
           <h2 className="text-2xl font-bold text-gray-900 mt-10 mb-4">Verdict</h2>
@@ -288,9 +285,7 @@ export default function BlogPost() {
             Does FormReply work with Google Forms?
           </h3>
           <p className="text-gray-600 leading-relaxed mb-4">
-            Not currently. FormReply connects to Typeform via the Typeform API, which provides structured access
-            to submission data. Google Forms doesn&rsquo;t offer equivalent API access to submissions. FormReply
-            is purpose-built for Typeform contact form workflows.
+            Yes! FormReply supports <a href="/for/google-forms" className="text-indigo-600 underline">Google Forms</a> with OAuth integration. Connect your Google account in one click and get AI-drafted replies for every Google Forms submission.
           </p>
         </div>
 

@@ -250,10 +250,10 @@ export default function BlogPost() {
           </p>
 
           <div className="bg-indigo-50 border border-indigo-100 rounded-xl p-6 my-8">
-            <p className="text-gray-700 font-medium mb-2">FormReply is Typeform-specific</p>
+            <p className="text-gray-700 font-medium mb-2">FormReply works with multiple form builders</p>
             <p className="text-gray-600 text-sm leading-relaxed">
-              FormReply only works with Typeform contact forms — not Jotform, Tally, Google Forms, or other builders.
-              If your contact form is on Typeform and you want to reply faster without losing the personal touch,
+              FormReply supports <a href="/for/typeform" className="text-indigo-600 underline">Typeform</a>, <a href="/for/google-forms" className="text-indigo-600 underline">Google Forms</a>, <a href="/for/jotform" className="text-indigo-600 underline">Jotform</a>, <a href="/for/tally" className="text-indigo-600 underline">Tally</a>, and <a href="/for/webflow" className="text-indigo-600 underline">Webflow</a>.
+              If your contact form is on any of these platforms and you want to reply faster without losing the personal touch,
               it&rsquo;s built for exactly that.
             </p>
           </div>

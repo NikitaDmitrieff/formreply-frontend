@@ -247,11 +247,10 @@ export default function BlogPost() {
           </p>
 
           <div className="bg-indigo-50 border border-indigo-100 rounded-xl p-6 my-8">
-            <p className="text-gray-700 font-medium mb-2">FormReply works with any Typeform contact form</p>
+            <p className="text-gray-700 font-medium mb-2">FormReply works with any contact form</p>
             <p className="text-gray-600 text-sm leading-relaxed">
               Whether your form is simple (3 fields) or complex (12 fields with conditional branching), FormReply
-              handles the response side. It&rsquo;s Typeform-specific — not built for other form tools — but within
-              Typeform, conditional logic forms work as well as any other.
+              handles the response side. Works with <a href="/for/typeform" className="text-indigo-600 underline">Typeform</a>, <a href="/for/google-forms" className="text-indigo-600 underline">Google Forms</a>, <a href="/for/jotform" className="text-indigo-600 underline">Jotform</a>, <a href="/for/tally" className="text-indigo-600 underline">Tally</a>, and <a href="/for/webflow" className="text-indigo-600 underline">Webflow</a>.
             </p>
           </div>
 

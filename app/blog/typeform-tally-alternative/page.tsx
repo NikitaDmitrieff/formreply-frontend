@@ -267,9 +267,9 @@ export default function BlogPost() {
             response. That gap often means hours of delay.
           </p>
 
-          <h2 className="text-2xl font-bold text-gray-900 mt-10 mb-4">FormReply Works with Typeform</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mt-10 mb-4">FormReply Works with Both Typeform and Tally</h2>
           <p className="text-gray-600 leading-relaxed mb-4">
-            FormReply connects to Typeform via the Typeform API. When a contact form submission
+            FormReply supports both <a href="/for/typeform" className="text-indigo-600 underline">Typeform</a> (via OAuth) and <a href="/for/tally" className="text-indigo-600 underline">Tally</a> (via webhook). When a contact form submission
             arrives, FormReply reads the submission, drafts a personalized reply referencing the
             submitter&rsquo;s name, company, and the specific content of their message, and delivers the
             draft to your Gmail inbox within 10 seconds.
@@ -280,8 +280,7 @@ export default function BlogPost() {
             and writing a reply from scratch.
           </p>
           <p className="text-gray-600 leading-relaxed mb-4">
-            If you&rsquo;re evaluating Typeform vs. Tally primarily for contact form use cases where
-            the reply speed matters, FormReply works with Typeform to close that loop automatically.
+            Whichever form builder you choose, FormReply closes the reply loop automatically. It also supports <a href="/for/google-forms" className="text-indigo-600 underline">Google Forms</a>, <a href="/for/jotform" className="text-indigo-600 underline">Jotform</a>, and <a href="/for/webflow" className="text-indigo-600 underline">Webflow</a>.
           </p>
 
           <h2 className="text-2xl font-bold text-gray-900 mt-10 mb-4">FAQ</h2>
@@ -331,9 +330,7 @@ export default function BlogPost() {
             Does FormReply work with Tally forms?
           </h3>
           <p className="text-gray-600 leading-relaxed mb-4">
-            Currently, FormReply integrates with Typeform via the Typeform API. Tally support is not
-            available yet. If your primary use case is a contact form where you need automated reply
-            drafting, building the form in Typeform gives you access to FormReply&rsquo;s reply automation.
+            Yes! FormReply supports <a href="/for/tally" className="text-indigo-600 underline">Tally</a> via webhook integration. Point your Tally webhook at FormReply and get AI-drafted replies for every submission. No matter which form builder you use, FormReply has you covered.
           </p>
         </div>
 

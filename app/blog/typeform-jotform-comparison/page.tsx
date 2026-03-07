@@ -241,8 +241,7 @@ export default function BlogPost() {
           </p>
           <p className="text-gray-600 leading-relaxed mb-4">
             If you&rsquo;re evaluating Typeform vs JotForm for a contact or inquiry form use case,
-            FormReply is worth considering as part of your Typeform stack. It currently supports
-            Typeform only — JotForm support is on the roadmap.
+            FormReply is worth considering as part of your stack. It supports both <a href="/for/typeform" className="text-indigo-600 underline">Typeform</a> and <a href="/for/jotform" className="text-indigo-600 underline">Jotform</a>, as well as <a href="/for/google-forms" className="text-indigo-600 underline">Google Forms</a>, <a href="/for/tally" className="text-indigo-600 underline">Tally</a>, and <a href="/for/webflow" className="text-indigo-600 underline">Webflow</a>.
           </p>
 
           <h2 className="text-2xl font-bold text-gray-900 mt-10 mb-4">Verdict</h2>
@@ -290,9 +289,7 @@ export default function BlogPost() {
 
           <h3 className="text-xl font-semibold text-gray-800 mt-6 mb-2">Does FormReply work with JotForm?</h3>
           <p className="text-gray-600 leading-relaxed mb-4">
-            Not yet. FormReply currently integrates with Typeform only. If you&rsquo;re on JotForm
-            and want AI-drafted replies, JotForm support is on our public roadmap. In the meantime,
-            FormReply works with any Typeform account via our standard onboarding.
+            Yes! FormReply supports <a href="/for/jotform" className="text-indigo-600 underline">Jotform</a> via webhook integration. Set up your Jotform webhook to point at FormReply, and you&rsquo;ll get AI-drafted replies for every submission. It also works with <a href="/for/typeform" className="text-indigo-600 underline">Typeform</a>, <a href="/for/google-forms" className="text-indigo-600 underline">Google Forms</a>, <a href="/for/tally" className="text-indigo-600 underline">Tally</a>, and <a href="/for/webflow" className="text-indigo-600 underline">Webflow</a>.
           </p>
         </div>
 
