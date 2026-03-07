@@ -2,11 +2,19 @@
 
 **AI-drafted replies to every form submission -- in your inbox in 10 seconds.**
 
-For freelancers, agencies, and small businesses that lose leads to slow response times. FormReply reads each contact form submission and drafts a personalized reply so you can respond while the conversation is still warm.
+![FormReply Dashboard](screenshot.png)
+
+FormReply is an AI reply tool for contact form submissions. It connects to Typeform, Google Forms, Webflow, Jotform, and Tally via webhook or OAuth, drafts a personalized AI reply for each submission, and lets you send it with one click. Built for freelancers, agencies, and small businesses that lose leads to slow response times.
 
 **Live at [formreply.app](https://formreply.app)**
 
 ---
+
+## Why FormReply?
+
+- **Speed converts leads** -- responding within 5 minutes makes you 21x more likely to qualify a lead. FormReply delivers a draft in 10 seconds.
+- **AI drafts save hours** -- no more writing the same "thanks for reaching out" email. GPT-4o-mini writes context-aware replies using your business info and tone.
+- **Works with 5 form providers** -- Typeform, Google Forms, Webflow, Jotform, and Tally. One dashboard for all your forms.
 
 ## Features
 
@@ -35,7 +43,7 @@ For freelancers, agencies, and small businesses that lose leads to slow response
 
 ```bash
 # Clone the repo
-git clone <repo-url>
+git clone https://github.com/NikitaDmitrieff/formreply-frontend.git
 cd formreply-frontend
 
 # Install dependencies
@@ -115,3 +123,8 @@ Backend API (separate repo): `formreply-backend` on Railway.
 ## License
 
 MIT
+
+<!--
+GitHub Topics (add via repo Settings > Topics):
+ai, contact-form, email-automation, typeform, webhooks, gpt-4, saas, form-reply, lead-management, customer-service
+-->
