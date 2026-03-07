@@ -161,7 +161,7 @@ export default async function SuccessPage({
         </div>
 
         {/* Section 1b: Connect Google Forms OAuth */}
-        <div className="bg-white rounded-2xl border border-gray-200 p-6 mb-6">
+        <div className="bg-white rounded-2xl border border-gray-200 p-6 mb-6 opacity-75">
           <div className="flex items-start gap-4">
             <span className="w-7 h-7 bg-emerald-600 text-white rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0 mt-0.5">
               1
@@ -169,16 +169,15 @@ export default async function SuccessPage({
             <div className="flex-1">
               <div className="flex items-center gap-2 mb-1">
                 <h3 className="font-bold text-gray-900 text-lg">Connect Google Forms automatically</h3>
-                <span className="text-xs font-semibold text-emerald-600 bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded-full">
-                  New
+                <span className="text-xs font-semibold text-amber-600 bg-amber-50 border border-amber-200 px-2 py-0.5 rounded-full">
+                  Coming soon
                 </span>
               </div>
               <p className="text-gray-500 text-sm mb-5">
-                Authorize FormReply on Google Forms. We&apos;ll discover all your forms and automatically poll for new responses — no Apps Script required.
+                One-click OAuth for Google Forms is almost ready. In the meantime, you can use the manual webhook method below.
               </p>
-              <a
-                href={googleOauthStartUrl}
-                className="inline-flex items-center gap-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold px-6 py-3 rounded-xl transition-colors text-sm shadow-sm shadow-emerald-200"
+              <span
+                className="inline-flex items-center gap-2.5 bg-gray-300 text-white font-semibold px-6 py-3 rounded-xl text-sm cursor-not-allowed"
               >
                 <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" />
@@ -187,7 +186,7 @@ export default async function SuccessPage({
                   <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" />
                 </svg>
                 Connect with Google Forms
-              </a>
+              </span>
             </div>
           </div>
         </div>

@@ -42,6 +42,12 @@ export function NavBar() {
           >
             How it works
           </a>
+          <a
+            href="#pricing"
+            className="text-gray-500 hover:text-gray-900 text-sm font-medium transition-colors hidden sm:block"
+          >
+            Pricing
+          </a>
           <Link
             href="/onboarding"
             className="bg-indigo-600 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-indigo-700 transition-colors"

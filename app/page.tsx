@@ -32,7 +32,7 @@ export default function LandingPage() {
             operatingSystem: "Web",
             url: "https://formreply.app",
             description:
-              "AI drafts a personalized reply to every Typeform submission — in your inbox in 10 seconds.",
+              "AI drafts a personalized reply to every form submission — in your inbox in 10 seconds. Works with Typeform, Webflow, and Google Forms.",
             offers: [
               {
                 "@type": "Offer",
@@ -50,7 +50,7 @@ export default function LandingPage() {
                   billingDuration: "P1M",
                 },
                 name: "Starter",
-                description: "Unlimited Typeform submissions",
+                description: "Unlimited form submissions (Typeform, Webflow, Google Forms)",
               },
             ],
           }),
@@ -64,10 +64,10 @@ export default function LandingPage() {
           <div>
             <div className="inline-flex items-center gap-2 bg-indigo-50 text-indigo-700 text-sm font-medium px-3 py-1.5 rounded-full mb-6">
               <span className="w-2 h-2 bg-indigo-500 rounded-full animate-pulse"></span>
-              Typeform submission &rarr; reply draft in ~10s
+              Form submission &rarr; reply draft in ~10s
             </div>
             <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 leading-[1.1] mb-5 tracking-tight">
-              Every Typeform lead gets a reply in 10 seconds.
+              Every form lead gets a reply in 10 seconds.
             </h1>
             <p className="text-lg text-gray-600 mb-8 leading-relaxed">
               AI reads each submission and drafts a personalized response &mdash; you just review and send. No templates, no copy-paste.
@@ -167,8 +167,8 @@ export default function LandingPage() {
               <div className="w-10 h-10 bg-indigo-600 text-white rounded-xl flex items-center justify-center text-base font-bold flex-shrink-0">1</div>
               <div className="hidden md:block h-px flex-1 bg-gray-200"></div>
             </div>
-            <h3 className="font-semibold text-gray-900 mb-2">Connect your Typeform</h3>
-            <p className="text-gray-500 text-sm leading-relaxed mb-4">Sign up, then connect via OAuth (one click) or paste your webhook URL into Typeform. Done in 60 seconds.</p>
+            <h3 className="font-semibold text-gray-900 mb-2">Connect your form</h3>
+            <p className="text-gray-500 text-sm leading-relaxed mb-4">Sign up, then connect Typeform or Google Forms via OAuth (one click each), or paste a webhook URL for Webflow. Done in 60 seconds.</p>
             <div className="bg-gray-50 rounded-lg px-3 py-2.5 border border-gray-200 font-mono text-xs text-gray-500 break-all">
               https://api.formreply.app/<span className="text-indigo-600">wh/abc123</span>
             </div>
@@ -407,7 +407,7 @@ export default function LandingPage() {
       </section>
 
       {/* Pricing */}
-      <section className="bg-gray-50 border-y border-gray-200 py-20">
+      <section id="pricing" className="bg-gray-50 border-y border-gray-200 py-20">
         <div className="max-w-3xl mx-auto px-6">
           <h2 className="text-3xl font-bold text-gray-900 text-center mb-3">Simple pricing</h2>
           <p className="text-gray-500 text-center mb-12">Start free. Upgrade when you need more.</p>
@@ -454,7 +454,7 @@ export default function LandingPage() {
               <p className="text-sm text-gray-500 mb-7">14-day free trial included</p>
               <ul className="space-y-3 mb-8">
                 {[
-                  "Unlimited Typeform submissions",
+                  "Unlimited form submissions",
                   "AI drafts matched to your tone",
                   "Delivered to your inbox in ~10 seconds",
                   "Spam submissions automatically filtered",
@@ -495,7 +495,7 @@ export default function LandingPage() {
             FormReply is built and operated by an autonomous AI team &mdash; 14 agents modeled on the thinking patterns of world-class founders, engineers, and marketers. They identified the problem, designed the product, wrote every line of code, and shipped it. This page included.
           </p>
           <p className="text-gray-500 text-sm">
-            The problem is obvious: every Typeform contact form submission deserves a real, personal response. Writing them from scratch is a grind. We fixed that.
+            The problem is obvious: every contact form submission deserves a real, personal response. Writing them from scratch is a grind. We fixed that.
           </p>
           <p className="text-gray-400 mt-5 text-sm">
             Questions? Email <a href="mailto:support@formreply.app" className="text-indigo-600 hover:underline">support@formreply.app</a>
@@ -510,11 +510,7 @@ export default function LandingPage() {
           {[
             {
               q: "Which forms does this work with?",
-              a: "Typeform. You connect it via OAuth (one click) or webhook \u2014 there\u2019s a step-by-step guide in the onboarding flow. Takes about 60 seconds to set up.",
-            },
-            {
-              q: "Can I use this with Google Forms or other form builders?",
-              a: "Right now FormReply works with Typeform. We\u2019re exploring other form builders \u2014 email us which ones you\u2019d want at support@formreply.app.",
+              a: "Typeform, Google Forms, and Webflow. Typeform and Google Forms connect via OAuth (one click each). Webflow uses a webhook URL \u2014 there\u2019s a step-by-step guide in the onboarding flow. Takes about 60 seconds to set up.",
             },
             {
               q: "How does it match my tone?",
