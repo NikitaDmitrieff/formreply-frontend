@@ -108,7 +108,7 @@ export default function OGImage() {
           </div>
 
           {/* Draft body */}
-          <div style={{ color: '#9ca3af', fontSize: '12px', lineHeight: 1.7 }}>
+          <div style={{ display: 'flex', flexDirection: 'column', color: '#9ca3af', fontSize: '12px', lineHeight: 1.7 }}>
             <div style={{ marginBottom: '10px' }}>Hi Alex,</div>
             <div style={{ marginBottom: '10px' }}>
               Thank you for reaching out! I&apos;d be happy to share more about our services and how we can help with your project.
