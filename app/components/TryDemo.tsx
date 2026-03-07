@@ -43,6 +43,8 @@ export function TryDemo() {
   const [error, setError] = useState("");
   const [sampleIndex, setSampleIndex] = useState(0);
   const typewriterRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const sectionRef = useRef<HTMLElement>(null);
+  const autoplayedRef = useRef(false);
 
   const stopTypewriter = useCallback(() => {
     if (typewriterRef.current) {
@@ -67,8 +69,43 @@ export function TryDemo() {
     return stopTypewriter;
   }, [draft, stopTypewriter]);
 
-  async function handleSubmit(e: React.FormEvent) {
-    e.preventDefault();
+  // Auto-play: fill sample + submit when section scrolls into view
+  useEffect(() => {
+    const section = sectionRef.current;
+    if (!section) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !autoplayedRef.current) {
+          autoplayedRef.current = true;
+          observer.disconnect();
+          // Pick a random sample
+          const idx = Math.floor(Math.random() * SAMPLES.length);
+          const sample = SAMPLES[idx];
+          setSampleIndex(idx + 1);
+          // Fill fields after a short delay so the user sees it happen, then auto-submit
+          setTimeout(() => {
+            setName(sample.name);
+            setEmail(sample.email);
+            setMessage(sample.message);
+            setTimeout(() => {
+              track("demo_autoplay");
+              submitDemo(sample.name, sample.email, sample.message);
+            }, 600);
+          }, 400);
+        }
+      },
+      { threshold: 0.5 }
+    );
+
+    observer.observe(section);
+    return () => observer.disconnect();
+  }, []);
+
+  async function submitDemo(overrideName?: string, overrideEmail?: string, overrideMessage?: string) {
+    const n = overrideName ?? name;
+    const e = overrideEmail ?? email;
+    const m = overrideMessage ?? message;
     track("demo_start");
     setState("loading");
     setDraft("");
@@ -79,7 +116,7 @@ export function TryDemo() {
       const res = await fetch("/api/demo", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, message }),
+        body: JSON.stringify({ name: n, email: e, message: m }),
       });
 
       const data = await res.json();
@@ -116,7 +153,7 @@ export function TryDemo() {
   }
 
   return (
-    <section id="try-demo" className="max-w-5xl mx-auto px-6 py-16">
+    <section ref={sectionRef} id="try-demo" className="max-w-5xl mx-auto px-6 py-16">
       <div className="text-center mb-8">
         <p className="text-xs font-semibold text-indigo-600 uppercase tracking-wider mb-2">
           Try it yourself
@@ -138,7 +175,7 @@ export function TryDemo() {
               Sample submission
             </span>
           </div>
-          <form onSubmit={handleSubmit} className="space-y-4">
+          <form onSubmit={(e) => { e.preventDefault(); submitDemo(); }} className="space-y-4">
             <div>
               <label
                 htmlFor="demo-name"
