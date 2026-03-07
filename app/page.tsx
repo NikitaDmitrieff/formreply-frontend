@@ -62,12 +62,12 @@ export default function LandingPage() {
       <NavBar />
 
       {/* Hero */}
-      <section className="max-w-5xl mx-auto px-6 pt-14 sm:pt-24 pb-16">
+      <section className="max-w-5xl mx-auto px-4 sm:px-6 pt-12 sm:pt-24 pb-12 sm:pb-16">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
             <div className="inline-flex items-center gap-2 bg-indigo-50 text-indigo-700 text-sm font-medium px-3 py-1.5 rounded-full mb-6">
-              <span className="w-2 h-2 bg-indigo-500 rounded-full animate-pulse"></span>
-              Form submission &rarr; reply draft in ~10s
+              <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+              Live now &mdash; try the demo below
             </div>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-[1.08] mb-5 tracking-tight">
               Stop losing leads to slow replies.
@@ -83,10 +83,10 @@ export default function LandingPage() {
                 Get started free &rarr;
               </Link>
               <a
-                href="#how-it-works"
+                href="#try-demo"
                 className="border border-gray-200 text-gray-700 px-6 py-3.5 rounded-xl text-base font-medium hover:bg-gray-50 transition-colors text-center"
               >
-                See how it works
+                See it in action
               </a>
             </div>
             <p className="text-sm text-gray-400 mt-4">Free plan &middot; 5 replies/month &middot; No card required</p>
@@ -198,6 +198,9 @@ export default function LandingPage() {
         </div>
       </div>
 
+      {/* Interactive demo — front and center */}
+      <TryDemo />
+
       {/* How it works */}
       <section id="how-it-works" className="max-w-4xl mx-auto px-6 py-20">
         <h2 className="text-3xl font-bold text-gray-900 text-center mb-2">How it works</h2>
@@ -253,17 +256,6 @@ export default function LandingPage() {
           </div>
         </div>
       </section>
-
-      {/* Scroll hint */}
-      <div className="flex flex-col items-center py-6">
-        <p className="text-xs text-gray-400 font-medium mb-2 uppercase tracking-wider">Try it yourself</p>
-        <svg className="w-5 h-5 text-indigo-400 animate-bounce" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-        </svg>
-      </div>
-
-      {/* Interactive demo */}
-      <TryDemo />
 
       {/* Speed-to-Lead Statistics */}
       <section className="bg-gray-50 border-y border-gray-200 py-20">
@@ -441,6 +433,12 @@ export default function LandingPage() {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-indigo-100/40 rounded-full blur-3xl pointer-events-none" />
 
         <div className="relative max-w-4xl mx-auto px-6">
+          <div className="flex justify-center mb-4">
+            <span className="inline-flex items-center gap-1.5 bg-amber-50 text-amber-700 text-xs font-semibold px-3 py-1 rounded-full border border-amber-200">
+              <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clipRule="evenodd" /></svg>
+              Launch pricing &mdash; locked in for early adopters
+            </span>
+          </div>
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 text-center mb-3">Simple, honest pricing</h2>
           <p className="text-gray-500 text-center mb-2">Start free. Upgrade when you need more.</p>
           <p className="text-sm text-gray-400 text-center mb-14">Less than a coffee a week.</p>
@@ -558,7 +556,7 @@ export default function LandingPage() {
             FormReply was built to close that gap. AI drafts a thoughtful reply in seconds, so you can respond while the conversation is still warm.
           </p>
           <p className="text-gray-400 text-xs">
-            FormReply launched March 2026. Early adopters get priority support and direct influence on the roadmap.
+            FormReply launched March 2026. Works with Typeform, Google Forms, Webflow, Jotform, and Tally. Early adopters get priority support and direct influence on the roadmap.
           </p>
           <p className="text-gray-400 mt-5 text-sm">
             Questions? Email <a href="mailto:support@formreply.app" className="text-indigo-600 hover:underline">support@formreply.app</a>
@@ -573,7 +571,7 @@ export default function LandingPage() {
           {[
             {
               q: "Which forms does this work with?",
-              a: "Typeform, Google Forms, and Webflow. Typeform and Google Forms connect via OAuth (one click each). Webflow uses a webhook URL \u2014 there\u2019s a step-by-step guide in the onboarding flow. Takes about 60 seconds to set up.",
+              a: "Typeform, Google Forms, Webflow, Jotform, and Tally. Typeform connects via OAuth (one click). The others use a webhook URL \u2014 there\u2019s a step-by-step guide for each in the onboarding flow. Takes about 60 seconds to set up.",
             },
             {
               q: "How does it match my tone?",
