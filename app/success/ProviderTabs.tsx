@@ -72,19 +72,21 @@ export default function ProviderTabs({
             </span>
           </div>
           <p className="text-gray-500 text-sm mb-4">
-            One-click OAuth for Google Forms is almost ready. For now, use the manual webhook method — expand the section below and follow the Google Forms instructions.
+            One-click OAuth for Google Forms is almost ready. For now, use the webhook URL below with a simple Apps Script.
           </p>
-          <span className="inline-flex items-center gap-2.5 bg-gray-300 text-white font-semibold px-6 py-3 rounded-xl text-sm cursor-not-allowed">
-            <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" />
-              <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
-              <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" />
-              <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" />
-            </svg>
-            Connect with Google Forms
-          </span>
-          <p className="text-xs text-gray-400 mt-3">
-            Use the manual webhook setup below with the Google Forms Apps Script.
+          <div className="bg-gray-50 border border-gray-200 rounded-lg p-3 mb-3">
+            <label className="text-xs font-semibold text-gray-600 block mb-1.5">Your Google Forms webhook URL</label>
+            <div className="flex gap-2">
+              <code className="flex-1 bg-white border border-gray-200 rounded-lg px-3 py-2 text-xs text-gray-700 break-all font-mono">
+                {googleFormsUrl}
+              </code>
+              <button data-copy={googleFormsUrl} className="copy-btn flex-shrink-0 border border-gray-200 text-gray-600 text-xs px-3 py-2 rounded-lg hover:bg-gray-50 transition-colors font-medium" type="button">
+                Copy
+              </button>
+            </div>
+          </div>
+          <p className="text-xs text-gray-400">
+            Open the &ldquo;Or add the webhook manually&rdquo; section below for the full Apps Script and setup instructions.
           </p>
         </div>
       )}
@@ -93,10 +95,21 @@ export default function ProviderTabs({
       {active === "webflow" && (
         <div>
           <p className="text-gray-500 text-sm mb-4">
-            Webflow uses manual webhook setup. Expand the section below and copy your Webflow webhook URL into Site Settings &rarr; Integrations &rarr; Webhooks.
+            Copy this webhook URL and paste it into your Webflow site: Site Settings &rarr; Integrations &rarr; Webhooks &rarr; Add webhook &rarr; choose &ldquo;Form submission&rdquo;.
           </p>
+          <div className="bg-gray-50 border border-gray-200 rounded-lg p-3 mb-3">
+            <label className="text-xs font-semibold text-gray-600 block mb-1.5">Your Webflow webhook URL</label>
+            <div className="flex gap-2">
+              <code className="flex-1 bg-white border border-gray-200 rounded-lg px-3 py-2 text-xs text-gray-700 break-all font-mono">
+                {webflowUrl}
+              </code>
+              <button data-copy={webflowUrl} className="copy-btn flex-shrink-0 border border-gray-200 text-gray-600 text-xs px-3 py-2 rounded-lg hover:bg-gray-50 transition-colors font-medium" type="button">
+                Copy
+              </button>
+            </div>
+          </div>
           <p className="text-xs text-gray-400">
-            Scroll down to &ldquo;Or add the webhook manually&rdquo; for your Webflow webhook URL and step-by-step instructions.
+            That&apos;s it! Once saved, any form submission on your Webflow site will trigger an AI-drafted reply.
           </p>
         </div>
       )}

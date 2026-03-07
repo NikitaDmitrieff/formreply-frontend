@@ -37,35 +37,53 @@ export default function TestSubmissionButton({
 
   if (state === "sent") {
     return (
-      <div className="space-y-3">
-        <div className="flex items-center gap-3">
-          <div className="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
-            <svg
-              className="w-4 h-4 text-white"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2.5}
-                d="M5 13l4 4L19 7"
-              />
-            </svg>
+      <div className="space-y-4">
+        <div className="bg-green-50 border border-green-200 rounded-xl p-4">
+          <div className="flex items-start gap-3">
+            <div className="w-9 h-9 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
+              <svg
+                className="w-5 h-5 text-white"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2.5}
+                  d="M5 13l4 4L19 7"
+                />
+              </svg>
+            </div>
+            <div>
+              <p className="text-sm text-green-900 font-bold">
+                Test sent! You&apos;re all set.
+              </p>
+              <p className="text-sm text-green-700 mt-0.5">
+                Check <span className="font-semibold">{email}</span> — your AI-drafted reply should arrive within 15 seconds.
+              </p>
+            </div>
           </div>
-          <p className="text-sm text-green-800 font-medium">
-            Test email sent! Check <span className="font-bold">{email}</span> —
-            your draft should arrive within 15 seconds.
-          </p>
         </div>
-        <button
-          onClick={() => setState("idle")}
-          className="text-sm text-indigo-600 hover:text-indigo-800 font-medium transition-colors"
-        >
-          Send another test
-        </button>
-        <details className="mt-2">
+        <div className="flex items-center gap-3 flex-wrap">
+          <button
+            onClick={() => setState("idle")}
+            className="text-sm text-indigo-600 hover:text-indigo-800 font-medium transition-colors"
+          >
+            Send another test
+          </button>
+          <span className="text-gray-300">|</span>
+          <a
+            href={`/dashboard?customer_id=${new URLSearchParams(window.location.search).get("customer_id")}`}
+            className="text-sm text-indigo-600 hover:text-indigo-800 font-medium transition-colors flex items-center gap-1"
+          >
+            Go to Dashboard
+            <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          </a>
+        </div>
+        <details>
           <summary className="text-sm text-gray-500 cursor-pointer hover:text-gray-700">
             Didn&apos;t receive it?
           </summary>
