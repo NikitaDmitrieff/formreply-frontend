@@ -15,36 +15,38 @@ export function NavBar() {
 
   return (
     <nav
-      className={`sticky top-0 z-50 backdrop-blur-md bg-black/60 border-b border-white/10 transition-all duration-200 ${
-        scrolled ? "py-2.5" : "py-4"
+      className={`sticky top-0 z-50 backdrop-blur-md border-b transition-all duration-200 ${
+        scrolled
+          ? "bg-white/90 border-gray-200 py-2.5 shadow-sm"
+          : "bg-white/70 border-transparent py-4"
       } px-6`}
     >
       <div className="max-w-5xl mx-auto flex items-center justify-between">
         <Link
           href="/"
-          className="flex items-center gap-2 font-bold text-xl text-white tracking-tight"
+          className="flex items-center gap-2 font-bold text-xl text-gray-900 tracking-tight"
         >
           <Image src="/logo.png" alt="FormReply" width={28} height={28} />
           <span>FormReply</span>
         </Link>
-        <div className="flex items-center gap-3">
-          <Link
-            href="/tools"
-            className="text-white/70 hover:text-white text-sm font-medium transition-colors hidden sm:block"
-          >
-            Free tools
-          </Link>
+        <div className="flex items-center gap-4">
           <Link
             href="/demo"
-            className="text-white/70 hover:text-white text-sm font-medium transition-colors hidden sm:block"
+            className="text-gray-500 hover:text-gray-900 text-sm font-medium transition-colors hidden sm:block"
           >
-            See demo
+            Demo
           </Link>
+          <a
+            href="#how-it-works"
+            className="text-gray-500 hover:text-gray-900 text-sm font-medium transition-colors hidden sm:block"
+          >
+            How it works
+          </a>
           <Link
             href="/onboarding"
             className="bg-indigo-600 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-indigo-700 transition-colors"
           >
-            Start free trial
+            Start free
           </Link>
         </div>
       </div>
