@@ -68,6 +68,9 @@ const POSTS: BlogPost[] = [
   { slug: "typeform-slack-notification", title: "How to Get Slack Notifications for Typeform Submissions (And Why Email Might Be Better)", category: "Integrations" },
 
   // Comparisons
+  { slug: "jotform-vs-typeform", title: "Jotform vs Typeform: Which Form Builder Is Better for Contact Forms?", category: "Comparisons" },
+  { slug: "tally-vs-typeform", title: "Tally vs Typeform: Free vs Paid Form Builder Comparison", category: "Comparisons" },
+  { slug: "best-free-form-builders", title: "5 Best Free Form Builders for Contact Forms (2026)", category: "Comparisons" },
   { slug: "google-forms-vs-typeform", title: "Google Forms vs Typeform: Which Is Better for Contact Forms?", category: "Comparisons" },
   { slug: "best-form-auto-reply-tools", title: "Best Form Auto-Reply Tools: FormReply vs Zapier vs Manual", category: "Comparisons" },
   { slug: "typeform-zapier-alternative", title: "Typeform + Zapier for Contact Form Replies: Is There a Better Alternative?", category: "Comparisons" },

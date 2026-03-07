@@ -58,6 +58,41 @@ export default function LandingPage() {
           }),
         }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            name: "FormReply",
+            url: "https://formreply.app",
+            description:
+              "AI-powered form reply automation. Drafts personalized responses to every contact form submission in seconds.",
+            foundingDate: "2026",
+            sameAs: [],
+          }),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            name: "FormReply",
+            url: "https://formreply.app",
+            potentialAction: {
+              "@type": "SearchAction",
+              target: {
+                "@type": "EntryPoint",
+                urlTemplate:
+                  "https://formreply.app/blog?q={search_term_string}",
+              },
+              "query-input": "required name=search_term_string",
+            },
+          }),
+        }}
+      />
       <TrackEvent event="landing_view" />
       <NavBar />
 
