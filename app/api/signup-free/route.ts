@@ -13,6 +13,18 @@ export async function POST(req: NextRequest) {
 
     const supabase = getServiceClient();
 
+    // Check if customer already exists
+    const { data: existing } = await supabase
+      .from("formreply_customers")
+      .select("id, plan, is_active")
+      .eq("email", email)
+      .single();
+
+    if (existing?.is_active && existing.plan !== "free") {
+      // Already has a paid account -- just return their ID, don't downgrade
+      return NextResponse.json({ customer_id: existing.id });
+    }
+
     const { data: customer, error: dbError } = await supabase
       .from("formreply_customers")
       .upsert(

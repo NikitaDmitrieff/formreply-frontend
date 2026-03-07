@@ -132,6 +132,9 @@ export default function OnboardingPage() {
                 autoFocus
                 onKeyDown={(e) => e.key === "Enter" && canAdvance() && setStep(2)}
               />
+              {data.business_name.length > 0 && data.business_name.trim().length === 0 && (
+                <p className="text-sm text-red-500 mt-2">Business name can&apos;t be only spaces</p>
+              )}
             </StepCard>
           )}
 
@@ -213,6 +216,9 @@ export default function OnboardingPage() {
                 autoFocus
                 onKeyDown={(e) => e.key === "Enter" && canAdvance() && handleSubmit("paid")}
               />
+              {data.email.length > 0 && !canAdvance() && (
+                <p className="text-sm text-red-500 mt-2">Please enter a valid email address</p>
+              )}
               <p className="text-sm text-gray-500 mt-3">
                 Choose your plan below. Free: 5 replies/month, no card required. Starter: 14-day free trial, then $19/month.
               </p>

@@ -29,10 +29,8 @@ export default async function SuccessPage({
   const typeformUrl = `${BACKEND_URL}/webhook/typeform/${customer.webhook_token}`;
   const webflowUrl = `${BACKEND_URL}/webhook/webflow/${customer.webhook_token}`;
   const oauthStartUrl = `${BACKEND_URL}/oauth/typeform/start?customer_id=${customer_id}`;
+  const oauthStatus = (oauth === "done" || oauth === "partial" || oauth === "denied" || oauth === "error") ? oauth : null;
   const oauthConnected = oauth === "done";
-  const oauthDenied = oauth === "denied";
-  const oauthError = oauth === "error";
-  const oauthPartial = oauth === "partial";
 
   const truncatedToken = customer.webhook_token
     ? `${customer.webhook_token.slice(0, 8)}...${customer.webhook_token.slice(-4)}`
@@ -128,7 +126,7 @@ export default async function SuccessPage({
         </div>
 
         {/* OAuth success / denied banners (client component) */}
-        <OAuthSuccessBanner connected={oauthConnected} denied={oauthDenied} error={oauthError} partial={oauthPartial} partialReason={reason} />
+        <OAuthSuccessBanner status={oauthStatus} reason={reason} />
 
         {/* Section 1: Connect Typeform OAuth -- Primary action */}
         <div className="bg-white rounded-2xl border-2 border-indigo-200 p-6 mb-6 shadow-sm shadow-indigo-50">
@@ -272,7 +270,7 @@ export default async function SuccessPage({
             </div>
             <div className="flex justify-between">
               <span>Plan</span>
-              <span className="font-medium">Starter — $19/month (14-day trial active)</span>
+              <span className="font-medium">{customer.plan === "free" ? "Free — 5 replies/month" : "Starter — $19/month (14-day trial active)"}</span>
             </div>
           </div>
           <div className="mt-4 pt-3 border-t border-indigo-200/60 flex items-center gap-2 text-xs text-indigo-500">
