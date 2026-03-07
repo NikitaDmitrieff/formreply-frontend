@@ -49,7 +49,7 @@ describe("Landing Page", () => {
 
   it("renders the pricing section with Free and Starter tiers", () => {
     render(<LandingPage />);
-    expect(screen.getByText("Simple pricing")).toBeInTheDocument();
+    expect(screen.getByText("Simple, honest pricing")).toBeInTheDocument();
     // Free tier
     expect(screen.getByText("Start for free")).toBeInTheDocument();
     // Starter tier

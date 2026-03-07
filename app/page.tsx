@@ -422,19 +422,22 @@ export default function LandingPage() {
       </section>
 
       {/* Pricing */}
-      <section id="pricing" className="bg-gray-50 border-y border-gray-200 py-20">
-        <div className="max-w-3xl mx-auto px-6">
-          <h2 className="text-3xl font-bold text-gray-900 text-center mb-3">Simple pricing</h2>
-          <p className="text-gray-500 text-center mb-2">Start free. Upgrade when you need more.</p>
-          <p className="text-sm text-gray-400 text-center mb-12">Less than a coffee a week.</p>
+      <section id="pricing" className="relative bg-gradient-to-b from-gray-50 via-white to-gray-50 border-y border-gray-200 py-24 overflow-hidden">
+        {/* Subtle background glow behind Starter card */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-indigo-100/40 rounded-full blur-3xl pointer-events-none" />
 
-          <div className="grid md:grid-cols-2 gap-8 md:gap-6">
-            {/* Free tier */}
-            <div className="bg-gray-50/50 rounded-2xl p-8 border border-gray-100">
-              <p className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-2">Free</p>
+        <div className="relative max-w-4xl mx-auto px-6">
+          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 text-center mb-3">Simple, honest pricing</h2>
+          <p className="text-gray-500 text-center mb-2">Start free. Upgrade when you need more.</p>
+          <p className="text-sm text-gray-400 text-center mb-14">Less than a coffee a week.</p>
+
+          <div className="grid md:grid-cols-5 gap-8 md:gap-0 items-center">
+            {/* Free tier — narrower, visually recessive */}
+            <div className="md:col-span-2 bg-white/60 backdrop-blur-sm rounded-2xl p-8 border border-gray-200/80">
+              <p className="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-2">Free</p>
               <div className="flex items-end gap-1 mb-1">
-                <span className="text-5xl font-bold text-gray-900">$0</span>
-                <span className="text-gray-400 mb-2">/month</span>
+                <span className="text-4xl font-bold text-gray-900">$0</span>
+                <span className="text-gray-400 mb-1">/month</span>
               </div>
               <p className="text-sm text-gray-500 mb-7">No card required. No time limit.</p>
               <ul className="space-y-3 mb-8">
@@ -444,8 +447,8 @@ export default function LandingPage() {
                   "Delivered to your inbox",
                   "Spam filtering included",
                 ].map((feature) => (
-                  <li key={feature} className="flex items-start gap-3 text-gray-600 text-sm">
-                    <svg className="w-5 h-5 text-gray-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <li key={feature} className="flex items-start gap-3 text-gray-500 text-sm">
+                    <svg className="w-5 h-5 text-gray-300 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
                     {feature}
@@ -460,44 +463,71 @@ export default function LandingPage() {
               </Link>
             </div>
 
-            {/* Starter tier */}
-            <div className="bg-white rounded-2xl p-8 border-2 border-indigo-600 shadow-lg md:scale-[1.02] relative">
-              <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-indigo-600 text-white text-xs font-semibold px-3 py-1 rounded-full">Recommended</div>
-              <p className="text-sm font-semibold text-indigo-600 uppercase tracking-wider mb-2">Starter</p>
-              <div className="flex items-end gap-1 mb-1">
-                <span className="text-5xl font-bold text-gray-900">$19</span>
-                <span className="text-gray-400 mb-2">/month</span>
+            {/* Starter tier — hero card, wider, elevated, gradient border */}
+            <div className="md:col-span-3 relative md:-ml-4 z-10">
+              {/* Gradient border wrapper */}
+              <div className="rounded-3xl bg-gradient-to-br from-indigo-600 via-indigo-500 to-violet-600 p-[2px] shadow-2xl shadow-indigo-200/50">
+                <div className="bg-white rounded-[22px] p-8 sm:p-10 relative overflow-hidden">
+                  {/* Subtle inner glow */}
+                  <div className="absolute top-0 right-0 w-48 h-48 bg-gradient-to-bl from-indigo-50 to-transparent rounded-bl-full pointer-events-none" />
+
+                  <div className="relative">
+                    {/* Badge */}
+                    <div className="inline-flex items-center gap-1.5 bg-indigo-600 text-white text-xs font-semibold px-3 py-1 rounded-full mb-5">
+                      <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clipRule="evenodd" /></svg>
+                      Most Popular
+                    </div>
+
+                    <p className="text-sm font-semibold text-indigo-600 uppercase tracking-wider mb-2">Starter</p>
+
+                    {/* Price with daily breakdown */}
+                    <div className="flex flex-wrap items-end gap-x-3 gap-y-1 mb-1">
+                      <span className="text-5xl sm:text-6xl font-bold text-gray-900">$19</span>
+                      <span className="text-gray-400 mb-2">/month</span>
+                      <span className="text-sm font-medium text-indigo-600/70 mb-2 bg-indigo-50 px-2.5 py-0.5 rounded-full">$0.63/day</span>
+                    </div>
+                    <p className="text-sm text-gray-500 mb-8">14-day free trial included</p>
+
+                    <ul className="space-y-3.5 mb-8">
+                      {[
+                        "Unlimited form submissions",
+                        "AI drafts matched to your tone",
+                        "Delivered to your inbox in ~10 seconds",
+                        "Spam submissions automatically filtered",
+                        "You review and send — we never touch your email",
+                      ].map((feature) => (
+                        <li key={feature} className="flex items-start gap-3 text-gray-700 text-sm">
+                          <svg className="w-5 h-5 text-indigo-500 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                          </svg>
+                          {feature}
+                        </li>
+                      ))}
+                    </ul>
+
+                    <TrackClick event="pricing_click" metadata={{ plan: "starter" }}>
+                      <Link
+                        href="/onboarding"
+                        className="block w-full bg-gradient-to-r from-indigo-600 to-indigo-700 text-white py-3.5 rounded-xl font-semibold hover:from-indigo-700 hover:to-indigo-800 transition-all text-center shadow-lg shadow-indigo-600/20 hover:shadow-indigo-600/30"
+                      >
+                        Start free 14-day trial
+                      </Link>
+                    </TrackClick>
+
+                    {/* Satisfaction guarantee */}
+                    <div className="flex items-center justify-center gap-2 mt-4">
+                      <svg className="w-4 h-4 text-green-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                      </svg>
+                      <p className="text-xs text-gray-400">30-day money-back guarantee. Cancel anytime, no questions asked.</p>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <p className="text-sm text-gray-500 mb-7">14-day free trial included</p>
-              <ul className="space-y-3 mb-8">
-                {[
-                  "Unlimited form submissions",
-                  "AI drafts matched to your tone",
-                  "Delivered to your inbox in ~10 seconds",
-                  "Spam submissions automatically filtered",
-                  "You review and send — we never touch your email",
-                ].map((feature) => (
-                  <li key={feature} className="flex items-start gap-3 text-gray-700 text-sm">
-                    <svg className="w-5 h-5 text-indigo-500 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    {feature}
-                  </li>
-                ))}
-              </ul>
-              <TrackClick event="pricing_click" metadata={{ plan: "starter" }}>
-                <Link
-                  href="/onboarding"
-                  className="block w-full bg-indigo-600 text-white py-3 rounded-xl font-semibold hover:bg-indigo-700 transition-colors text-center"
-                >
-                  Start free 14-day trial
-                </Link>
-              </TrackClick>
-              <p className="text-xs text-gray-400 mt-3 text-center">Cancel anytime. No questions asked.</p>
             </div>
           </div>
 
-          <p className="text-center text-sm text-gray-400 mt-6">
+          <p className="text-center text-sm text-gray-400 mt-10">
             Need a custom plan? Email <a href="mailto:support@formreply.app" className="text-indigo-600 hover:underline">support@formreply.app</a>
           </p>
         </div>
