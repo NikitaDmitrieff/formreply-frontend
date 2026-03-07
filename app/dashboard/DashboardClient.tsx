@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 
@@ -374,7 +374,7 @@ export default function DashboardClient() {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
             </svg>
           </button>
-          {showWebhookUrl && (
+          <AnimatedExpand open={showWebhookUrl}>
             <div className="mt-3 pt-3 border-t border-gray-100">
               <div className="flex items-center gap-2">
                 <code className="flex-1 text-xs bg-gray-50 rounded-lg px-3 py-2.5 font-mono text-gray-700 truncate">
@@ -386,7 +386,7 @@ export default function DashboardClient() {
                 Point your form&apos;s webhook to this URL. <Link href={`/success?customer_id=${account.id}`} className="text-indigo-600 hover:text-indigo-800">Setup guide &rarr;</Link>
               </p>
             </div>
-          )}
+          </AnimatedExpand>
         </div>
 
         {/* Recent submissions */}
@@ -554,7 +554,7 @@ export default function DashboardClient() {
                     </div>
                   </button>
 
-                  {expandedId === sub.id && (
+                  <AnimatedExpand open={expandedId === sub.id}>
                     <div className="mt-3 space-y-3">
                       {/* Message */}
                       <div className="bg-gray-50 rounded-xl p-4">
@@ -604,7 +604,7 @@ export default function DashboardClient() {
                         </div>
                       )}
                     </div>
-                  )}
+                  </AnimatedExpand>
                 </div>
               );})}
             </div>
@@ -767,6 +767,46 @@ export default function DashboardClient() {
   );
 }
 
+function AnimatedExpand({ open, children }: { open: boolean; children: React.ReactNode }) {
+  const contentRef = useRef<HTMLDivElement>(null);
+  const [height, setHeight] = useState(0);
+
+  useEffect(() => {
+    if (open && contentRef.current) {
+      setHeight(contentRef.current.scrollHeight);
+    } else {
+      setHeight(0);
+    }
+  }, [open]);
+
+  return (
+    <div
+      className="overflow-hidden transition-[height,opacity] duration-250 ease-in-out"
+      style={{ height, opacity: open ? 1 : 0 }}
+    >
+      <div ref={contentRef}>{children}</div>
+    </div>
+  );
+}
+
+function useCountUp(target: number, duration = 600) {
+  const [value, setValue] = useState(0);
+  useEffect(() => {
+    if (target === 0) { setValue(0); return; }
+    const start = performance.now();
+    let raf: number;
+    function step(now: number) {
+      const progress = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      setValue(Math.round(eased * target));
+      if (progress < 1) raf = requestAnimationFrame(step);
+    }
+    raf = requestAnimationFrame(step);
+    return () => cancelAnimationFrame(raf);
+  }, [target, duration]);
+  return value;
+}
+
 function StatCard({
   label,
   value,
@@ -780,6 +820,8 @@ function StatCard({
   isText?: boolean;
   color?: "green" | "yellow";
 }) {
+  const animatedValue = useCountUp(typeof value === "number" ? value : 0);
+
   return (
     <div className="bg-white rounded-2xl border border-gray-200 p-4">
       <p className="text-xs text-gray-500 mb-1">{label}</p>
@@ -797,7 +839,7 @@ function StatCard({
             {value}
           </span>
         ) : (
-          <span className="text-2xl font-bold text-gray-900">{value}</span>
+          <span className="text-2xl font-bold text-gray-900">{animatedValue}</span>
         )}
         {sub && <span className="text-xs text-gray-400">{sub}</span>}
       </div>
