@@ -309,6 +309,17 @@ export default function BlogPost() {
             </p>
           </div>
 
+          <div className="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
+            <p className="text-gray-700 font-medium mb-2">See it in action — no signup required</p>
+            <p className="text-gray-600 text-sm leading-relaxed">
+              Curious what an AI-drafted reply looks like?{" "}
+              <Link href="/tools/reply-generator" className="text-indigo-600 underline underline-offset-2">
+                Try our free contact form reply generator
+              </Link>{" "}
+              — paste a real submission and get a draft reply in seconds.
+            </p>
+          </div>
+
           <h2 className="text-2xl font-bold text-gray-900 mt-10 mb-4">The bottom line</h2>
           <p className="text-gray-600 leading-relaxed mb-4">
             Replying to Typeform submissions doesn&rsquo;t have to be a bottleneck. Manual replies are fine at low

@@ -32,7 +32,7 @@ export function NavBar() {
             href="/tools/reply-generator"
             className="text-white/70 hover:text-white text-sm font-medium transition-colors hidden sm:block"
           >
-            Free tool
+            Free tools
           </Link>
           <Link
             href="/demo"

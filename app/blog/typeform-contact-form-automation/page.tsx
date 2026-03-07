@@ -123,7 +123,11 @@ export default function BlogPost() {
             Templates feel like the obvious fix. But templated replies are obviously templated. The person who wrote
             you a specific, personal message asking about their specific situation can tell within two sentences that
             your response is a form letter. For anyone whose business runs on relationships — consultants, coaches,
-            agencies, freelancers — that friction is expensive.
+            agencies, freelancers — that friction is expensive. (Want to see the difference?{" "}
+            <Link href="/tools/reply-generator" className="text-indigo-600 underline underline-offset-2">
+              Try our free reply generator
+            </Link>{" "}
+            — paste a real submission and compare the AI draft to a template.)
           </p>
           <p className="text-gray-600 leading-relaxed mb-4">
             This is the thing about contact form volume: it&rsquo;s a tax on your own success. The better your

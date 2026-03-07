@@ -233,6 +233,16 @@ export default function BlogPost() {
             it reads whatever fields arrive in the webhook payload.
           </p>
 
+          <div className="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
+            <p className="text-gray-700 font-medium mb-2">Want to see the quality before you sign up?</p>
+            <p className="text-gray-600 text-sm leading-relaxed">
+              <Link href="/tools/reply-generator" className="text-indigo-600 underline underline-offset-2">
+                Generate a reply instantly with our free tool
+              </Link>{" "}
+              — paste any form submission and get a draft reply in seconds. No account needed.
+            </p>
+          </div>
+
           <h2 className="text-2xl font-bold text-gray-900 mt-10 mb-4">The right automation for your use case</h2>
           <p className="text-gray-600 leading-relaxed mb-4">
             If your Typeform handles transactional flows where every response is the same (event

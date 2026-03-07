@@ -345,6 +345,14 @@ export default function BlogPost() {
             </p>
           </div>
 
+          <p className="text-gray-600 leading-relaxed mb-4">
+            Not sure if AI-drafted replies match what you&rsquo;d actually write? You can{" "}
+            <Link href="/tools/reply-generator" className="text-indigo-600 underline underline-offset-2">
+              test it right now with our free reply generator
+            </Link>{" "}
+            — paste any form submission and see the output in seconds, no account needed.
+          </p>
+
           <h2 className="text-2xl font-bold text-gray-900 mt-10 mb-4">The bottom line</h2>
           <p className="text-gray-600 leading-relaxed mb-4">
             Typeform&rsquo;s native notifications handle confirmations. Zapier handles conditional routing. Neither

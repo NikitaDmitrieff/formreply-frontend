@@ -33,10 +33,39 @@ export const metadata: Metadata = {
   },
 };
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Contact Form Reply Generator",
+  "description":
+    "Paste a contact form submission and get a ready-to-send reply instantly. Choose your tone, copy, and send.",
+  "url": "https://formreply.app/tools/reply-generator",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Web",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD",
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "FormReply",
+    "url": "https://formreply.app",
+  },
+};
+
 export default function ReplyGeneratorLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  return <>{children}</>;
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      {children}
+    </>
+  );
 }

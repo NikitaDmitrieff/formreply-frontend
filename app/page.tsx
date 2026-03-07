@@ -599,6 +599,9 @@ export default function LandingPage() {
             <Link href="/tools/reply-generator" className="text-sm text-indigo-600 hover:text-indigo-700 transition-colors font-medium">
               Reply Generator
             </Link>
+            <Link href="/tools/form-spam-checker" className="text-sm text-indigo-600 hover:text-indigo-700 transition-colors font-medium">
+              Spam Checker
+            </Link>
             <Link href="/vs/zapier" className="text-sm text-gray-400 hover:text-gray-600 transition-colors">
               vs Zapier
             </Link>

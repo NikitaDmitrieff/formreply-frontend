@@ -177,6 +177,13 @@ export default function BlogPost() {
           </p>
 
           <h2 className="text-2xl font-bold text-gray-900 mt-10 mb-4">Try it</h2>
+          <p className="text-gray-600 leading-relaxed mb-4">
+            Want to see what an AI-drafted reply looks like before committing?{" "}
+            <Link href="/tools/reply-generator" className="text-indigo-600 underline underline-offset-2">
+              Try our free reply generator
+            </Link>{" "}
+            — paste any contact form submission and get a ready-to-send reply instantly, no signup required.
+          </p>
           <p className="text-gray-600 leading-relaxed mb-6">
             FormReply offers a 14-day free trial with card required. The trial includes full product access — no
             feature limits. If it doesn&rsquo;t save you time on the first real submission, cancel and pay nothing.
