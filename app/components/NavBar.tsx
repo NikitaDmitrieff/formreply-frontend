@@ -29,7 +29,7 @@ export function NavBar() {
         </Link>
         <div className="flex items-center gap-3">
           <Link
-            href="/tools/reply-generator"
+            href="/tools"
             className="text-white/70 hover:text-white text-sm font-medium transition-colors hidden sm:block"
           >
             Free tools

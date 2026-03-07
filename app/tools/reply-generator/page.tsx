@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -123,6 +123,17 @@ export default function ReplyGeneratorPage() {
   const [reply, setReply] = useState("");
   const [copied, setCopied] = useState(false);
   const [generating, setGenerating] = useState(false);
+  const [showStickyCta, setShowStickyCta] = useState(false);
+
+  useEffect(() => {
+    const handler = () => {
+      const scrollPercent =
+        window.scrollY / (document.body.scrollHeight - window.innerHeight);
+      setShowStickyCta(scrollPercent > 0.3);
+    };
+    window.addEventListener("scroll", handler, { passive: true });
+    return () => window.removeEventListener("scroll", handler);
+  }, []);
 
   const handleGenerate = () => {
     if (!message.trim()) return;
@@ -404,7 +415,7 @@ export default function ReplyGeneratorPage() {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-gray-100 py-8 bg-white">
+      <footer className="border-t border-gray-100 py-8 pb-20 bg-white">
         <div className="max-w-5xl mx-auto px-6 flex flex-wrap items-center justify-between gap-4">
           <Link
             href="/"
@@ -428,7 +439,7 @@ export default function ReplyGeneratorPage() {
             </Link>
             <Link
               href="/tools/form-spam-checker"
-              className="text-sm text-indigo-600 hover:text-indigo-700 transition-colors font-medium"
+              className="text-sm text-gray-400 hover:text-gray-600 transition-colors"
             >
               Spam Checker
             </Link>
@@ -448,6 +459,28 @@ export default function ReplyGeneratorPage() {
           </div>
         </div>
       </footer>
+
+      {/* Sticky bottom CTA */}
+      <div
+        className={`fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-sm border-t border-gray-200 py-3 px-6 transition-all duration-300 ${
+          showStickyCta
+            ? "translate-y-0 opacity-100"
+            : "translate-y-full opacity-0"
+        }`}
+      >
+        <div className="max-w-3xl mx-auto flex items-center justify-between gap-4">
+          <p className="text-sm text-gray-600 hidden sm:block">
+            <strong>Automate this.</strong> FormReply drafts replies to every
+            Typeform submission automatically.
+          </p>
+          <Link
+            href="/onboarding"
+            className="shrink-0 bg-indigo-600 text-white px-5 py-2 rounded-lg text-sm font-semibold hover:bg-indigo-700 transition-colors"
+          >
+            Try free →
+          </Link>
+        </div>
+      </div>
     </main>
   );
 }

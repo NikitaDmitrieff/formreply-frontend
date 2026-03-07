@@ -32,10 +32,39 @@ export const metadata: Metadata = {
   },
 };
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Form Spam Checker",
+  "description":
+    "Paste a form submission and instantly check if it's spam. Free spam score tool with detailed analysis.",
+  "url": "https://formreply.app/tools/form-spam-checker",
+  "applicationCategory": "SecurityApplication",
+  "operatingSystem": "Web",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD",
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "FormReply",
+    "url": "https://formreply.app",
+  },
+};
+
 export default function FormSpamCheckerLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  return <>{children}</>;
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      {children}
+    </>
+  );
 }
