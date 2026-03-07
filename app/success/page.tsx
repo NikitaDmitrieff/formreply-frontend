@@ -68,7 +68,7 @@ export default async function SuccessPage({
         </div>
       </div>
 
-      <div className="max-w-2xl mx-auto px-6 py-12">
+      <div className="max-w-2xl mx-auto px-4 py-8 sm:px-6 sm:py-12">
         {/* Setup Progress Stepper -- matches the 2-step flow below */}
         <div className="mb-10">
           <div className="flex items-center justify-between">
@@ -112,7 +112,7 @@ export default async function SuccessPage({
         </div>
 
         {/* Success banner */}
-        <div className="bg-green-50 border border-green-200 rounded-2xl p-6 mb-8 flex items-start gap-4">
+        <div className="bg-green-50 border border-green-200 rounded-2xl p-4 sm:p-6 mb-8 flex items-start gap-3 sm:gap-4">
           <div className="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
             <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
@@ -136,7 +136,7 @@ export default async function SuccessPage({
         <OAuthSuccessBanner status={oauthStatus} reason={reason} provider={oauthProvider} />
 
         {/* Step 1: Choose your form provider */}
-        <div className="bg-white rounded-2xl border-2 border-indigo-200 p-6 mb-6 shadow-sm shadow-indigo-50">
+        <div className="bg-white rounded-2xl border-2 border-indigo-200 p-4 sm:p-6 mb-6 shadow-sm shadow-indigo-50">
           <div className="flex items-start gap-4">
             <span className="w-7 h-7 bg-indigo-600 text-white rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0 mt-0.5">
               1
@@ -208,7 +208,7 @@ export default async function SuccessPage({
         </details>
 
         {/* Step 2: Test your setup */}
-        <div className="bg-white rounded-2xl border border-gray-200 p-6 mb-6">
+        <div className="bg-white rounded-2xl border border-gray-200 p-4 sm:p-6 mb-6">
           <div className="flex items-start gap-4">
             <span className="w-7 h-7 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0 mt-0.5">
               2
@@ -223,27 +223,10 @@ export default async function SuccessPage({
           </div>
         </div>
 
-        {/* How it works -- compact pipeline visualization */}
-        <div className="bg-white rounded-2xl border border-gray-200 p-6 mb-6">
-          <h3 className="font-bold text-gray-900 mb-4">How FormReply works</h3>
-          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-0">
-            <PipelineStep icon="form" label="Form submitted" />
-            <PipelineArrow />
-            <PipelineStep icon="filter" label="Spam filtered" />
-            <PipelineArrow />
-            <PipelineStep icon="ai" label={`AI drafts reply (${customer.tone} tone)`} />
-            <PipelineArrow />
-            <PipelineStep icon="email" label="Draft in your inbox" />
-          </div>
-          <p className="text-xs text-gray-400 mt-4 text-center sm:text-left">
-            Average response time: ~10 seconds from submission to your inbox.
-          </p>
-        </div>
-
         {/* Upgrade nudge for free users */}
         {customer.plan === "free" && (
-          <div className="bg-gradient-to-r from-indigo-50 to-purple-50 border border-indigo-200 rounded-2xl p-6 mb-6">
-            <div className="flex items-start gap-4">
+          <div className="bg-gradient-to-r from-indigo-50 to-purple-50 border border-indigo-200 rounded-2xl p-5 sm:p-6 mb-6">
+            <div className="flex items-start gap-3 sm:gap-4">
               <div className="w-10 h-10 bg-indigo-600 rounded-xl flex items-center justify-center flex-shrink-0">
                 <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
@@ -268,8 +251,8 @@ export default async function SuccessPage({
           </div>
         )}
 
-        {/* Account summary -- improved */}
-        <div className="bg-indigo-50 rounded-2xl p-6 text-sm">
+        {/* Account summary */}
+        <div className="bg-indigo-50 rounded-2xl p-5 sm:p-6 text-sm">
           <h3 className="font-semibold text-indigo-900 mb-3">Your account</h3>
           <div className="space-y-2 text-indigo-700">
             <div className="flex justify-between">
@@ -301,8 +284,36 @@ export default async function SuccessPage({
           </div>
         </div>
 
+        {/* How it works -- compact pipeline visualization */}
+        <div className="bg-white rounded-2xl border border-gray-200 p-5 sm:p-6 mt-6">
+          <h3 className="font-bold text-gray-900 mb-4">How FormReply works</h3>
+          {/* Desktop: horizontal */}
+          <div className="hidden sm:flex items-center gap-0">
+            <PipelineStep icon="form" label="Form submitted" />
+            <PipelineArrow />
+            <PipelineStep icon="filter" label="Spam filtered" />
+            <PipelineArrow />
+            <PipelineStep icon="ai" label={`AI drafts reply (${customer.tone} tone)`} />
+            <PipelineArrow />
+            <PipelineStep icon="email" label="Draft in your inbox" />
+          </div>
+          {/* Mobile: vertical with connectors */}
+          <div className="flex sm:hidden flex-col gap-0">
+            <PipelineStepMobile icon="form" label="Form submitted" />
+            <PipelineConnector />
+            <PipelineStepMobile icon="filter" label="Spam filtered" />
+            <PipelineConnector />
+            <PipelineStepMobile icon="ai" label={`AI drafts reply (${customer.tone} tone)`} />
+            <PipelineConnector />
+            <PipelineStepMobile icon="email" label="Draft in your inbox" />
+          </div>
+          <p className="text-xs text-gray-400 mt-4 text-center sm:text-left">
+            Average response time: ~10 seconds from submission to your inbox.
+          </p>
+        </div>
+
         {/* Need help? */}
-        <div className="bg-white rounded-2xl border border-gray-200 p-6 mt-6 text-center">
+        <div className="bg-white rounded-2xl border border-gray-200 p-5 sm:p-6 mt-6 text-center">
           <h3 className="font-semibold text-gray-900 mb-2">Need help?</h3>
           <p className="text-sm text-gray-500 mb-3">
             Having trouble connecting your form or not receiving test emails? We&apos;re here to help.
@@ -370,8 +381,31 @@ function PipelineStep({ icon, label }: { icon: "form" | "filter" | "ai" | "email
 
 function PipelineArrow() {
   return (
-    <svg className="w-4 h-4 text-gray-300 flex-shrink-0 mx-1 hidden sm:block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <svg className="w-4 h-4 text-gray-300 flex-shrink-0 mx-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
     </svg>
+  );
+}
+
+function PipelineStepMobile({ icon, label }: { icon: "form" | "filter" | "ai" | "email"; label: string }) {
+  const icons = {
+    form: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />,
+    filter: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />,
+    ai: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />,
+    email: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />,
+  };
+  return (
+    <div className="flex items-center gap-3">
+      <span className="w-8 h-8 bg-indigo-50 rounded-lg flex items-center justify-center flex-shrink-0">
+        <svg className="w-4 h-4 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">{icons[icon]}</svg>
+      </span>
+      <span className="text-sm text-gray-700">{label}</span>
+    </div>
+  );
+}
+
+function PipelineConnector() {
+  return (
+    <div className="ml-[15px] h-4 w-px bg-gray-200" />
   );
 }

@@ -66,22 +66,21 @@ export default function TestSubmissionButton({
           </div>
         </div>
         <div className="flex items-center gap-3 flex-wrap">
-          <button
-            onClick={() => setState("idle")}
-            className="text-sm text-indigo-600 hover:text-indigo-800 font-medium transition-colors"
-          >
-            Send another test
-          </button>
-          <span className="text-gray-300">|</span>
           <a
             href={`/dashboard?customer_id=${new URLSearchParams(window.location.search).get("customer_id")}`}
-            className="text-sm text-indigo-600 hover:text-indigo-800 font-medium transition-colors flex items-center gap-1"
+            className="inline-flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-colors"
           >
             Go to Dashboard
-            <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
             </svg>
           </a>
+          <button
+            onClick={() => setState("idle")}
+            className="text-sm text-gray-500 hover:text-indigo-600 font-medium transition-colors"
+          >
+            Send another test
+          </button>
         </div>
         <details>
           <summary className="text-sm text-gray-500 cursor-pointer hover:text-gray-700">

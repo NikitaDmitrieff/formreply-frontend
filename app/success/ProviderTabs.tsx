@@ -43,7 +43,7 @@ export default function ProviderTabs({
     <div>
       {/* Tab buttons with sliding indicator */}
       <div className="relative mb-5" ref={tabsRef}>
-        <div className="flex gap-2 relative z-10 flex-wrap">
+        <div className="flex gap-2 relative z-10 overflow-x-auto pb-1 scrollbar-none">
           <TabButton
             active={active === "typeform"}
             onClick={() => setActive("typeform")}
@@ -137,7 +137,7 @@ export default function ProviderTabs({
             <WebhookOnlyTab
               url={webflowUrl}
               label="Webflow"
-              instructions='Copy this webhook URL and paste it into your Webflow site: Site Settings &rarr; Integrations &rarr; Webhooks &rarr; Add webhook &rarr; choose "Form submission".'
+              instructions={<>Copy this webhook URL and paste it into your Webflow site: Site Settings &rarr; Integrations &rarr; Webhooks &rarr; Add webhook &rarr; choose &ldquo;Form submission&rdquo;.</>}
             />
           )}
 
@@ -146,7 +146,7 @@ export default function ProviderTabs({
             <WebhookOnlyTab
               url={jotformUrl}
               label="Jotform"
-              instructions="In Jotform: open your form &rarr; Settings &rarr; Integrations &rarr; search for Webhooks &rarr; paste this URL &rarr; Complete Integration."
+              instructions={<>In Jotform: open your form &rarr; Settings &rarr; Integrations &rarr; search for Webhooks &rarr; paste this URL &rarr; Complete Integration.</>}
             />
           )}
 
@@ -155,7 +155,7 @@ export default function ProviderTabs({
             <WebhookOnlyTab
               url={tallyUrl}
               label="Tally"
-              instructions="In Tally: open your form &rarr; Integrations tab &rarr; Connect Webhooks &rarr; paste this endpoint URL &rarr; Connect."
+              instructions={<>In Tally: open your form &rarr; Integrations tab &rarr; Connect Webhooks &rarr; paste this endpoint URL &rarr; Connect.</>}
             />
           )}
         </div>
@@ -171,14 +171,11 @@ function WebhookOnlyTab({
 }: {
   url: string;
   label: string;
-  instructions: string;
+  instructions: React.ReactNode;
 }) {
   return (
     <div>
-      <p
-        className="text-gray-500 text-sm mb-4"
-        dangerouslySetInnerHTML={{ __html: instructions }}
-      />
+      <p className="text-gray-500 text-sm mb-4">{instructions}</p>
       <div className="bg-gray-50 border border-gray-200 rounded-lg p-3 mb-3">
         <label className="text-xs font-semibold text-gray-600 block mb-1.5">
           Your {label} webhook URL
