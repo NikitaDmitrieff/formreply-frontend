@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import { NavBar } from "./components/NavBar";
 
 const Check = () => (
   <svg className="w-5 h-5 text-indigo-500 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -20,21 +21,7 @@ const Partial = ({ label }: { label: string }) => (
 export default function LandingPage() {
   return (
     <main className="min-h-screen bg-white">
-      {/* Nav — sticky glassmorphism */}
-      <nav className="sticky top-0 z-50 backdrop-blur-md bg-white/80 border-b border-gray-200/80 px-6 py-4">
-        <div className="max-w-5xl mx-auto flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2 font-bold text-xl text-gray-900 tracking-tight">
-            <Image src="/logo.png" alt="FormReply" width={28} height={28} />
-            <span>FormReply</span>
-          </Link>
-          <Link
-            href="/onboarding"
-            className="bg-indigo-600 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-indigo-700 transition-colors"
-          >
-            Start free trial
-          </Link>
-        </div>
-      </nav>
+      <NavBar />
 
       {/* Hero */}
       <section className="max-w-5xl mx-auto px-6 pt-16 pb-12">
@@ -178,6 +165,33 @@ export default function LandingPage() {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Demo preview */}
+      <section className="max-w-5xl mx-auto px-6 py-12 pb-4">
+        <div className="text-center mb-6">
+          <p className="text-xs font-semibold text-indigo-600 uppercase tracking-wider mb-2">Live preview</p>
+          <h2 className="text-2xl font-bold text-gray-900">See it working</h2>
+          <p className="text-gray-500 text-sm mt-2">This is a live preview. Scroll and explore.</p>
+        </div>
+        <div className="rounded-xl border border-gray-200 overflow-hidden shadow-2xl">
+          <div className="flex items-center gap-2 bg-zinc-900 border-b border-white/[0.06] px-4 py-2.5">
+            <div className="flex items-center gap-1.5">
+              <div className="h-3 w-3 rounded-full bg-zinc-700" />
+              <div className="h-3 w-3 rounded-full bg-zinc-700" />
+              <div className="h-3 w-3 rounded-full bg-zinc-700" />
+            </div>
+            <div className="flex-1 mx-4">
+              <div className="mx-auto max-w-sm flex items-center gap-2 rounded bg-zinc-800 px-3 py-1 text-xs text-zinc-500 font-mono">
+                formreply.app/demo
+              </div>
+            </div>
+            <a href="/demo" target="_blank" className="text-xs text-indigo-400 hover:text-indigo-300 font-medium">
+              Open full screen →
+            </a>
+          </div>
+          <iframe src="/demo" className="w-full border-0" style={{ height: "650px" }} title="FormReply Demo" />
         </div>
       </section>
 
