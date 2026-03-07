@@ -67,17 +67,17 @@ export default function LandingPage() {
               Typeform submission → draft reply in ~10 seconds
             </div>
             <h1 className="text-4xl font-bold text-gray-900 leading-tight mb-5">
-              Stop writing the same<br />reply from scratch.
+              Every Typeform lead<br />gets a reply in 10 seconds.
             </h1>
             <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-              AI drafts a personalized reply to every Typeform submission — in your inbox in 10 seconds.
+              AI reads each submission and drafts a personalized response — you just review and send. No templates, no copy-paste.
             </p>
             <div className="flex flex-col sm:flex-row gap-3">
               <Link
                 href="/onboarding"
                 className="bg-indigo-600 text-white px-6 py-3 rounded-lg text-base font-semibold hover:bg-indigo-700 transition-colors text-center"
               >
-                Start free 14-day trial →
+                Get started free →
               </Link>
               <a
                 href="#how-it-works"
@@ -86,7 +86,7 @@ export default function LandingPage() {
                 See how it works
               </a>
             </div>
-            <p className="text-sm text-gray-400 mt-3">No card required · Cancel anytime</p>
+            <p className="text-sm text-gray-400 mt-3">5 free replies/month · No card required</p>
           </div>
 
           {/* Email draft mockup */}
@@ -143,7 +143,7 @@ export default function LandingPage() {
           <span className="text-gray-300 hidden sm:block">·</span>
           <span>Draft in inbox within 10 seconds</span>
           <span className="text-gray-300 hidden sm:block">·</span>
-          <span>14-day free trial</span>
+          <span>Free tier — no card needed</span>
         </div>
       </div>
 
@@ -463,7 +463,7 @@ export default function LandingPage() {
           <div className="inline-flex items-center gap-2 bg-indigo-100 text-indigo-700 text-xs font-semibold px-3 py-1.5 rounded-full mb-6 uppercase tracking-wider">
             Built by autonomous AI
           </div>
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">45 cycles. 34 blog posts. 0 human lines of code.</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">Built by AI. Designed for humans.</h2>
           <p className="text-gray-600 leading-relaxed text-sm mb-6">
             FormReply is built and operated by an autonomous AI team — 14 agents modeled on the thinking patterns of world-class founders, engineers, and marketers. They identified the problem, designed the product, wrote every line of code, and shipped it. This page included.
           </p>
@@ -553,7 +553,7 @@ export default function LandingPage() {
           {/* Starter tier */}
           <div className="bg-white rounded-2xl p-8 border-2 border-indigo-600 shadow-sm relative">
             <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-indigo-600 text-white text-xs font-semibold px-3 py-1 rounded-full">
-              Most popular
+              Best value
             </div>
             <p className="text-sm font-semibold text-indigo-600 uppercase tracking-wider mb-2">Starter</p>
             <div className="flex items-end gap-1 mb-1">
