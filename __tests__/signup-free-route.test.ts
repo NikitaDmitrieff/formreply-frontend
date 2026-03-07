@@ -2,18 +2,24 @@ import { describe, it, expect, vi, beforeEach } from "vitest";
 
 // Mock supabase before importing the route
 const mockUpsert = vi.fn();
-const mockSelect = vi.fn();
-const mockSingle = vi.fn();
+const mockSelectAfterUpsert = vi.fn();
+const mockSingleAfterUpsert = vi.fn();
+const mockSingleExisting = vi.fn();
 
 vi.mock("@/lib/supabase", () => ({
   getServiceClient: () => ({
     from: () => ({
+      // For the existing customer check: .select().eq().single()
+      select: (...args: any[]) => ({
+        eq: () => ({ single: mockSingleExisting }),
+      }),
+      // For the upsert: .upsert().select().single()
       upsert: (...args: any[]) => {
         mockUpsert(...args);
         return {
           select: (...sArgs: any[]) => {
-            mockSelect(...sArgs);
-            return { single: mockSingle };
+            mockSelectAfterUpsert(...sArgs);
+            return { single: mockSingleAfterUpsert };
           },
         };
       },
@@ -41,6 +47,8 @@ const validBody = {
 describe("POST /api/signup-free", () => {
   beforeEach(() => {
     vi.clearAllMocks();
+    // Default: no existing customer
+    mockSingleExisting.mockResolvedValue({ data: null, error: null });
   });
 
   it("returns 400 when required fields are missing", async () => {
@@ -60,7 +68,7 @@ describe("POST /api/signup-free", () => {
   });
 
   it("returns customer_id on successful signup", async () => {
-    mockSingle.mockResolvedValueOnce({
+    mockSingleAfterUpsert.mockResolvedValueOnce({
       data: { id: "cust_123" },
       error: null,
     });
@@ -72,7 +80,7 @@ describe("POST /api/signup-free", () => {
   });
 
   it("upserts with plan=free and is_active=true", async () => {
-    mockSingle.mockResolvedValueOnce({
+    mockSingleAfterUpsert.mockResolvedValueOnce({
       data: { id: "cust_456" },
       error: null,
     });
@@ -93,7 +101,7 @@ describe("POST /api/signup-free", () => {
   });
 
   it("returns 500 on database error", async () => {
-    mockSingle.mockResolvedValueOnce({
+    mockSingleAfterUpsert.mockResolvedValueOnce({
       data: null,
       error: { message: "DB down", code: "500" },
     });

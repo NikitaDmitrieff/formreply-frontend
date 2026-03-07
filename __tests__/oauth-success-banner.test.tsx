@@ -3,42 +3,21 @@ import { render, screen } from "@testing-library/react";
 import OAuthSuccessBanner from "@/app/success/OAuthSuccessBanner";
 
 describe("OAuthSuccessBanner", () => {
-  it("renders nothing when all props are false", () => {
-    const { container } = render(
-      <OAuthSuccessBanner
-        connected={false}
-        denied={false}
-        error={false}
-        partial={false}
-      />
-    );
+  it("renders nothing when status is null", () => {
+    const { container } = render(<OAuthSuccessBanner status={null} />);
     expect(container.innerHTML).toBe("");
   });
 
-  it("renders success state when connected=true", () => {
-    render(
-      <OAuthSuccessBanner
-        connected={true}
-        denied={false}
-        error={false}
-        partial={false}
-      />
-    );
+  it("renders success state when status=done", () => {
+    render(<OAuthSuccessBanner status="done" />);
     expect(screen.getByText("Typeform connected!")).toBeInTheDocument();
     expect(
       screen.getByText(/Webhooks have been created on all your Typeform forms/)
     ).toBeInTheDocument();
   });
 
-  it("renders error state (takes priority over connected)", () => {
-    render(
-      <OAuthSuccessBanner
-        connected={true}
-        denied={false}
-        error={true}
-        partial={false}
-      />
-    );
+  it("renders error state", () => {
+    render(<OAuthSuccessBanner status="error" />);
     expect(screen.getByText("Connection failed")).toBeInTheDocument();
     expect(
       screen.getByText(/Something went wrong connecting to Typeform/)
@@ -46,14 +25,7 @@ describe("OAuthSuccessBanner", () => {
   });
 
   it("renders denied state", () => {
-    render(
-      <OAuthSuccessBanner
-        connected={false}
-        denied={true}
-        error={false}
-        partial={false}
-      />
-    );
+    render(<OAuthSuccessBanner status="denied" />);
     expect(
       screen.getByText("Typeform authorization cancelled")
     ).toBeInTheDocument();
@@ -63,15 +35,7 @@ describe("OAuthSuccessBanner", () => {
   });
 
   it("renders partial state with forms_fetch reason", () => {
-    render(
-      <OAuthSuccessBanner
-        connected={false}
-        denied={false}
-        error={false}
-        partial={true}
-        partialReason="forms_fetch"
-      />
-    );
+    render(<OAuthSuccessBanner status="partial" reason="forms_fetch" />);
     expect(screen.getByText("Partially connected")).toBeInTheDocument();
     expect(
       screen.getByText(
@@ -80,47 +44,24 @@ describe("OAuthSuccessBanner", () => {
     ).toBeInTheDocument();
   });
 
-  it("renders partial state with default reason", () => {
-    render(
-      <OAuthSuccessBanner
-        connected={false}
-        denied={false}
-        error={false}
-        partial={true}
-        partialReason="webhook_create"
-      />
-    );
+  it("renders partial state with webhooks reason", () => {
+    render(<OAuthSuccessBanner status="partial" reason="webhooks" />);
     expect(screen.getByText("Partially connected")).toBeInTheDocument();
     expect(
-      screen.getByText(
-        /some webhooks couldn\u2019t be created/
-      )
+      screen.getByText(/some webhooks couldn\u2019t be created/)
     ).toBeInTheDocument();
   });
 
-  it("error takes priority over partial", () => {
-    render(
-      <OAuthSuccessBanner
-        connected={false}
-        denied={false}
-        error={true}
-        partial={true}
-      />
-    );
-    expect(screen.getByText("Connection failed")).toBeInTheDocument();
-    expect(screen.queryByText("Partially connected")).toBeNull();
+  it("renders partial state with default reason", () => {
+    render(<OAuthSuccessBanner status="partial" reason="other" />);
+    expect(screen.getByText("Partially connected")).toBeInTheDocument();
+    expect(
+      screen.getByText(/setup didn\u2019t fully complete/)
+    ).toBeInTheDocument();
   });
 
-  it("partial takes priority over connected", () => {
-    render(
-      <OAuthSuccessBanner
-        connected={true}
-        denied={false}
-        error={false}
-        partial={true}
-      />
-    );
+  it("renders partial without reason uses default message", () => {
+    render(<OAuthSuccessBanner status="partial" />);
     expect(screen.getByText("Partially connected")).toBeInTheDocument();
-    expect(screen.queryByText("Typeform connected!")).toBeNull();
   });
 });
