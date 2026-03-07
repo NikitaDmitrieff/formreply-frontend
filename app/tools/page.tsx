@@ -47,6 +47,28 @@ const tools = [
       </svg>
     ),
   },
+  {
+    title: "Lead Response Time Calculator",
+    description:
+      "How fast should you reply to leads? Compare your response time to industry benchmarks and see the revenue impact of faster replies.",
+    href: "/tools/response-time-calculator",
+    badge: "Speed to lead",
+    icon: (
+      <svg
+        className="w-8 h-8 text-indigo-600"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        strokeWidth={1.5}
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"
+        />
+      </svg>
+    ),
+  },
 ];
 
 export default function ToolsPage() {
@@ -203,6 +225,12 @@ export default function ToolsPage() {
               className="text-sm text-gray-400 hover:text-gray-600 transition-colors"
             >
               Spam Checker
+            </Link>
+            <Link
+              href="/tools/response-time-calculator"
+              className="text-sm text-gray-400 hover:text-gray-600 transition-colors"
+            >
+              Response Time
             </Link>
             <Link
               href="/support"

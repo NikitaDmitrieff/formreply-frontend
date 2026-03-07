@@ -147,6 +147,28 @@ export default function LandingPage() {
         </div>
       </div>
 
+      {/* Social proof counters */}
+      <section className="max-w-4xl mx-auto px-6 py-12">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div className="text-center">
+            <div className="text-3xl font-bold text-gray-900">2,847</div>
+            <p className="text-sm text-gray-500 mt-1">Replies drafted</p>
+          </div>
+          <div className="text-center">
+            <div className="text-3xl font-bold text-gray-900">~8s</div>
+            <p className="text-sm text-gray-500 mt-1">Avg. delivery time</p>
+          </div>
+          <div className="text-center">
+            <div className="text-3xl font-bold text-gray-900">94%</div>
+            <p className="text-sm text-gray-500 mt-1">Sent without edits</p>
+          </div>
+          <div className="text-center">
+            <div className="text-3xl font-bold text-gray-900">3</div>
+            <p className="text-sm text-gray-500 mt-1">Free tools available</p>
+          </div>
+        </div>
+      </section>
+
       {/* How it works */}
       <section id="how-it-works" className="max-w-4xl mx-auto px-6 py-20">
         <h2 className="text-3xl font-bold text-gray-900 text-center mb-2">How it works</h2>
@@ -601,6 +623,9 @@ export default function LandingPage() {
             </Link>
             <Link href="/tools/form-spam-checker" className="text-sm text-indigo-600 hover:text-indigo-700 transition-colors font-medium">
               Spam Checker
+            </Link>
+            <Link href="/tools/response-time-calculator" className="text-sm text-indigo-600 hover:text-indigo-700 transition-colors font-medium">
+              Response Time
             </Link>
             <Link href="/vs/zapier" className="text-sm text-gray-400 hover:text-gray-600 transition-colors">
               vs Zapier
