@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { TrackEvent } from "../components/TrackEvent";
 
 export const metadata: Metadata = {
   title: "FormReply Demo — See It In Action",
@@ -115,6 +116,7 @@ const statusConfig = {
 export default function DemoPage() {
   return (
     <div className="min-h-screen bg-zinc-950 text-white font-sans">
+      <TrackEvent event="demo_start" />
       {/* Top bar */}
       <header className="border-b border-white/[0.06] bg-zinc-900/80 backdrop-blur-sm px-6 py-3.5">
         <div className="max-w-6xl mx-auto flex items-center justify-between">

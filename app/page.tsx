@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { NavBar } from "./components/NavBar";
 import { TryDemo } from "./components/TryDemo";
+import { TrackEvent, TrackClick } from "./components/TrackEvent";
 
 const Check = () => (
   <svg className="w-5 h-5 text-indigo-500 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -57,6 +58,7 @@ export default function LandingPage() {
           }),
         }}
       />
+      <TrackEvent event="landing_view" />
       <NavBar />
 
       {/* Hero */}
@@ -473,12 +475,14 @@ export default function LandingPage() {
                   </li>
                 ))}
               </ul>
-              <Link
-                href="/onboarding"
-                className="block w-full bg-indigo-600 text-white py-3 rounded-xl font-semibold hover:bg-indigo-700 transition-colors text-center"
-              >
-                Start free 14-day trial
-              </Link>
+              <TrackClick event="pricing_click" metadata={{ plan: "starter" }}>
+                <Link
+                  href="/onboarding"
+                  className="block w-full bg-indigo-600 text-white py-3 rounded-xl font-semibold hover:bg-indigo-700 transition-colors text-center"
+                >
+                  Start free 14-day trial
+                </Link>
+              </TrackClick>
               <p className="text-xs text-gray-400 mt-3 text-center">Cancel anytime. No questions asked.</p>
             </div>
           </div>

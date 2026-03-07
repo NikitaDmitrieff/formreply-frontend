@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
+import { track } from "../../lib/track";
 
 type FormData = {
   business_name: string;
@@ -29,6 +30,16 @@ export default function OnboardingPage() {
     email: "",
   });
 
+  const trackedSteps = useRef(new Set<number>());
+
+  useEffect(() => {
+    if (!trackedSteps.current.has(step)) {
+      trackedSteps.current.add(step);
+      if (step === 1) track("onboarding_start");
+      else if (step === 2) track("onboarding_step_2");
+    }
+  }, [step]);
+
   function update(field: keyof FormData, value: string) {
     setData((prev) => ({ ...prev, [field]: value }));
   }
@@ -42,6 +53,7 @@ export default function OnboardingPage() {
   }
 
   async function handleSubmit(plan: "free" | "paid") {
+    track("onboarding_complete", { plan });
     setLoading(true);
     setError("");
     try {

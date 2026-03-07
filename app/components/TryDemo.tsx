@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { track } from "../../lib/track";
 
 type DemoState = "idle" | "loading" | "done" | "error";
 
@@ -15,6 +16,7 @@ export function TryDemo() {
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
+    track("demo_start");
     setState("loading");
     setDraft("");
     setError("");
@@ -35,6 +37,7 @@ export function TryDemo() {
       }
 
       setDraft(data.draft);
+      track("demo_complete");
       setState("done");
     } catch {
       setError("Network error. Please try again.");

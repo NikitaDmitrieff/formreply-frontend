@@ -18,6 +18,11 @@ interface ReferrerEntry {
   count: number;
 }
 
+interface FunnelStep {
+  step: string;
+  count: number;
+}
+
 interface AnalyticsData {
   total_views: number;
   views_today: number;
@@ -25,6 +30,8 @@ interface AnalyticsData {
   daily_views_30d: DailyEntry[];
   top_paths: PathEntry[];
   top_referrers: ReferrerEntry[];
+  funnel?: FunnelStep[];
+  event_counts?: Record<string, number>;
 }
 
 const API_URL =
@@ -104,6 +111,53 @@ export function StatsClient() {
                 })}
               </div>
             </section>
+
+            {/* Conversion funnel */}
+            {data.funnel && data.funnel.length > 0 && (
+              <section className="mb-12">
+                <h2 className="text-lg font-semibold mb-4 text-white/80">
+                  Conversion funnel
+                </h2>
+                <div className="bg-white/5 rounded-lg p-6 space-y-3">
+                  {(() => {
+                    const maxCount = Math.max(...data.funnel!.map((s) => s.count), 1);
+                    const labels: Record<string, string> = {
+                      landing_view: "Landing page",
+                      demo_start: "Demo started",
+                      demo_complete: "Demo completed",
+                      onboarding_start: "Onboarding started",
+                      onboarding_step_2: "Onboarding step 2",
+                      onboarding_complete: "Onboarding complete",
+                      pricing_click: "Pricing clicked",
+                    };
+                    return data.funnel!.map((s, i) => {
+                      const pct = (s.count / maxCount) * 100;
+                      const prev = i > 0 ? data.funnel![i - 1].count : null;
+                      const dropoff = prev && prev > 0 ? Math.round(((prev - s.count) / prev) * 100) : null;
+                      return (
+                        <div key={s.step}>
+                          <div className="flex items-center justify-between mb-1">
+                            <span className="text-sm text-white/70">{labels[s.step] ?? s.step}</span>
+                            <div className="flex items-center gap-3">
+                              {dropoff !== null && dropoff > 0 && (
+                                <span className="text-xs text-red-400">-{dropoff}%</span>
+                              )}
+                              <span className="text-sm tabular-nums text-indigo-400 font-medium">{s.count}</span>
+                            </div>
+                          </div>
+                          <div className="h-2 bg-white/5 rounded-full overflow-hidden">
+                            <div
+                              className="h-full bg-indigo-500 rounded-full transition-all"
+                              style={{ width: `${pct}%` }}
+                            />
+                          </div>
+                        </div>
+                      );
+                    });
+                  })()}
+                </div>
+              </section>
+            )}
 
             {/* Tables */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
