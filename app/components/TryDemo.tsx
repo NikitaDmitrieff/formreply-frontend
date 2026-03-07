@@ -44,6 +44,12 @@ export function TryDemo() {
 
   const canSubmit = name.trim() && email.trim() && message.trim() && state !== "loading";
 
+  function fillSample() {
+    setName("Sarah Chen");
+    setEmail("sarah@example.com");
+    setMessage("Hi, I'm interested in your consulting services — can you share pricing and availability for a project starting in April?");
+  }
+
   return (
     <section id="try-demo" className="max-w-5xl mx-auto px-6 py-16">
       <div className="text-center mb-8">
@@ -110,6 +116,15 @@ export function TryDemo() {
                 className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none resize-none"
               />
             </div>
+            {!name && !email && !message && state === "idle" && (
+              <button
+                type="button"
+                onClick={fillSample}
+                className="w-full border border-dashed border-indigo-300 text-indigo-600 text-sm font-medium py-2 rounded-lg hover:bg-indigo-50 transition-colors mb-2"
+              >
+                Fill with sample data
+              </button>
+            )}
             <button
               type="submit"
               disabled={!canSubmit}

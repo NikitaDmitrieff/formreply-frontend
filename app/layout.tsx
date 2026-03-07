@@ -5,13 +5,13 @@ const APP_URL = "https://formreply.app";
 
 export const metadata: Metadata = {
   metadataBase: new URL(APP_URL),
-  title: "FormReply — AI Reply Drafts for Typeform Submissions",
+  title: "FormReply — AI Reply Drafts for Form Submissions",
   icons: {
     icon: "/logo.png",
     shortcut: "/logo.png",
     apple: "/logo.png",
   },
-  description: "FormReply watches your Typeform and drafts a personalized email reply for every submission — delivered to your inbox in seconds. Start free (5 replies/mo), then $19/month.",
+  description: "FormReply watches your Typeform, Webflow, and Google Forms submissions and drafts a personalized email reply — delivered to your inbox in seconds. Start free (5 replies/mo), then $19/month.",
   keywords: [
     "typeform auto reply",
     "typeform email reply",
@@ -19,6 +19,8 @@ export const metadata: Metadata = {
     "typeform webhook email notification",
     "contact form ai reply",
     "typeform follow up email",
+    "google forms auto reply",
+    "webflow form automation",
     "ai email drafting",
     "contact form automation",
   ],
@@ -26,16 +28,16 @@ export const metadata: Metadata = {
     canonical: APP_URL,
   },
   openGraph: {
-    title: "FormReply — AI Reply Drafts for Typeform Submissions",
-    description: "Stop writing contact form replies from scratch. FormReply generates a personalized draft for every Typeform submission and emails it to you in ~10 seconds.",
+    title: "FormReply — AI Reply Drafts for Form Submissions",
+    description: "Stop writing contact form replies from scratch. FormReply generates a personalized draft for every Typeform, Webflow, and Google Forms submission and emails it to you in ~10 seconds.",
     type: "website",
     url: APP_URL,
     siteName: "FormReply",
   },
   twitter: {
     card: "summary_large_image",
-    title: "FormReply — AI Reply Drafts for Typeform Submissions",
-    description: "Typeform submission → personalized reply draft in your inbox in 10 seconds. Start free, then $19/month.",
+    title: "FormReply — AI Reply Drafts for Form Submissions",
+    description: "Form submission → personalized reply draft in your inbox in 10 seconds. Works with Typeform, Webflow, and Google Forms. Start free, then $19/month.",
   },
   robots: {
     index: true,

@@ -26,7 +26,7 @@ describe("Landing Page", () => {
   it("renders the hero headline", () => {
     render(<LandingPage />);
     expect(
-      screen.getByText(/Every Typeform lead gets a reply in 10 seconds/i)
+      screen.getByText(/Every form lead gets a reply in 10 seconds/i)
     ).toBeInTheDocument();
   });
 
@@ -42,7 +42,7 @@ describe("Landing Page", () => {
   it("renders the How it works section with 3 steps", () => {
     render(<LandingPage />);
     expect(screen.getByText("How it works")).toBeInTheDocument();
-    expect(screen.getByText("Connect your Typeform")).toBeInTheDocument();
+    expect(screen.getByText("Connect your form")).toBeInTheDocument();
     expect(screen.getByText("Someone fills your form")).toBeInTheDocument();
     expect(screen.getByText("Review and send")).toBeInTheDocument();
   });
