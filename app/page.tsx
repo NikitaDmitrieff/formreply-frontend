@@ -243,6 +243,14 @@ export default function LandingPage() {
         </div>
       </section>
 
+      {/* Scroll hint */}
+      <div className="flex flex-col items-center py-6">
+        <p className="text-xs text-gray-400 font-medium mb-2 uppercase tracking-wider">Try it yourself</p>
+        <svg className="w-5 h-5 text-indigo-400 animate-bounce" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+        </svg>
+      </div>
+
       {/* Interactive demo */}
       <TryDemo />
 
