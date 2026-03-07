@@ -3,10 +3,29 @@
 interface OAuthSuccessBannerProps {
   connected: boolean;
   denied: boolean;
+  error: boolean;
 }
 
-export default function OAuthSuccessBanner({ connected, denied }: OAuthSuccessBannerProps) {
-  if (!connected && !denied) return null;
+export default function OAuthSuccessBanner({ connected, denied, error }: OAuthSuccessBannerProps) {
+  if (!connected && !denied && !error) return null;
+
+  if (error) {
+    return (
+      <div className="bg-red-50 border border-red-200 rounded-2xl p-5 mb-6 flex items-start gap-3">
+        <div className="w-8 h-8 bg-red-500 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+          <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </div>
+        <div>
+          <p className="font-semibold text-red-900 text-sm">Connection failed</p>
+          <p className="text-red-700 text-sm mt-0.5">
+            Something went wrong connecting to Typeform. Please try again, or use the manual webhook URL below.
+          </p>
+        </div>
+      </div>
+    );
+  }
 
   if (connected) {
     return (

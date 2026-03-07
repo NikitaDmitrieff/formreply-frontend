@@ -31,6 +31,7 @@ export default async function SuccessPage({
   const oauthStartUrl = `${BACKEND_URL}/oauth/typeform/start?customer_id=${customer_id}`;
   const oauthConnected = oauth === "done";
   const oauthDenied = oauth === "denied";
+  const oauthError = oauth === "error";
 
   const truncatedToken = customer.webhook_token
     ? `${customer.webhook_token.slice(0, 8)}...${customer.webhook_token.slice(-4)}`
@@ -126,7 +127,7 @@ export default async function SuccessPage({
         </div>
 
         {/* OAuth success / denied banners (client component) */}
-        <OAuthSuccessBanner connected={oauthConnected} denied={oauthDenied} />
+        <OAuthSuccessBanner connected={oauthConnected} denied={oauthDenied} error={oauthError} />
 
         {/* Section 1: Connect Typeform OAuth -- Primary action */}
         <div className="bg-white rounded-2xl border-2 border-indigo-200 p-6 mb-6 shadow-sm shadow-indigo-50">
